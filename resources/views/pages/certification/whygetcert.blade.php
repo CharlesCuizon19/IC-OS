@@ -11,7 +11,7 @@
             <div class="container mx-auto">
                 <div class="lg:mt-[15rem]">
                     <div class="flex flex-col lg:flex-row lg:items-center">
-                        <div class="flex w-full">
+                        <div class="flex w-full mt-10">
                             <img class="lg:w-[40rem] lg:h-[24rem]" src="{{ asset('assets/whygetcert_image.png') }}"
                                 alt="">
                         </div>

@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="container mx-auto lg:mt-[8rem] lg:mb-[12rem]">
+            <div class="container mx-auto lg:mt-[8rem] lg:mb-[12rem] mb-10">
                 <div class="flex flex-col gap-10 lg:flex-col">
                     <div class="flex lg:flex-row flex-col gap-5 lg:h-[27rem] overflow-hidden ">
                         <div class="text-left doctor-box ">

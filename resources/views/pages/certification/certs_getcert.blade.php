@@ -7,12 +7,12 @@
     <div class="overflow-x-hidden">
         <div class="flex flex-col">
 
-            <x-banner title="Get Certificate" page="Certifications /" breadcrumb="Get Certificate" />
+            <x-banner title="Get Certificate" page="Certifications /" breadcrumb="Get Certificate"/>
 
             <div class="container mx-auto">
                 <div class="lg:mt-[15rem]">
                     <div class="flex flex-col lg:flex-row">
-                        <div class="flex w-full">
+                        <div class="flex w-full mt-10">
                             <img class="lg:w-[40rem]" src="{{ asset('assets/image1.png') }}" alt="">
                         </div>
                         <div

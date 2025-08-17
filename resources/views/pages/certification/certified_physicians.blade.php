@@ -6,7 +6,7 @@
 
     <x-banner title="Certified Physicians" page="Certifications /" breadcrumb="Certified Physicians" />
 
-    <div class="container px-4 py-6 mx-auto lg:mt-[15rem] border-b border-gray-500 lg:pb-[5rem]">
+    <div class="container px-4 py-6 mx-auto lg:mt-[15rem] border-b border-gray-500 lg:pb-[5rem] mt-10">
         <!-- Header -->
         <div class="flex flex-col gap-4 border-b border-gray-500 md:flex-row md:items-center md:justify-between lg:pb-10">
             <h1 class="text-xl font-bold text-[#17509E]">List of Physicians</h1>

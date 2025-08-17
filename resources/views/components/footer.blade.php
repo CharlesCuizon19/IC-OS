@@ -1,6 +1,6 @@
 <div class="lg:flex lg:flex-col">
     <div class="flex flex-col lg:h-fit lg:bg-transparent bg-[#17509E]">
-        <div class="lg:relative py-14 lg:py-0 mx-6 lg:mx-0 lg:h-[27rem]">
+        <div class="lg:relative py-14 lg:py-0 mx-6 lg:mx-0 lg:h-[27rem] border border-black">
             <img src="{{ asset('assets/footer.png') }}" alt="" class="hidden lg:flex lg:absolute lg:inset-0">
             <div
                 class="lg:absolute flex flex-col gap-10 items-center w-full lg:flex lg:flex-row lg:gap-[8rem] lg:px-28 lg:py-14">
@@ -34,22 +34,22 @@
                             </div>
                             <div class="flex items-center justify-between h-full gap-2 text-center">
                                 <img src="{{ asset('assets/logo-white.png') }}" alt="aboutus-icon" class="w-5 h-4">
-                                <a href="/certificates/get-certificate"
+                                <a href="/certificates/get-certified"
                                     class="w-full px-3 py-2 text-gray-200 rounded-full bg-white/10 ">
                                     Certifications
                                 </a>
                             </div>
                             <div class="flex items-center justify-between h-full gap-2 text-center">
                                 <img src="{{ asset('assets/logo-white.png') }}" alt="aboutus-icon" class="w-5 h-4">
-                                <span class="w-full px-3 py-2 text-gray-200 rounded-full bg-white/10 ">
+                                <a href="/newsandevents" class="w-full px-3 py-2 text-gray-200 rounded-full bg-white/10 ">
                                     News & Events
-                                </span>
+                                </a>
                             </div>
                             <div class="flex items-center justify-between h-full gap-2 text-center">
                                 <img src="{{ asset('assets/logo-white.png') }}" alt="aboutus-icon" class="w-5 h-4">
-                                <span class="w-full px-3 py-2 text-gray-200 rounded-full bg-white/10 ">
+                                <a href="/resources" class="w-full px-3 py-2 text-gray-200 rounded-full bg-white/10 ">
                                     Resources
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </div>

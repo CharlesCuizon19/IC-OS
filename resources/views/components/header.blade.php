@@ -34,7 +34,7 @@
                 <div x-data="{ dropdownOpen: false }" class="relative z-50 text-center text-nowrap"
                     @click.outside="dropdownOpen = false">
                     <button x-on:click="dropdownOpen = !dropdownOpen"
-                        class="flex items-center gap-1 hover:text-[#E94B4D] {{ Route::is('about-company') ? 'text-[#E94B4D] font-bold' : '' }}"
+                        class="flex items-center gap-1 hover:text-[#E94B4D] {{ Route::is('about-company') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('about-bod') ? 'text-[#E94B4D] font-bold' : '' }}"
                         :aria-expanded="dropdownOpen" aria-haspopup="true" aria-label="Toggle About Us menu">
                         About Us
                         <svg class="w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,7 +61,7 @@
                 <div x-data="{ dropdownOpen: false }" class="relative z-40 text-center text-nowrap"
                     @click.outside="dropdownOpen = false">
                     <button x-on:click="dropdownOpen = !dropdownOpen"
-                        class="flex items-center gap-1 hover:text-[#E94B4D] {{ Route::is('get-certificate') ? 'text-[#E94B4D] font-bold' : '' }}"
+                        class="flex items-center gap-1 hover:text-[#E94B4D] {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('certified-physicians') ? 'text-[#E94B4D] font-bold' : '' }}"
                         :aria-expanded="dropdownOpen" aria-haspopup="true" aria-label="Toggle About Us menu">
                         Certifications
                         <svg class="w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

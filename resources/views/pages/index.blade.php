@@ -48,47 +48,35 @@
                 @include('partials.aboutus')
             </div>
             <div class="bg-[#17509E]/10 h-full py-12">
-                <div class="flex flex-row items-center justify-center gap-3 lg:gap-5 lg:flex ">
+                <div class="flex flex-row items-center justify-center gap-3 lg:gap-5 lg:flex">
                     <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 lg:w-12 lg:h-10 w-7">
                     <span class="font-semibold text-4xl lg:text-7xl text-[#112947]">Project Details</span>
                 </div>
                 <div class="swiper swiper-container flex">
                     <div class="swiper-wrapper">
-                        @foreach ($carouselItems as $item)
-                            <div
-                                class="relative flex flex-wrap overflow-hidden swiper-slide group border border-black rounded-full">
+                        @foreach ($carouselItems as $index => $item)
+                            <div class="relative flex flex-wrap overflow-hidden swiper-slide group lg:rounded-full">
                                 <img src="{{ asset($item->image) }}"
                                     class="flex object-cover transition-opacity duration-700 ease-in-out lg:w-full lg:h-full" />
 
                                 <!-- Overlay -->
-                                <div
-                                    class="absolute flex flex-col items-center justify-center w-full h-full gap-2 px-6 py-2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
-
-                                    <div
-                                        class="absolute bg-white/30 inset-0.5 rounded-full hover:bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.5),transparent)] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                                    </div>
+                                <div class="absolute flex flex-col items-center justify-center w-full h-full gap-2 px-6 py-2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+                                    <div class="absolute bg-white/30 inset-0.5 lg:rounded-full hover:bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.5),transparent)] transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
                                     <div class="relative">
-                                        <div
-                                            class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center h-[6rem] w-[22rem]">
-                                            <div
-                                                class="z-10 flex items-center justify-center p-2 bg-[#E94B4D]  border rounded-full">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                                                    viewBox="0 0 24 24" fill="#E94B4D" stroke="white" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right">
+                                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center h-[6rem] w-[22rem]">
+                                            <div class="z-10 flex items-center justify-center p-2 bg-[#E94B4D] border rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="#E94B4D" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right">
                                                     <path d="M7 7h10v10" />
                                                     <path d="M7 17 17 7" />
                                                 </svg>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div
-                                    class="flex absolute items-center gap-2 px-2 w-[18rem] md:w-[25rem] py-5 bg-white rounded-full bottom-[0rem]">
+                                <!-- Events Box -->
+                                <div class="events-box lg:absolute items-center gap-2 px-2 w-[18rem] md:w-[25rem] py-5 bg-white lg:rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
                                     <div class="p-2 px-6 text-white">
-                                        <img src="{{ asset('assets/calendar-icon.png') }}" alt="calendar-icon"
-                                            class="md:w-[4rem]">
+                                        <img src="{{ asset('assets/calendar-icon.png') }}" alt="calendar-icon" class="md:w-[4rem]">
                                     </div>
                                     <div class="flex flex-col gap-2">
                                         <div class="text-center bg-[#17509E] text-white rounded-full">Events</div>
@@ -100,8 +88,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="swiper-pagination border border-black lg:full mt-10 flex items-center justify-center gap-3">
-                    </div>
+                    <div class="swiper-pagination lg:full mt-10 flex items-center justify-center gap-3"></div>
                 </div>
             </div>
             <x-partners />
@@ -129,17 +116,6 @@
             background: #17509E;
             opacity: 1;
         }
-
-        /* .swiper-pagination {
-                                                                                                                                                                                    display: flex;
-                                                                                                                                                                                    gap: 8px;
-                                                                                                                                                                                    justify-content: center;
-                                                                                                                                                                                    margin-top: 24px;
-                                                                                                                                                                                } */
-
-
-
-        /* Partners tab infinite carousel */
 
         .logos {
             padding: 60px 0;
@@ -210,17 +186,18 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        function updateActiveSlideText(swiper) {
+        function updateActiveSlideEventsBox(swiper) {
             const slides = swiper.slides;
+            const activeSlide = slides[swiper.activeIndex]; // Get the visually active slide
             slides.forEach((slide) => {
-                const textContainer = slide.querySelector('.swiper-active-text');
-                if (textContainer) {
-                    if (slide.classList.contains('swiper-slide-active')) {
-                        textContainer.classList.add('opacity-100');
-                        textContainer.classList.remove('opacity-0');
+                const eventsBox = slide.querySelector('.events-box');
+                if (eventsBox) {
+                    if (slide === activeSlide) {
+                        eventsBox.classList.add('opacity-100');
+                        eventsBox.classList.remove('opacity-0');
                     } else {
-                        textContainer.classList.add('opacity-0');
-                        textContainer.classList.remove('opacity-100');
+                        eventsBox.classList.add('opacity-0');
+                        eventsBox.classList.remove('opacity-100');
                     }
                 }
             });
@@ -239,26 +216,35 @@
                 el: '.swiper-pagination',
                 clickable: true,
                 renderBullet: function(index, className) {
+                    // Only render bullets for the original slides (0, 1, 2)
                     if (index < totalSlides) {
-                        return `<span class="${className}"></span>`;
+                        return `<span class="${className}" data-index="${index}"></span>`;
                     }
                     return '';
                 }
             },
-            // autoplay: {
-            //     delay: 5000,
-            //     disableOnInteraction: false,
-            // },
             on: {
                 init: function() {
-                    updateActiveSlideText(this);
+                    updateActiveSlideEventsBox(this);
+                    // Set initial active bullet
+                    this.pagination.bullets[0].classList.add('swiper-pagination-bullet-active');
                 },
-                slideChangeTransitionEnd: function() {
-                    updateActiveSlideText(this);
+                slideChange: function() {
+                    // Calculate the real index (0, 1, 2) for looped slides
+                    const realIndex = this.realIndex % totalSlides;
+                    // Update pagination bullets
+                    this.pagination.bullets.forEach((bullet, i) => {
+                        if (i === realIndex) {
+                            bullet.classList.add('swiper-pagination-bullet-active');
+                        } else {
+                            bullet.classList.remove('swiper-pagination-bullet-active');
+                        }
+                    });
+                    updateActiveSlideEventsBox(this);
                 }
             },
             breakpoints: {
-                320: {
+                310: {
                     slidesPerView: 1
                 },
                 640: {
@@ -274,30 +260,6 @@
         });
     </script>
 
-    <script>
-        var swiper = new Swiper('.swiper-partners', {
-            loop: true, // Enables infinite loop
-            autoplay: {
-                delay: 1, // Minimum delay to avoid pauses (1ms)
-                disableOnInteraction: false, // Keeps autoplay running after interaction
-            },
-            speed: 2000, // Smooth transition speed (2 seconds per slide movement)
-            slidesPerView: 3, // Number of slides visible at once
-            spaceBetween: 30, // Space between slides
-            loopAdditionalSlides: 1, // Ensures smooth looping with additional slides
-            allowTouchMove: false, // Disables manual swiping to maintain autoplay flow
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                },
-            },
-        });
-    </script>
 
 
 @endsection

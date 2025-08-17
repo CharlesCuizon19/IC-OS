@@ -121,7 +121,7 @@
             </div>
             <div class="my-14">
                 <div class="flex flex-col-reverse lg:flex-row items-center justify-center">
-                    <img src="{{ asset('assets/laptop-image.png') }}" alt="">
+                    <img src="{{ asset('assets/laptop-image.png') }}" alt="" class="lg:flex hidden">
                     <div class="flex flex-col gap-3 text-center items-center lg:items-start">
                         <div class="text-2xl font-semibold">Take The Course</div>
                         <div class="border-2 border-[#E94B4D] rounded-full w-1/2"></div>

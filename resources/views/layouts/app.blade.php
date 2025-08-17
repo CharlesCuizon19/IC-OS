@@ -24,7 +24,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
     <div class="lg:bg-[#17509E] lg:py-10 flex justify-center">
         <x-header />
     </div>

@@ -6,8 +6,8 @@
     <x-banner title="Contact Us" page="" breadcrumb="Contact Us" />
 
     <div class="container mx-auto lg:my-[10rem]">
-        <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-10 justify-center items-center">
+        <div class="flex flex-col gap-10 pb-10">
+            <div class="flex flex-col gap-10 justify-center items-center mt-10">
                 <div
                     class="flex flex-row items-center justify-center gap-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                     <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">
@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="flex lg:flex-row gap-4">
+            <div class="flex flex-col lg:flex-row gap-4">
                 <div class="lg:w-full">
                     <div class="p-6 border border-gray-200 rounded-xl shadow-sm bg-white">
                         <h2 class="text-2xl font-bold mb-1">Let’s Talk!</h2>
@@ -95,12 +95,12 @@
                 </div>
 
                 <div class="flex flex-col lg:w-full gap-4">
-                    <div>
+                    <div class="lg:flex hidden">
                         <img src="{{ asset('assets/contactus-image.png') }}" alt="">
                     </div>
 
                     <div class=" border rounded-2xl overflow-hidden h-full">
-                        <div class="flex flex-col h-full justify-between overflow-hidden relative">
+                        <div class="flex flex-col h-full gap-5 justify-between overflow-hidden relative">
                             <div class="flex lg:flex-row gap-3 pl-5 pt-5">
                                 <div>
                                     <img src="{{ asset('assets/email-icon.png') }}" alt=""

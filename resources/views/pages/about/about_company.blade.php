@@ -137,7 +137,7 @@
 
             <x-partners />
 
-            <div class="container mx-auto lg:mt-[8rem] mb-3">
+            <div class="container mx-auto lg:mt-[8rem] mb-3 mt-10">
                 <div class="flex flex-col items-center justify-center mx-3 gap-7">
                     <div>
                         <img src="{{ asset('assets/video-thumbnail.png') }}" alt="">
