@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 @php
     $insurancePartners = [
@@ -27,12 +26,12 @@
     <!-- Alpine initialized swiper container -->
     <div x-data="insuranceSwiper()" x-init="init()" class="swiper insurance-swiper"
         style="--swiper-navigation-color: #00473E; --swiper-pagination-color: #00473E;">
-        <div class="swiper-wrapper flex items-center gap-10">
+        <div class="flex items-center gap-10 swiper-wrapper">
             @for ($r = 0; $r < $repeatTimes; $r++)
                 @foreach ($insurancePartners as $partner)
-                    <div class="flex justify-center items-center swiper-slide">
+                    <div class="flex items-center justify-center swiper-slide">
                         <img src="{{ asset($partner['img']) }}" alt="{{ $partner['alt'] }}"
-                            class="h-auto mx-auto block w-auto" />
+                            class="block w-auto h-auto mx-auto" />
                     </div>
                 @endforeach
             @endfor

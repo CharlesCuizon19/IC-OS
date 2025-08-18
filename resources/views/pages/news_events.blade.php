@@ -8,9 +8,9 @@
     <x-banner title="News & Events" page="" breadcrumb="News & Events" />
 
     <div class="container mx-auto lg:my-[15rem]">
-        <div class="flex lg:items-start mx-3 lg:justify-start items-center justify-center flex-col gap-3">
+        <div class="flex flex-col items-center justify-center gap-3 mx-3 lg:items-start lg:justify-start">
             <div
-                class="flex flex-row items-center justify-center mt-10 mb-1 gap-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
+                class="flex flex-row items-center justify-center gap-3 mt-10 mb-1 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                 <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">
                 <span class="bg-[#E94B4D]/10 w-fit text-[#E94B4D] px-4 py-2 text-xs rounded-full">
                     News & Events
@@ -19,19 +19,19 @@
             <div class="text-[#112947] text-3xl font-semibold text-center lg:text-start">
                 Stay Informed with the Latest Updates
             </div>
-            <div class="text-gray-500 text-center lg:text-start">
+            <div class="text-center text-gray-500 lg:text-start">
                 Catch up recent breakthroughs, upcoming conferences, and important announcements from the IC-OS community.
             </div>
         </div>
         <div>
-            <div class="flex flex-col lg:flex-row mx-3">
-                <div class="grid grid-cols-1 lg:grid-cols-2 py-10 w-fit gap-5">
+            <div class="flex flex-col gap-5 mx-3 lg:flex-row">
+                <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit">
                     @foreach ($events as $event)
                         <a href="{{ route('events.show', ['id' => $loop->iteration]) }}"
                             class="flex flex-col gap-3 border rounded-2xl lg:w-[30rem] cursor-pointer group hover:bg-slate-300 transition duration-300 overflow-hidden">
                             <img src="{{ asset($event->image) }}" alt=""
-                                class="rounded-t-2xl object-cover transform transition-transform duration-500 group-hover:scale-105 w-full h-64">
-                            <div class="px-5 pb-5 flex flex-col gap-3 ">
+                                class="object-cover w-full h-64 transition-transform duration-500 transform rounded-t-2xl group-hover:scale-105">
+                            <div class="flex flex-col gap-3 px-5 pb-5 ">
                                 <div class="flex items-center gap-2">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -62,8 +62,8 @@
                         </a>
                     @endforeach
                 </div>
-                <div class="mt-8 mb-10 w-auto border rounded-2xl h-fit">
-                    <div class="lg:flex flex-col gap-2 py-5 border-b px-5 hidden ">
+                <div class="w-auto mt-8 mb-10 border rounded-2xl h-fit">
+                    <div class="flex-col hidden gap-2 px-5 py-5 border-b lg:flex ">
                         <div>
                             Search for anything
                         </div>
@@ -86,9 +86,9 @@
                                 <div
                                     class="flex gap-3 items-center border-b border-gray-400 py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">
                                     <img src="{{ asset($event->image) }}" alt=""
-                                        class="rounded-xl object object-cover w-20 h-20">
+                                        class="object-cover w-20 h-20 rounded-xl object">
                                     <div>
-                                        <div class="lg:px-5 pb-5 flex flex-col gap-1">
+                                        <div class="flex flex-col gap-1 pb-5 lg:px-5">
                                             <div class="flex items-center gap-2">
                                                 <div>
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -109,7 +109,7 @@
                                                 </div>
                                                 <div class="text-[#17509E] font-semibold text-sm">{{ $event->date }}</div>
                                             </div>
-                                            <div class="font-semibold text-sm lg:truncate text-wrap w-full lg:max-w-xs">
+                                            <div class="w-full text-sm font-semibold lg:truncate text-wrap lg:max-w-xs">
                                                 {{ $event->title }}
                                             </div>
                                         </div>

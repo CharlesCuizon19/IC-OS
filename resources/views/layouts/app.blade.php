@@ -25,9 +25,7 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <div class="lg:bg-[#17509E] lg:py-10 flex justify-center">
-        <x-header />
-    </div>
+    <x-header />
     <main>
         @yield('content')
     </main>

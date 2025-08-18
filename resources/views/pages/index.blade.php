@@ -52,20 +52,28 @@
                     <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 lg:w-12 lg:h-10 w-7">
                     <span class="font-semibold text-4xl lg:text-7xl text-[#112947]">Project Details</span>
                 </div>
-                <div class="swiper swiper-container flex">
+                <div class="flex flex-col gap-10 swiper swiper-container">
                     <div class="swiper-wrapper">
                         @foreach ($carouselItems as $index => $item)
-                            <div class="relative flex flex-wrap overflow-hidden swiper-slide group lg:rounded-full">
+                            <div class="relative flex flex-wrap mb-10 overflow-hidden swiper-slide group lg:rounded-full">
                                 <img src="{{ asset($item->image) }}"
                                     class="flex object-cover transition-opacity duration-700 ease-in-out lg:w-full lg:h-full" />
 
                                 <!-- Overlay -->
-                                <div class="absolute flex flex-col items-center justify-center w-full h-full gap-2 px-6 py-2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
-                                    <div class="absolute bg-white/30 inset-0.5 lg:rounded-full hover:bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.5),transparent)] transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
+                                <div
+                                    class="absolute flex flex-col items-center justify-center w-full h-full gap-2 px-6 py-2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+                                    <div
+                                        class="absolute bg-white/30 inset-0.5 lg:rounded-full hover:bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.5),transparent)] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                                    </div>
                                     <div class="relative">
-                                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center h-[6rem] w-[22rem]">
-                                            <div class="z-10 flex items-center justify-center p-2 bg-[#E94B4D] border rounded-full">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="#E94B4D" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right">
+                                        <div
+                                            class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center h-[6rem] w-[22rem]">
+                                            <div
+                                                class="z-10 flex items-center justify-center p-2 bg-[#E94B4D] border rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                                    viewBox="0 0 24 24" fill="#E94B4D" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right">
                                                     <path d="M7 7h10v10" />
                                                     <path d="M7 17 17 7" />
                                                 </svg>
@@ -74,9 +82,11 @@
                                     </div>
                                 </div>
                                 <!-- Events Box -->
-                                <div class="events-box lg:absolute items-center gap-2 px-2 w-[18rem] md:w-[25rem] py-5 bg-white lg:rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
+                                <div
+                                    class="events-box lg:absolute items-center gap-2 px-2 w-[18rem] md:w-[25rem] py-5 bg-white lg:rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
                                     <div class="p-2 px-6 text-white">
-                                        <img src="{{ asset('assets/calendar-icon.png') }}" alt="calendar-icon" class="md:w-[4rem]">
+                                        <img src="{{ asset('assets/calendar-icon.png') }}" alt="calendar-icon"
+                                            class="md:w-[4rem]">
                                     </div>
                                     <div class="flex flex-col gap-2">
                                         <div class="text-center bg-[#17509E] text-white rounded-full">Events</div>
@@ -88,7 +98,8 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="swiper-pagination lg:full mt-10 flex items-center justify-center gap-3"></div>
+                    <div class="flex items-center justify-center gap-3 mt-10 swiper-pagination lg:full">
+                    </div>
                 </div>
             </div>
             <x-partners />
