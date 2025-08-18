@@ -10,7 +10,7 @@
 
             <div class="container mx-auto">
                 <div class="lg:mt-[15rem]">
-                    <div class="flex flex-col lg:flex-row lg:items-center">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-10 lg:mx-3">
                         <div class="flex w-full mt-10">
                             <img class="lg:w-[40rem] lg:h-[24rem]" src="{{ asset('assets/whygetcert_image.png') }}"
                                 alt="">
@@ -26,8 +26,9 @@
                             <div
                                 class="flex flex-col items-center justify-center gap-6 lg:gap-10 lg:items-start lg:justify-start">
                                 <div class="flex flex-col items-center justify-center lg:items-start lg:justify-start">
-                                    <span class="text-[#112947] text-2xl lg:text-[80px] font-semibold">Why Get
-                                        Certified</span>
+                                    <span class="text-[#112947] text-2xl lg:text-[70px] font-semibold">
+                                        Why Get Certified
+                                    </span>
                                 </div>
                                 <div class="border-2 border-[#E94B4D] w-1/3 lg:w-1/3 rounded-full"></div>
                                 <div class="flex flex-col gap-5 mx-3 text-sm text-center lg:text-xl lg:text-left">
@@ -56,7 +57,7 @@
                     <div class="text-2xl font-bold text-center text-gray-600">
                         Being IC-OS Certified
                     </div>
-                    <div class="flex gap-6 lg:flex-row flex-col mx-3">
+                    <div class="flex flex-col gap-6 mx-3 lg:flex-row">
                         <div class="bg-[#f5f5f5] rounded-[40px] p-5 lg:w-[31rem] border">
                             <div class="flex flex-col gap-3 text-left">
                                 <div class="border-2 border-[#17509e] rounded-full w-10"></div>
@@ -105,7 +106,7 @@
                                 FAQ's
                             </span>
                         </div>
-                        <p class="text-xl lg:text-3xl font-semibold text-justify lg:w-full lg:text-start">
+                        <p class="text-xl font-semibold text-justify lg:text-3xl lg:w-full lg:text-start">
                             Learn how becoming IC-OS certified can elevate your career, strengthen your practice, and
                             position you as a leader in the growing field of cardio-oncology.
                         </p>

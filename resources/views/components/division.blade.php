@@ -1,6 +1,6 @@
 <div
     class="relative flex items-center justify-center w-full bg-center bg-cover  bg-[#17509E] lg:bg-transparent lg:rounded-full py-10 lg:my-14 lg:gap-24">
-    <img src="{{ asset('assets/division-bg.png') }}" alt="" class="hidden lg:flex">
+    <img src="{{ asset('assets/division-bg.png') }}" alt="" class="hidden w-full lg:flex">
     <div class=" w-full lg:flex lg:flex-row lg:gap-10 lg:px-[5rem] lg:absolute flex flex-col gap-5">
         <div class="flex flex-col items-center justify-center w-full gap-5 lg:justify-start lg:items-start">
             <div class="text-4xl font-semibold">

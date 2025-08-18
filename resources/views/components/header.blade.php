@@ -1,5 +1,6 @@
 <div class="lg:bg-[#17509E] lg:py-10 flex justify-center transition-all duration-300" id="parent-div">
-    <div class="container fixed z-50 w-full mx-auto" id="header-container">
+    <div class="container fixed z-50 w-full mx-auto lg:flex lg:flex-col" id="header-container">
+        <div class="lg:bg-[#17509E] lg:py-3 w-full" id="blue-div"></div>
         <header x-data="{ open: false }"
             class="relative z-50 flex justify-between w-full px-2 py-4 bg-white lg:container lg:absolute lg:px-8 lg:rounded-full">
             <div class="w-full lg:gap-10 lg:flex">
@@ -21,7 +22,7 @@
 
                 <!-- Navigation Links -->
                 <nav :class="{ 'block': open, 'hidden': !open }"
-                    class="absolute z-40 items-center hidden w-full gap-12 p-5 mt-0 text-lg font-medium text-black bg-white rounded-lg shadow lg:static top-full lg:w-auto lg:bg-transparent lg:flex lg:p-0 lg:shadow-none lg:mt-0">
+                    class="absolute z-40 items-center hidden w-full p-5 mt-0 text-lg font-medium text-black bg-white rounded-lg shadow gap-7 lg:static top-full lg:w-auto lg:bg-transparent lg:flex lg:p-0 lg:shadow-none lg:mt-0">
 
                     <a href="{{ url('/') }}"
                         class="block py-2 lg:py-0 {{ Route::is('homepage') ? 'text-[#E94B4D] font-bold' : '' }}">
@@ -152,7 +153,7 @@
             </div>
 
             <div id="div-socmed">
-                <div class="absolute flex flex-row lg:-top-8 lg:right-[3rem] lg:gap-2">
+                <div class="absolute flex flex-row lg:-top-6 lg:right-[3rem] lg:gap-2">
                     <div class="transition-transform cursor-pointer hover:scale-150">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="24" viewBox="0 0 24 24"
                             fill="white" stroke="none" stroke-width="2" stroke-linecap="round"
@@ -190,9 +191,10 @@
         const header = headerContainer.querySelector('header');
         const socmed = document.getElementById('div-socmed')
         const parentDiv = document.getElementById('parent-div')
+        const blueDiv = document.getElementById('blue-div')
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 5) {
                 header.classList.add(
                     'shadow-lg', 'backdrop-blur-md'
                 );
@@ -202,11 +204,11 @@
                 headerContainer.classList.remove(
                     'container', 'mx-auto'
                 );
-                socmed.classList.add(
-                    'hidden'
-                );
                 parentDiv.classList.remove(
                     'lg:py-10'
+                );
+                blueDiv.classList.remove(
+                    'hidden'
                 );
             } else {
                 header.classList.remove(
@@ -217,9 +219,6 @@
                 );
                 headerContainer.classList.add(
                     'container', 'mx-auto'
-                );
-                socmed.classList.remove(
-                    'hidden'
                 );
                 parentDiv.classList.add(
                     'lg:py-10'

@@ -1,9 +1,9 @@
 <div class="lg:flex lg:flex-col">
     <div class="flex flex-col lg:h-fit lg:bg-transparent bg-[#17509E]">
         <div class="lg:relative py-14 lg:py-0 mx-6 lg:mx-0 lg:h-[27rem]">
-            <img src="{{ asset('assets/footer.png') }}" alt="" class="hidden lg:flex lg:absolute lg:inset-0">
-            <div
-                class="lg:absolute flex flex-col gap-10 items-center w-full lg:flex lg:flex-row lg:gap-[8rem] lg:px-28 lg:py-14">
+            <img src="{{ asset('assets/footer.png') }}" alt=""
+                class="hidden h-full lg:flex lg:absolute lg:inset-0">
+            <div class="lg:absolute flex flex-col gap-10 w-full lg:flex lg:flex-row lg:gap-[2rem] lg:px-20 lg:py-14">
                 <div class="flex flex-col items-center gap-6 text-center lg:text-left lg:items-start lg:justify-start">
                     <img src="{{ asset('assets/footer-logo.png') }}" alt="" class=" lg:w-[10rem] w-[20rem]">
                     <p class="text-sm text-white lg:w-[14rem] text-justify">

@@ -55,9 +55,9 @@
                 <div class="flex flex-col gap-10 swiper swiper-container">
                     <div class="swiper-wrapper">
                         @foreach ($carouselItems as $index => $item)
-                            <div class="relative flex flex-wrap mb-10 overflow-hidden swiper-slide group lg:rounded-full">
+                            <div class="relative flex flex-wrap my-10 overflow-hidden swiper-slide group lg:rounded-full">
                                 <img src="{{ asset($item->image) }}"
-                                    class="flex object-cover transition-opacity duration-700 ease-in-out lg:w-full lg:h-full" />
+                                    class="flex object-cover transition-opacity duration-700 ease-in-out rounded-full lg:w-full lg:h-full" />
 
                                 <!-- Overlay -->
                                 <div
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="relative">
                                         <div
-                                            class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center h-[6rem] w-[22rem]">
+                                            class="flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 w-fit h-fit">
                                             <div
                                                 class="z-10 flex items-center justify-center p-2 bg-[#E94B4D] border rounded-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -83,13 +83,13 @@
                                 </div>
                                 <!-- Events Box -->
                                 <div
-                                    class="events-box lg:absolute items-center gap-2 px-2 w-[18rem] md:w-[25rem] py-5 bg-white lg:rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
-                                    <div class="p-2 px-6 text-white">
+                                    class="events-box absolute items-center gap-2 px-2 w-auto lg:w-[25rem] py-5 bg-white rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
+                                    <div class="">
                                         <img src="{{ asset('assets/calendar-icon.png') }}" alt="calendar-icon"
-                                            class="md:w-[4rem]">
+                                            class="lg:w-[3rem] lg:h-[3rem] lg:flex hidden">
                                     </div>
                                     <div class="flex flex-col gap-2">
-                                        <div class="text-center bg-[#17509E] text-white rounded-full">Events</div>
+                                        <div class="text-center bg-[#17509E] text-white rounded-full p-2">Events</div>
                                         <div class="lg:w-[14rem]">
                                             <p class="text-xs text-black">{{ $item->text }}</p>
                                         </div>
@@ -262,10 +262,10 @@
                     slidesPerView: 1
                 },
                 1024: {
-                    slidesPerView: 3
+                    slidesPerView: 2
                 },
                 1440: {
-                    slidesPerView: 3
+                    slidesPerView: 2
                 }
             }
         });

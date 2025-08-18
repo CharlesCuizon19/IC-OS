@@ -6,7 +6,7 @@
     <x-banner title="Resources" page="" breadcrumb="Resources" />
 
     <div class="container mx-auto lg:my-[10rem]">
-        <div class="flex flex-col">
+        <div class="flex flex-col lg:mx-3">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center pb-14 lg:pb-[10rem] border-b-2">
                 <div class="flex flex-col gap-3 mt-10">
                     <div
@@ -19,7 +19,7 @@
                     <div class="text-[#112947] text-3xl font-semibold text-center lg:text-start">
                         Get the Exam Materials
                     </div>
-                    <div class="text-gray-500 text-center lg:text-start mx-3">
+                    <div class="mx-3 text-center text-gray-500 lg:text-start">
                         """This is an outstanding reference resource for anyone interested in expanding their
                         cardio-oncology
                         knowledge."""
@@ -28,7 +28,7 @@
                         class="flex mx-3 flex-col lg:flex-row items-center p-5 gap-5 bg-[#f4f4f4] rounded-xl border-collapse">
                         <img src="{{ asset('assets/resources-profile.png') }}" alt="">
                         <div
-                            class="flex flex-col gap-2 text-center lg:text-start lg:justify-start lg:items-start items-center justify-center">
+                            class="flex flex-col items-center justify-center gap-2 text-center lg:text-start lg:justify-start lg:items-start">
                             <div class="font-bold">Pedro Moliner MD, PhD.</div>
                             <div class="text-[#17509E] text-sm">Bellvitge University Hospital – Catalan Institute of
                                 Oncology
@@ -57,7 +57,7 @@
                 <div class="flex flex-col gap-5 mx-3">
                     <div class="leading-8">
                         if you're considering the Cardio-Oncology Knowledge Cerfication Exam, then we recommend carefully
-                        reviewing volumes 1 % 2 of the IC-OS Board Review Manual: A Guide to Cardio-Oncology.
+                        reviewing volumes 1 & 2 of the IC-OS Board Review Manual: A Guide to Cardio-Oncology.
                     </div>
                     <div class="flex flex-col gap-3">
                         <span>Get Hardcover</span>
@@ -120,9 +120,9 @@
                 </div>
             </div>
             <div class="my-14">
-                <div class="flex flex-col-reverse lg:flex-row items-center justify-center">
-                    <img src="{{ asset('assets/laptop-image.png') }}" alt="" class="lg:flex hidden">
-                    <div class="flex flex-col gap-3 text-center items-center lg:items-start">
+                <div class="flex flex-col-reverse items-center justify-center lg:flex-row">
+                    <img src="{{ asset('assets/laptop-image.png') }}" alt="" class="hidden lg:flex">
+                    <div class="flex flex-col items-center gap-3 text-center lg:items-start">
                         <div class="text-2xl font-semibold">Take The Course</div>
                         <div class="border-2 border-[#E94B4D] rounded-full w-1/2"></div>
                         <div class="text-sm text-gray-500">If you prefer, you can take video course.</div>

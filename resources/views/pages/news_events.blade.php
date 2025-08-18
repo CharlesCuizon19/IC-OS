@@ -24,11 +24,12 @@
             </div>
         </div>
         <div>
+            {{-- Event Cards --}}
             <div class="flex flex-col gap-5 mx-3 lg:flex-row">
                 <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit">
                     @foreach ($events as $event)
                         <a href="{{ route('events.show', ['id' => $loop->iteration]) }}"
-                            class="flex flex-col gap-3 border rounded-2xl lg:w-[30rem] cursor-pointer group hover:bg-slate-300 transition duration-300 overflow-hidden">
+                            class="flex flex-col gap-3 overflow-hidden transition duration-300 border cursor-pointer rounded-2xl group hover:bg-slate-300">
                             <img src="{{ asset($event->image) }}" alt=""
                                 class="object-cover w-full h-64 transition-transform duration-500 transform rounded-t-2xl group-hover:scale-105">
                             <div class="flex flex-col gap-3 px-5 pb-5 ">
@@ -62,6 +63,8 @@
                         </a>
                     @endforeach
                 </div>
+
+                {{-- Search Box --}}
                 <div class="w-auto mt-8 mb-10 border rounded-2xl h-fit">
                     <div class="flex-col hidden gap-2 px-5 py-5 border-b lg:flex ">
                         <div>

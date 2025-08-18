@@ -58,11 +58,11 @@
                 research, education, collaboration, and advocacy.
             </span>
             <button
-                class=" text-sm rounded-full lg:mt-12 lg:text-xl font-normal border-2 border-[#E94B4D] py-2 lg:py-3 px-[5rem] lg:px-10 text-black w-fit hover:cursor-pointer hover:bg-[#E94B4D] hover:text-white transition duration-300">
+                class=" text-sm rounded-full lg:text-xl font-normal border-2 border-[#E94B4D] py-2 lg:py-3 px-[5rem] lg:px-10 text-black w-fit hover:cursor-pointer hover:bg-[#E94B4D] hover:text-white transition duration-300">
                 Know More About Us
             </button>
             <img src="{{ asset('assets/med-tools.png') }}" alt=""
-                class="absolute lg:-bottom-[7rem] hidden lg:flex right-[7rem]">
+                class="absolute lg:-bottom-[10rem] hidden lg:flex right-[0rem]">
             <img src="{{ asset('assets/aboutus-arrow.png') }}" alt=""
                 class="absolute bottom-[24rem] hidden lg:flex right-[12rem]">
             <img src="{{ asset('assets/aboutus-oval.png') }}" alt=""

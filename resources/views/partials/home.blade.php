@@ -1,11 +1,11 @@
 <div class="mb-8 mt-[5rem] lg:mt-0">
-    <div class="lg:mx-3">
-        <img src="{{ asset('assets/banner.png') }}" alt="banner" class="lg:absolute">
+    <div>
+        <img src="{{ asset('assets/banner.png') }}" alt="banner" class="h-[90%] lg:absolute">
         <!-- Overlay container -->
         <div
-            class="relative mx-3 flex flex-col justify-center gap-5 lg:text-left lg:mx-[10rem] lg:mt-0 mt-2 lg:items-start items-center text-center">
+            class="container relative flex flex-col items-center justify-center gap-0 mx-auto mt-2 text-center lg:text-left lg:mt-0 lg:items-start">
             <div
-                class="flex items-center gap-2 bg-[#E94B4D]/10 text-[#E94B4D] px-4 py-2 rounded-full w-fit  lg:mt-[10rem]">
+                class="flex items-center gap-2 bg-[#E94B4D]/10 text-[rgb(233,75,77)] px-4 py-2 rounded-full w-fit  lg:mt-[10rem]">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd"
                         d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"
@@ -14,7 +14,7 @@
                 <span class="text-xs font-normal">465 Lucerne Ave Tampa, FL 33606</span>
             </div>
             <div
-                class="flex flex-col items-center w-full gap-5 text-5xl font-bold  lg:items-start lg:text-left lg:text-8xl">
+                class="flex flex-col items-center w-full gap-5 mb-10 text-5xl font-bold lg:items-start lg:text-left lg:text-8xl">
                 <div>
                     <span class="text-[#112947]">
                         Treat Cancer.
@@ -28,15 +28,13 @@
                     who are striving to protect the cardiovascular health of all patients who are undergoing cancer
                     therapy.
                 </p>
-                <div class="w-full">
-                    <button
-                        class="rounded-full text-sm lg:text-xl font-normal border-2 border-[#E94B4D] py-2 lg:py-3 px-[5rem] lg:px-10 text-black w-fit hover:cursor-pointer hover:text-white hover:bg-[#E94B4D] transition duration-300">
-                        Get Ready
-                    </button>
-                </div>
+                <button
+                    class="rounded-full text-sm lg:text-xl font-normal border-2 border-[#E94B4D] py-2 lg:py-3 px-[5rem] lg:px-10 text-black w-fit hover:cursor-pointer hover:text-white hover:bg-[#E94B4D] transition duration-300">
+                    Get Ready
+                </button>
             </div>
             {{-- desktop view --}}
-            <div class="items-center justify-center hidden w-full lg:flex lg:relative lg:bottom-0 lg:bg-transparent">
+            <div class="items-center justify-center hidden w-full lg:flex lg:relative lg:bg-transparent">
                 <x-division />
             </div>
         </div>

@@ -7,11 +7,11 @@
     <div class="overflow-x-hidden">
         <div class="flex flex-col">
 
-            <x-banner title="Get Certificate" page="Certifications /" breadcrumb="Get Certificate"/>
+            <x-banner title="Get Certificate" page="Certifications /" breadcrumb="Get Certificate" />
 
             <div class="container mx-auto">
                 <div class="lg:mt-[15rem]">
-                    <div class="flex flex-col lg:flex-row">
+                    <div class="flex flex-col lg:flex-row lg:gap-10 lg:mx-3">
                         <div class="flex w-full mt-10">
                             <img class="lg:w-[40rem]" src="{{ asset('assets/image1.png') }}" alt="">
                         </div>
@@ -25,8 +25,10 @@
                             </div>
                             <div class="flex flex-col items-center justify-center gap-6 lg:items-start lg:justify-start">
                                 <div class="flex flex-col items-center justify-center lg:items-start lg:justify-start">
-                                    <span class="text-[#112947] text-2xl lg:text-[80px] font-semibold">Become a
-                                        Member</span>
+                                    <span class="text-[#112947] text-2xl lg:text-[70px] font-semibold">
+                                        Become a
+                                        Member
+                                    </span>
                                 </div>
                                 <div class="border-2 border-[#E94B4D] w-1/3 lg:w-1/3 rounded-full"></div>
                                 <div class="flex flex-col gap-5 mx-3 text-sm text-center lg:text-xl lg:text-left">
