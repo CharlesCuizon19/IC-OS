@@ -14,7 +14,7 @@
                 <!-- Search -->
                 <div class="relative w-full md:w-64">
                     <input type="text" placeholder="Search a physician..."
-                        class="w-full py-2 pl-10 pr-4 border rounded-full focus:outline-none focus:ring-2 bg-[#e9e9e9]">
+                        class="w-full py-2 pl-10 pr-4 bg-white border-2 rounded-full focus:outline-none focus:ring-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 absolute left-3 top-2.5 text-gray-400"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -44,22 +44,24 @@
             <!-- Physicians List -->
             <div class="flex flex-col gap-4 lg:col-span-3 lg:w-full">
                 @foreach ($physicians as $physician)
-                    <div class="flex justify-between flex-col items-start gap-4 p-4 border rounded-lg lg:flex-row">
+                    <div class="flex flex-col items-start justify-between gap-4 p-4 border rounded-lg lg:flex-row">
                         <!-- Avatar -->
                         <div class="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
                             <div>
                                 <img src="{{ asset($physician->image) }}" alt=""
-                                    class="rounded-full lg:w-32 lg:h-32">
+                                    class="rounded-xl lg:rounded-full lg:w-32 lg:h-32">
                             </div>
 
                             <!-- Info -->
-                            <div class="flex-1">
+                            <div class="flex flex-col flex-1 gap-2">
                                 <h2 class="font-semibold">{{ $physician->name }}</h2>
                                 <p class="text-sm font-medium text-blue-600">
                                     {{ implode(', ', $physician->specialties) }}
                                 </p>
                                 <div class="flex items-center gap-3 mt-2 text-sm text-gray-500">
                                     @if ($physician->certified)
+                                        <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon"
+                                            class="w-6 h-5">
                                         <span
                                             class="px-2 py-1 text-xs font-medium text-red-500 bg-red-100 rounded-full">CERTIFIED</span>
                                     @endif

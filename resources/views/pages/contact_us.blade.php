@@ -22,7 +22,7 @@
 
             <div class="flex flex-col gap-4 lg:flex-row">
                 <div class="lg:w-full">
-                    <div class="p-6 bg-white border border-gray-200 shadow-sm rounded-xl">
+                    <div class="p-6 bg-white lg:border lg:border-gray-200 lg:shadow-sm lg:rounded-xl">
                         <h2 class="mb-1 text-2xl font-bold">Let’s Talk!</h2>
                         <p class="mb-6 text-gray-600">Have a question or need support? Reach out and we’ll respond as soon
                             as
@@ -94,12 +94,12 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-4 lg:w-full">
+                <div class="flex flex-col gap-4 mx-3 lg:mx-0 lg:w-full">
                     <div class="hidden lg:flex">
                         <img src="{{ asset('assets/contactus-image.png') }}" alt="">
                     </div>
 
-                    <div class="h-full overflow-hidden border  rounded-2xl">
+                    <div class="h-full overflow-hidden border rounded-2xl">
                         <div class="relative flex flex-col justify-between h-full gap-5 overflow-hidden">
                             <div class="flex gap-3 pt-5 pl-5 lg:flex-row">
                                 <div>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="lg:mt-[5rem]">
+            <div class="lg:mt-[5rem] mx-3 lg:mx-0">
                 <iframe class="w-full h-96 rounded-2xl"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d506609.03668055014!2d125.12478050973782!3d7.25414349129447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96d9f519e327f%3A0xb53a24589f79c573!2sDavao%20City%2C%20Davao%20del%20Sur!5e0!3m2!1sen!2sph!4v1755073478286!5m2!1sen!2sph"
                     style="border:0;" allowfullscreen="" loading="lazy"

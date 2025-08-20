@@ -5,7 +5,7 @@
 @section('content')
     <x-banner title="Certified Physicians" page="Certifications /" breadcrumb="Certified Physicians" />
 
-    <div class="container mx-auto lg:mt-[8rem] border-b border-gray-500 pb-10">
+    <div class="lg:container mx-3 lg:mx-auto pt-10 lg:mt-[10rem] border-b border-gray-500 pb-10">
         <!-- Back Button -->
         <a href="{{ url()->previous() }}"
             class="absolute z-40 inline-flex items-center px-4 py-2 mt-5 mb-4 ml-5 text-sm font-medium text-white transition bg-red-500 rounded-full hover:bg-red-600">
@@ -18,16 +18,16 @@
 
             <!-- Profile Image -->
             <div class="absolute -bottom-14">
-                <div class="w-40 h-40 rounded-full border-4 border-white overflow-hidden shadow-lg">
+                <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-full shadow-lg">
                     <img src="{{ asset('assets/sample-doctor.png') }}" alt="Dr. Maria Santiago"
-                        class="w-full h-full object-cover rounded-full">
+                        class="object-cover w-full h-full rounded-full">
                 </div>
             </div>
         </div>
 
 
         <!-- Profile Card -->
-        <div class="px-6 pt-16 pb-6">
+        <div class="px-6 pt-[4rem] pb-6">
             <!-- Name and Specialization -->
             <div class="flex flex-col items-center pb-5 text-center border-b">
                 <h1 class="text-2xl font-semibold text-gray-800">{{ $physician->name }}</h1>
@@ -71,10 +71,10 @@
                     <img src="{{ asset('assets/about-icon.png') }}" alt="">
                     About
                 </h2>
-                <p class="mt-2 text-sm leading-relaxed text-gray-700">
+                <p class="mx-10 mt-5 text-sm leading-relaxed text-gray-700">
                     {{ $physician->about }}
                 </p>
-                <p class="mt-2 text-sm leading-relaxed text-gray-700">
+                <p class="mx-10 mt-2 text-sm leading-relaxed text-gray-700">
                     {{ $physician->about }}
                 </p>
             </div>
@@ -85,13 +85,13 @@
                     <img src="{{ asset('assets/institutional-icon.png') }}" alt="">
                     Institutional Affiliations
                 </h2>
-                <p class="mt-2 text-sm text-gray-700">{{ $physician->affiliations }}</p>
+                <p class="mx-10 mt-2 text-sm text-gray-700">{{ $physician->affiliations }}</p>
             </div>
         </div>
     </div>
 
     <div class="container py-20 mx-auto">
-        <div class="flex flex-col justify-between overflow-hidden border shadow-sm lg:flex-row rounded-2xl lg:mx-20">
+        <div class="flex flex-col justify-between mx-3 overflow-hidden border shadow-sm lg:flex-row rounded-2xl lg:mx-20">
             <!-- Left Text Section -->
             <div class="flex flex-col justify-center p-8 bg-white lg:w-1/2">
                 <h2 class="mb-4 text-5xl text-gray-900">Became A Member</h2>
@@ -110,10 +110,10 @@
             <!-- Right Image with Overlay -->
             <div class="relative lg:w-fit">
                 <img src="{{ asset('assets/member-profile.jpeg') }}" alt="Global Summit"
-                    class="object-cover rounded-l-full lg:w-[30rem] lg:h-auto">
+                    class="object-cover lg:rounded-l-full lg:w-[30rem] lg:h-auto">
 
                 <!-- Overlay Content -->
-                <div class="absolute inset-0 flex flex-col justify-center p-8 text-white rounded-l-full bg-black/30">
+                <div class="absolute inset-0 flex flex-col justify-center p-8 text-white lg:rounded-l-full bg-black/30">
                     <h3 class="text-sm font-semibold">Global Summit 2025</h3>
                     <h2 class="text-2xl font-bold leading-tight">Cape Town, South Africa</h2>
                     <div class="flex items-center gap-2 mt-2 text-sm">

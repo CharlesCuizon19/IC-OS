@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="overflow-x-hidden">
+    <div>
         <div class="flex flex-col">
 
             <x-banner title="Get Certificate" page="Certifications /" breadcrumb="Get Certificate" />
@@ -160,10 +160,11 @@
                 </div>
             </div>
 
-            <div class="container mx-auto lg:mt-[5rem] lg:pb-[5rem]  border-b border-gray-500">
+            <div class="container mx-auto lg:mt-[5rem] lg:pb-[5rem] border-b border-gray-500">
                 <div class="flex flex-col gap-5 py-10 lg:flex-row">
+                    <!-- Sticky Section -->
                     <div
-                        class="flex flex-col items-center justify-center w-auto gap-5 mx-3 lg:items-start lg:justify-start lg:w-full">
+                        class="sticky flex flex-col items-center self-start justify-center w-auto gap-5 mx-3 top-[12rem] lg:items-start lg:justify-start lg:w-full lg:h-fit">
                         <div
                             class="flex flex-row items-center justify-center gap-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                             <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">
@@ -193,6 +194,8 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- Main Content -->
                     <div class="flex flex-col gap-12 mx-3 lg:w-full">
                         <div class="flex flex-col gap-12">
                             <span class="text-3xl font-semibold">1. Be An Active IC-OS Member</span>
@@ -281,9 +284,11 @@
                 </div>
             </div>
 
+
             <div class="container mx-auto mb-14">
                 @include('components.moreaboutcerts')
             </div>
         </div>
     </div>
+
 @endsection

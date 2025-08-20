@@ -36,7 +36,7 @@
     <div class="overflow-x-hidden">
         <div class="flex flex-col">
             <div>
-                @include('partials.home')
+                @include('partials.banner')
             </div>
 
             {{-- mobile view --}}
@@ -55,19 +55,19 @@
                 <div class="flex flex-col gap-10 swiper swiper-container">
                     <div class="swiper-wrapper">
                         @foreach ($carouselItems as $index => $item)
-                            <div class="relative flex flex-wrap my-10 overflow-hidden swiper-slide group lg:rounded-full">
+                            <div class="relative flex flex-wrap my-10 swiper-slide group">
                                 <img src="{{ asset($item->image) }}"
-                                    class="flex object-cover transition-opacity duration-700 ease-in-out rounded-full lg:w-full lg:h-full" />
+                                    class="flex object-cover transition-opacity duration-700 ease-in-out scale-x-[1.04] lg:rounded-full lg:w-full lg:h-full" />
 
                                 <!-- Overlay -->
                                 <div
                                     class="absolute flex flex-col items-center justify-center w-full h-full gap-2 px-6 py-2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
                                     <div
-                                        class="absolute bg-white/30 inset-0.5 lg:rounded-full hover:bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.5),transparent)] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                                        class=" absolute lg:hover:bg-white/30 inset-0.5 lg:rounded-full lg:hover:bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.5),transparent)] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
                                     </div>
                                     <div class="relative">
                                         <div
-                                            class="flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 w-fit h-fit">
+                                            class="flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 lg:group-hover:opacity-100 w-fit h-fit">
                                             <div
                                                 class="z-10 flex items-center justify-center p-2 bg-[#E94B4D] border rounded-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -83,7 +83,7 @@
                                 </div>
                                 <!-- Events Box -->
                                 <div
-                                    class="events-box absolute items-center gap-2 px-2 w-auto lg:w-[25rem] py-5 bg-white rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
+                                    class="events-box lg:absolute items-center gap-2 px-2 w-auto lg:w-[25rem] py-5 bg-white lg:rounded-full bottom-[0rem] flex opacity-0 transition-opacity duration-300">
                                     <div class="">
                                         <img src="{{ asset('assets/calendar-icon.png') }}" alt="calendar-icon"
                                             class="lg:w-[3rem] lg:h-[3rem] lg:flex hidden">

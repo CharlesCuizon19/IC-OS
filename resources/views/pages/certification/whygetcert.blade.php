@@ -112,9 +112,9 @@
                         </p>
                     </div>
                     <div class="flex flex-col gap-2 mx-3 lg:mt-8">
-                        <div id="faqContainer1" class="flex flex-col gap-3 p-5 bg-white border rounded-xl"
+                        <div id="faqContainer1" class="flex flex-col gap-3 p-5 bg-white border cursor-pointer rounded-xl"
                             onclick="toggleContent('faqContainer1', 'content1')">
-                            <div class="flex flex-row items-center justify-between cursor-pointer">
+                            <div class="flex flex-row items-center justify-between">
                                 <div class="font-bold">
                                     Why should I get certified in cardio-oncology?
                                 </div>
@@ -140,7 +140,7 @@
                                 cancer conditions.
                             </div>
                         </div>
-                        <div id="faqContainer2" class="flex flex-col gap-3 p-5 bg-white border rounded-xl"
+                        <div id="faqContainer2" class="flex flex-col gap-3 p-5 bg-white border cursor-pointer rounded-xl"
                             onclick="toggleContent('faqContainer2', 'content2')">
                             <div class="flex flex-row items-center justify-between cursor-pointer">
                                 <div class="font-bold">
@@ -168,7 +168,7 @@
                                 cancer conditions.
                             </div>
                         </div>
-                        <div id="faqContainer3" class="flex flex-col gap-3 p-5 bg-white border rounded-xl"
+                        <div id="faqContainer3" class="flex flex-col gap-3 p-5 bg-white border cursor-pointer rounded-xl"
                             onclick="toggleContent('faqContainer3', 'content3')">
                             <div class="flex flex-row items-center justify-between cursor-pointer">
                                 <div class="font-bold">
@@ -196,7 +196,7 @@
                                 cancer conditions.
                             </div>
                         </div>
-                        <div id="faqContainer4" class="flex flex-col gap-3 p-5 bg-white border rounded-xl"
+                        <div id="faqContainer4" class="flex flex-col gap-3 p-5 bg-white border cursor-pointer rounded-xl"
                             onclick="toggleContent('faqContainer4', 'content4')">
                             <div class="flex flex-row items-center justify-between cursor-pointer">
                                 <div class="font-bold">

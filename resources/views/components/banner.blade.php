@@ -1,7 +1,7 @@
 <div class="mt-[6rem] lg:mt-0">
     <div class="">
         <img src="{{ asset('assets/banner.png') }}" alt="banner"
-            class="hidden object-none object-top w-full lg:absolute h-[55%] lg:flex">
+            class="hidden object-none object-center w-full lg:absolute h-[55%] lg:flex">
         <!-- Overlay container -->
         <div class="container mx-auto">
             <div

@@ -19,14 +19,15 @@
     </div>
     <div class="flex flex-col gap-7 lg:flex-row">
         @foreach ($about_certs as $cert)
-            <div>
-                <div class="flex items-center gap-3 flex-col lg:flex-row border border-[#17509E]/50 rounded-2xl p-4">
+            <div class="transition-all duration-300 cursor-pointer hover:scale-105">
+                <div
+                    class="flex items-center gap-3 flex-col lg:flex-row border hover:border-[#17509E]/50 rounded-2xl p-4">
                     <img src="{{ asset($cert->img) }}" alt="" class="lg:w-[12rem] lg:h-[7rem]">
                     <div class="flex flex-col gap-1 text-center lg:text-start">
                         <p class="text-2xl text-[#17509E] font-semibold">{{ $cert->title }}</p>
                         <p class="text-gray-500"> {{ $cert->desc }}</p>
                         <div
-                            class="flex flex-row items-center justify-center lg:justify-start gap-2 text-gray-500 transition duration-300 cursor-pointer lg:items-center hover:text-black">
+                            class="flex flex-row items-center justify-center gap-2 text-gray-500 transition duration-300 cursor-pointer w-fit lg:justify-start lg:items-center hover:text-black">
                             <span>
                                 See More
                             </span>

@@ -47,127 +47,37 @@
 
             <div class="container mx-auto lg:mt-[8rem] lg:mb-[12rem] mb-10">
                 <div class="flex flex-col gap-10 lg:flex-col">
-                    <div class="flex lg:flex-row flex-col gap-5 lg:h-[27rem] overflow-hidden ">
-                        <div class="text-left doctor-box ">
-                            <div class="doctor-image-container collapsed">
-                                <img src="{{ asset('assets/sample-doctor.png') }}" alt=""
-                                    class="w-full rounded-2xl">
-                                <div class="absolute flex gap-2 bottom-2 right-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="lucide lucide-plus-icon lucide-plus">
-                                        <path d="M5 12h14" />
-                                        <path d="M12 5v14" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#E94B4D " stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="hidden lucide lucide-minus-icon lucide-minus">
-                                        <path d="M5 12h14" />
-                                    </svg>
+                    <div class="grid grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:h-full ">
+                        @foreach ($directors as $director)
+                            <div class="text-left doctor-box">
+                                <div class="doctor-image-container collapsed">
+                                    <img src="{{ asset($director->img) }}" alt="" class="w-auto h-auto rounded-2xl">
+                                    <div class="absolute flex gap-2 bottom-2 right-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-plus-icon lucide-plus">
+                                            <path d="M5 12h14" />
+                                            <path d="M12 5v14" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="#E94B4D " stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="hidden lucide lucide-minus-icon lucide-minus">
+                                            <path d="M5 12h14" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-3 p-4">
+                                    <span class="text-xl font-bold">{{ $director->name }}</span>
+                                    <span class="text-[#295ea5]">{{ $director->position }}</span>
+                                    <div class="flex flex-col gap-3 doctor-info collapsed">
+                                        <span>Institution: {{ $director->institution }}</span>
+                                        <p>{{ $director->bio }}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-3 p-4">
-                                <span class="text-xl font-bold">Dr. Francis C. Carandang</span>
-                                <span class="text-[#295ea5]">Treasurer / Chair, Finance and Audit Committee</span>
-                                <div class="flex flex-col gap-3 doctor-info collapsed">
-                                    <span>Institution: [Insert Hospital/University]</span>
-                                    <p>With strong commitment to ethical and sustainable financial management, Dr. Carandang
-                                        ensures the society remains accountable and future-ready.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left doctor-box ">
-                            <div class="doctor-image-container collapsed">
-                                <img src="{{ asset('assets/sample-doctor.png') }}" alt=""
-                                    class="w-full rounded-2xl">
-                                <div class="absolute flex gap-2 bottom-2 right-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="lucide lucide-plus-icon lucide-plus">
-                                        <path d="M5 12h14" />
-                                        <path d="M12 5v14" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#E94B4D " stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="hidden lucide lucide-minus-icon lucide-minus">
-                                        <path d="M5 12h14" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 p-4">
-                                <span class="text-xl font-bold">Dr. Francis C. Carandang</span>
-                                <span class="text-[#295ea5]">Treasurer / Chair, Finance and Audit Committee</span>
-                                <div class="flex flex-col gap-3 doctor-info collapsed">
-                                    <span>Institution: [Insert Hospital/University]</span>
-                                    <p>With strong commitment to ethical and sustainable financial management, Dr. Carandang
-                                        ensures the society remains accountable and future-ready.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left doctor-box ">
-                            <div class="doctor-image-container collapsed">
-                                <img src="{{ asset('assets/sample-doctor.png') }}" alt=""
-                                    class="w-full rounded-2xl">
-                                <div class="absolute flex gap-2 bottom-2 right-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="lucide lucide-plus-icon lucide-plus">
-                                        <path d="M5 12h14" />
-                                        <path d="M12 5v14" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#E94B4D " stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="hidden lucide lucide-minus-icon lucide-minus">
-                                        <path d="M5 12h14" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 p-4">
-                                <span class="text-xl font-bold">Dr. Francis C. Carandang</span>
-                                <span class="text-[#295ea5]">Treasurer / Chair, Finance and Audit Committee</span>
-                                <div class="flex flex-col gap-3 doctor-info collapsed">
-                                    <span>Institution: [Insert Hospital/University]</span>
-                                    <p>With strong commitment to ethical and sustainable financial management, Dr. Carandang
-                                        ensures the society remains accountable and future-ready.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left doctor-box ">
-                            <div class="doctor-image-container collapsed">
-                                <img src="{{ asset('assets/sample-doctor.png') }}" alt=""
-                                    class="w-full rounded-2xl">
-                                <div class="absolute flex gap-2 bottom-2 right-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="lucide lucide-plus-icon lucide-plus">
-                                        <path d="M5 12h14" />
-                                        <path d="M12 5v14" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="#E94B4D " stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="hidden lucide lucide-minus-icon lucide-minus">
-                                        <path d="M5 12h14" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 p-4">
-                                <span class="text-xl font-bold">Dr. Francis C. Carandang</span>
-                                <span class="text-[#295ea5]">Treasurer / Chair, Finance and Audit Committee</span>
-                                <div class="flex flex-col gap-3 doctor-info collapsed">
-                                    <span>Institution: [Insert Hospital/University]</span>
-                                    <p>With strong commitment to ethical and sustainable financial management, Dr. Carandang
-                                        ensures the society remains accountable and future-ready.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -188,7 +98,7 @@
         }
 
         .doctor-image-container.expanded {
-            height: 15.5rem;
+            height: 15rem;
             /* Half of lg:h-[19rem] */
         }
 

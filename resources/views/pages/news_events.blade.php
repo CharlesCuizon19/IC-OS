@@ -29,10 +29,12 @@
                 <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit">
                     @foreach ($events as $event)
                         <a href="{{ route('events.show', ['id' => $loop->iteration]) }}"
-                            class="flex flex-col gap-3 overflow-hidden transition duration-300 border cursor-pointer rounded-2xl group hover:bg-slate-300">
-                            <img src="{{ asset($event->image) }}" alt=""
-                                class="object-cover w-full h-64 transition-transform duration-500 transform rounded-t-2xl group-hover:scale-105">
-                            <div class="flex flex-col gap-3 px-5 pb-5 ">
+                            class="flex flex-col overflow-hidden transition duration-300 border cursor-pointer group rounded-2xl">
+                            <div>
+                                <img src="{{ asset($event->image) }}" alt=""
+                                    class="object-cover w-full h-64 transition-transform duration-500 transform rounded-t-2xl group-hover:scale-105">
+                            </div>
+                            <div class="z-20 flex flex-col h-full gap-3 px-5 py-3 pb-5 bg-white group-hover:bg-slate-300">
                                 <div class="flex items-center gap-2">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -80,7 +82,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="flex h-[28rem] overflow-x-scroll flex-col p-5 bg-[#f5f5f5] rounded-b-2xl">
+                    <div class="flex h-[28rem] overflow-x-hidden flex-col p-5 bg-[#f5f5f5] rounded-b-2xl">
                         <div class="text-sm font-semibold">
                             Latest Post
                         </div>
@@ -112,9 +114,9 @@
                                                 </div>
                                                 <div class="text-[#17509E] font-semibold text-sm">{{ $event->date }}</div>
                                             </div>
-                                            <div class="w-full text-sm font-semibold lg:truncate text-wrap lg:max-w-xs">
+                                            <p class="max-w-md text-sm font-semibold line-clamp-2">
                                                 {{ $event->title }}
-                                            </div>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
