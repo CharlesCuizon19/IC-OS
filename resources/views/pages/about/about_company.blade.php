@@ -145,7 +145,7 @@
                         </video>
 
                         <!-- Custom Center Pause/Play Button -->
-                        <button id="toggleBtn"
+                        {{-- <button id="toggleBtn"
                             class="absolute inset-0 flex items-center justify-center transition duration-300 opacity-0 group-hover:opacity-100">
                             <div class="p-4 text-white rounded-full bg-black/60 hover:bg-black/80">
                                 <!-- Play Icon -->
@@ -160,7 +160,7 @@
                                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                                 </svg>
                             </div>
-                        </button>
+                        </button> --}}
                     </div>
 
                     <div class="flex text-xl text-center lg:text-3xl lg:items-center lg:justify-center lg:w-2/3">
@@ -224,7 +224,7 @@
         });
     </script>
 
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", () => {
             const video = document.getElementById("aboutVideo");
             const toggleBtn = document.getElementById("toggleBtn");
@@ -255,7 +255,7 @@
             // Initialize icons
             updateIcons();
         });
-    </script>
+    </script> --}}
 
 
 @endsection

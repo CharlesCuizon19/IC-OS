@@ -21,7 +21,7 @@
                     <th class="p-2">Actions</th>
                 </tr>
             </thead>
-            <tbody class="text-gray-800">
+            <tbody class="text-center text-gray-800">
                 <tr class="bg-white">
                     <td class="p-2">1</td>
                     <td class="p-2">Sample Title 1</td>

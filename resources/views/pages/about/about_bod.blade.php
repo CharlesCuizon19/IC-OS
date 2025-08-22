@@ -49,10 +49,10 @@
                 <div class="flex flex-col gap-10 lg:flex-col">
                     <div class="grid grid-cols-1 gap-10 overflow-hidden lg:grid-cols-4 lg:h-full ">
                         @foreach ($directors as $director)
-                            <div class="text-left doctor-box">
-                                <div class="doctor-image-container collapsed">
+                            <div class="text-left lg:h-[30rem] doctor-box cursor-pointer">
+                                <div class="mx-3 doctor-image-container collapsed">
                                     <img src="{{ asset($director->img) }}" alt="" class="w-auto h-auto rounded-2xl">
-                                    <div class="absolute flex gap-2 bottom-2 right-2">
+                                    <div class="absolute flex gap-2 right-4 bottom-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -139,24 +139,29 @@
                 const info = box.querySelector('.doctor-info');
                 const imageContainer = box.querySelector('.doctor-image-container');
 
-                plusIcon.addEventListener('click', () => {
-                    info.classList.remove('collapsed');
-                    info.classList.add('expanded');
-                    imageContainer.classList.remove('collapsed');
-                    imageContainer.classList.add('expanded');
-                    plusIcon.classList.add('hidden');
-                    minusIcon.classList.remove('hidden');
-                });
+                box.addEventListener('click', () => {
+                    const isExpanded = info.classList.contains('expanded');
 
-                minusIcon.addEventListener('click', () => {
-                    info.classList.remove('expanded');
-                    info.classList.add('collapsed');
-                    imageContainer.classList.remove('expanded');
-                    imageContainer.classList.add('collapsed');
-                    minusIcon.classList.add('hidden');
-                    plusIcon.classList.remove('hidden');
+                    if (isExpanded) {
+                        // collapse
+                        info.classList.remove('expanded');
+                        info.classList.add('collapsed');
+                        imageContainer.classList.remove('expanded');
+                        imageContainer.classList.add('collapsed');
+                        minusIcon.classList.add('hidden');
+                        plusIcon.classList.remove('hidden');
+                    } else {
+                        // expand
+                        info.classList.remove('collapsed');
+                        info.classList.add('expanded');
+                        imageContainer.classList.remove('collapsed');
+                        imageContainer.classList.add('expanded');
+                        plusIcon.classList.add('hidden');
+                        minusIcon.classList.remove('hidden');
+                    }
                 });
             });
         });
     </script>
+
 @endsection

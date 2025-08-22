@@ -29,37 +29,62 @@
                 <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit">
                     @foreach ($events as $event)
                         <a href="{{ route('events.show', ['id' => $loop->iteration]) }}"
-                            class="flex flex-col overflow-hidden transition duration-300 border cursor-pointer group rounded-2xl">
-                            <div>
-                                <img src="{{ asset($event->image) }}" alt=""
-                                    class="object-cover w-full h-64 transition-transform duration-500 transform rounded-t-2xl group-hover:scale-105">
-                            </div>
-                            <div class="z-20 flex flex-col h-full gap-3 px-5 py-3 pb-5 bg-white group-hover:bg-slate-300">
-                                <div class="flex items-center gap-2">
-                                    <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                            stroke="#17509E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-4 h-4 lucide lucide-calendar-days-icon lucide-calendar-days">
-                                            <path d="M8 2v4" />
-                                            <path d="M16 2v4" />
-                                            <rect width="18" height="18" x="3" y="4" rx="2" />
-                                            <path d="M3 10h18" />
-                                            <path d="M8 14h.01" />
-                                            <path d="M12 14h.01" />
-                                            <path d="M16 14h.01" />
-                                            <path d="M8 18h.01" />
-                                            <path d="M12 18h.01" />
-                                            <path d="M16 18h.01" />
-                                        </svg>
+                            class="flex flex-col transition duration-300 cursor-pointer group rounded-2xl">
+                            <div
+                                class=" flex flex-col items-center lg:items-start px-10 py-10 lg:px-10 lg:py-10 gap-4 border border-[#17509E]/50 rounded-[2rem] lg:rounded-3xl bg-[#17509E]/10 lg:hover:cursor-pointer lg:hover:bg-[#17509E]/50 lg:transition lg:duration-300 lg:transform lg:hover:scale-105">
+                                <div class="w-auto">
+                                    <div class="flex flex-col items-center justify-center gap-5">
+                                        <div class="relative w-auto">
+                                            <img src="{{ asset($event->image) }}" alt=""
+                                                class="w-auto lg:w-[40rem] rounded-[55px]">
+                                            {{-- desktop view --}}
+                                            <div
+                                                class=" absolute hidden lg:flex py-2 px-5 lg:py-3 items-center lg:px-6 lg:bottom-7 lg:right-[19rem] bg-[#17509E] rounded-full">
+                                                <div class="flex flex-col">
+                                                    <p class="text-xl font-semibold text-white">{{ $event->date }}</p>
+                                                    <p class="text-xs text-white">{{ $event->month }}</p>
+                                                </div>
+                                            </div>
+                                            {{-- mobile view --}}
+                                            <div
+                                                class=" absolute lg:hidden flex bottom-5 left-[1rem] py-4 px-7 lg:py-3 items-center lg:px-6 lg:bottom-11 lg:right-[19rem] bg-[#17509E] rounded-full">
+                                                <div class="flex flex-col">
+                                                    <p class="text-xl font-semibold text-white">23</p>
+                                                    <p class="text-xs text-white">Dec</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="text-xl text-center lg:text-2xl lg:text-left text-[#112947] font-semibold">
+                                            <p>
+                                                {{ $event->title }}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="text-[#17509E] font-semibold text-sm">{{ $event->date }}</div>
                                 </div>
-                                <div class="font-semibold">
-                                    {{ $event->title }}
-                                </div>
-                                <div class="border-2 border-[#E94B4D] rounded-full w-1/3"></div>
-                                <div class="text-gray-500">
-                                    {{ $event->description }}
+                                <div class="w-full lg:w-full">
+                                    <div class="flex lg:justify-start">
+                                        <button class="flex items-center overflow-hidden rounded-full ">
+                                            <!-- Left circle with icon -->
+                                            <div
+                                                class="z-10 flex items-center justify-center p-2 bg-white border rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1"
+                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-arrow-up-right">
+                                                    <path d="M7 7h10v10" />
+                                                    <path d="M7 17L17 7" />
+                                                </svg>
+                                            </div>
+
+                                            <div
+                                                class="absolute py-2 pr-4 text-sm font-medium text-white bg-red-700 rounded-full pl-14">
+                                                <p>
+                                                    Learn More
+                                                </p>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </a>

@@ -71,6 +71,36 @@ class EventController extends Controller
                 'author' => "Elena Shavard, MD",
                 'position' => "Moscow Cardio-Oncology Center based on S.S. Yudin City Clinical Hospital",
             ],
+            7 => (object) [
+                'image' => 'assets/blog1.png',
+                'image2' => 'assets/event-image2.png',
+                'title' => 'New Training Program Launched for Local Physicians',
+                'greetings' => "Greetings from the heart of Moscow's burgeoning Cardio-Oncology landscape! I am thrilled to share exciting developments from the Moscow City Cardio-Oncology center, marking a significant stride in our commitment to enhancing patient care and collaboration.",
+                'description_title' => "Expansion and Accessibility",
+                'description' => "In recent months, our center has expanded its footprint across Moscow, establishing cardiologist offices and implementing standardized operational procedures in three additional cancer centers. This expansion means that Cardio-Oncologists are now accessible in five of seven existing centers, ensuring more comprehensive care for cancer patients across the city.",
+                'author' => "Elena Shavard, MD",
+                'position' => "Moscow Cardio-Oncology Center based on S.S. Yudin City Clinical Hospital",
+            ],
+            8 => (object) [
+                'image' => 'assets/blog2.png',
+                'image2' => 'assets/event-image2.png',
+                'title' => 'National Forum on Cancer and Heart Care Held in Manila',
+                'greetings' => "Greetings from the heart of Moscow's burgeoning Cardio-Oncology landscape! I am thrilled to share exciting developments from the Moscow City Cardio-Oncology center, marking a significant stride in our commitment to enhancing patient care and collaboration.",
+                'description_title' => "Expansion and Accessibility",
+                'description' => "In recent months, our center has expanded its footprint across Moscow, establishing cardiologist offices and implementing standardized operational procedures in three additional cancer centers. This expansion means that Cardio-Oncologists are now accessible in five of seven existing centers, ensuring more comprehensive care for cancer patients across the city.",
+                'author' => "Elena Shavard, MD",
+                'position' => "Moscow Cardio-Oncology Center based on S.S. Yudin City Clinical Hospital",
+            ],
+            9 => (object) [
+                'image' => 'assets/blog3.png',
+                'image2' => 'assets/event-image2.png',
+                'title' => 'ICOS PH Expands Global Ties with Regional Partners',
+                'greetings' => "Greetings from the heart of Moscow's burgeoning Cardio-Oncology landscape! I am thrilled to share exciting developments from the Moscow City Cardio-Oncology center, marking a significant stride in our commitment to enhancing patient care and collaboration.",
+                'description_title' => "Expansion and Accessibility",
+                'description' => "In recent months, our center has expanded its footprint across Moscow, establishing cardiologist offices and implementing standardized operational procedures in three additional cancer centers. This expansion means that Cardio-Oncologists are now accessible in five of seven existing centers, ensuring more comprehensive care for cancer patients across the city.",
+                'author' => "Elena Shavard, MD",
+                'position' => "Moscow Cardio-Oncology Center based on S.S. Yudin City Clinical Hospital",
+            ],
 
         ];
 

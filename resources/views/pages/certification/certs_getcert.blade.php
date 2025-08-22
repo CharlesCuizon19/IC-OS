@@ -75,7 +75,7 @@
                                     cardio-oncology.</p>
                             </div>
                             <div class="w-fit">
-                                <button class="text-white bg-[#e94b4d] py-4 px-10 rounded-full">
+                                <button class="hover:bg-red-600 text-white bg-[#e94b4d] py-4 px-10 rounded-full">
                                     Apply Today
                                 </button>
                             </div>

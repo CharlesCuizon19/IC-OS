@@ -167,13 +167,15 @@ class PageController extends Controller
         $events = [
             1 => (object)[
                 'image' => 'assets/event1.png',
-                'date' => 'July 26, 2025',
+                'month' => 'Dec',
+                'date' => '23',
                 'title' => "Pioneering Awareness: Australia's First Community Q&A on Cardio-Oncology Draws Over 100 Attendees",
                 'description' => 'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...'
             ],
             2 => (object)[
                 'image' => 'assets/event2.png',
-                'date' => 'July 26, 2025',
+                'month' => 'Dec',
+                'date' => '23',
                 'title' =>
                 "IC-OS President Susan Dent Stresses The Importance of Cardio-Oncology at ASCO 2025",
                 'description' =>
@@ -181,7 +183,8 @@ class PageController extends Controller
             ],
             3 => (object)[
                 'image' => 'assets/event3.png',
-                'date' => 'July 26, 2025',
+                'month' => 'Dec',
+                'date' => '23',
                 'title' =>
                 "Advancements in Cardio-Oncology: A Vision for Comprehensive Patient Care",
                 'description' =>
@@ -189,7 +192,8 @@ class PageController extends Controller
             ],
             4 => (object)[
                 'image' => 'assets/event4.png',
-                'date' => 'July 26, 2025',
+                'month' => 'Dec',
+                'date' => '23',
                 'title' =>
                 "IC-OS-Ph Takes Flight – A Milestone in Philippine Cardio-Oncology",
                 'description' =>
@@ -197,7 +201,8 @@ class PageController extends Controller
             ],
             5 => (object)[
                 'image' => 'assets/event5.png',
-                'date' => 'July 26, 2025',
+                'month' => 'Dec',
+                'date' => '23',
                 'title' =>
                 "Moscow Cardio-Oncology Initiative in Australia",
                 'description' =>
@@ -205,11 +210,33 @@ class PageController extends Controller
             ],
             6 => (object)[
                 'image' => 'assets/event6.png',
-                'date' => 'July 26, 2025',
+                'month' => 'Dec',
+                'date' => '23',
                 'title' =>
                 "Chinese Medical Association Journal of Cardio-Oncology – Call for Papers",
                 'description' =>
                 'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
+            ],
+            7 => (object) [
+                'image' => 'assets/blog1.png',
+                'month' => 'Dec',
+                'date' => '23',
+                'title' => 'New Training Program Launched for Local Physicians',
+                'description' => 'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
+            ],
+            8 => (object) [
+                'image' => 'assets/blog2.png',
+                'month' => 'Dec',
+                'date' => '23',
+                'title' => 'National Forum on Cancer and Heart Care Held in Manila',
+                'description' => 'In a groundbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recently hosted...',
+            ],
+            9 => (object) [
+                'image' => 'assets/blog3.png',
+                'month' => 'Dec',
+                'date' => '23',
+                'title' => 'ICOS PH Expands Global Ties with Regional Partners',
+                'description' => 'In a groundbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recently hosted...',
             ],
         ];
 
