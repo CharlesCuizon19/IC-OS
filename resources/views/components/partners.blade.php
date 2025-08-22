@@ -1,13 +1,13 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 @php
     $insurancePartners = [
-        ['img' => 'assets/partner1.png', 'alt' => 'Maxicare'],
-        ['img' => 'assets/partner2.png', 'alt' => 'Maxicare'],
-        ['img' => 'assets/partner3.png', 'alt' => 'Maxicare'],
-        ['img' => 'assets/partner4.png', 'alt' => 'Maxicare'],
-        ['img' => 'assets/partner5.png', 'alt' => 'Maxicare'],
+        ['img' => 'assets/partner1.png', 'alt' => 'partner1'],
+        ['img' => 'assets/partner3.png', 'alt' => 'partner2'],
+        ['img' => 'assets/partner2.png', 'alt' => 'partner3'],
+        ['img' => 'assets/partner4.png', 'alt' => 'partner4'],
+        ['img' => 'assets/partner5.png', 'alt' => 'partner5'],
     ];
     $repeatTimes = 8; // number of times to duplicate the slides
 @endphp
@@ -26,12 +26,12 @@
     <!-- Alpine initialized swiper container -->
     <div x-data="insuranceSwiper()" x-init="init()" class="swiper insurance-swiper"
         style="--swiper-navigation-color: #00473E; --swiper-pagination-color: #00473E;">
-        <div class="flex items-center gap-10 swiper-wrapper">
+        <div class="flex items-center lg:gap-10 swiper-wrapper">
             @for ($r = 0; $r < $repeatTimes; $r++)
                 @foreach ($insurancePartners as $partner)
-                    <div class="flex items-center justify-center swiper-slide">
+                    <div class="flex items-center justify-center swiper-slide ">
                         <img src="{{ asset($partner['img']) }}" alt="{{ $partner['alt'] }}"
-                            class="block w-auto h-auto mx-auto" />
+                            class="block w-44 lg:mx-auto lg:w-auto lg:h-auto" />
                     </div>
                 @endforeach
             @endfor

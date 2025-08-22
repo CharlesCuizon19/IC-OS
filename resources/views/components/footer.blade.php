@@ -5,7 +5,7 @@
                 class="hidden h-full lg:flex lg:absolute lg:inset-0">
             <div class="lg:absolute flex flex-col gap-10 w-full lg:flex lg:flex-row lg:gap-[5rem] lg:px-20 lg:py-14">
                 <div class="flex flex-col items-center gap-6 text-center lg:text-left lg:items-start lg:justify-start">
-                    <img src="{{ asset('assets/footer-logo.png') }}" alt="" class=" lg:w-[10rem] w-[20rem]">
+                    <img src="{{ asset('assets/footer-logo.png') }}" alt="" class=" lg:w-[10rem] w-[10rem]">
                     <p class="text-sm text-white lg:w-[14rem] text-justify">
                         The International Cardio-Oncology Society Philippines Center is dedicated to advancing heart
                         health
