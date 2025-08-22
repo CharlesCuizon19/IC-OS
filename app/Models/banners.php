@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class banners extends Model
 {
     use HasFactory;
+
+
+
+    public function image()
+    {
+        return $this->belongsTo(images::class, 'image_id');
+    }
 }

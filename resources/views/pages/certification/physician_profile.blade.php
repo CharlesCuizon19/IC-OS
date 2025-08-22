@@ -32,20 +32,11 @@
             <div class="flex flex-col items-center pb-5 text-center border-b">
                 <h1 class="text-2xl font-semibold text-gray-800">{{ $physician->name }}</h1>
                 <p class="font-medium text-blue-600">{{ $physician->specialties }}</p>
-                <div
-                    class="flex items-center justify-center gap-2 px-3 py-2 mt-2 text-xs font-semibold text-white bg-gradient-to-b from-[#E94B4D] to-[#17509E] rounded-full w-fit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#ffffff"
-                        viewBox="0 0 24 24">
-                        <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
-                        <path
-                            d="M11.29 20.69c.2.2.45.29.71.29s.51-.1.71-.29l7.5-7.5c2.35-2.35 2.35-6.05 0-8.41-2.29-2.29-5.84-2.35-8.21-.2-2.36-2.15-5.91-2.09-8.21.2-2.35 2.36-2.35 6.06 0 8.41z">
-                        </path>
-                    </svg>
-                    <span>
-                        @if ($physician->certified)
-                            certified
-                        @endif
-                    </span>
+                <div class="flex gap-2 my-5">
+                    @if ($physician->certified)
+                        <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="w-6 h-5">
+                        <span class="px-2 py-1 text-xs font-medium text-red-500 bg-red-100 rounded-full">CERTIFIED</span>
+                    @endif
                 </div>
             </div>
 

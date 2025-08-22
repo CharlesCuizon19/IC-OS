@@ -111,10 +111,10 @@
                         <div class="text-sm font-semibold">
                             Latest Post
                         </div>
-                        <div>
+                        <div class="divide-y-2 divide-gray-300">
                             @foreach ($events as $event)
                                 <div
-                                    class="flex gap-3 items-center border-b border-gray-400 py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">
+                                    class="flex gap-3 items-center py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">
                                     <img src="{{ asset($event->image) }}" alt=""
                                         class="object-cover w-20 h-20 rounded-xl object">
                                     <div>

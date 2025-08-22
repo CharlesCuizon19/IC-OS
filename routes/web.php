@@ -4,8 +4,10 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PhysiciansController;
 use App\Http\Controllers\BoardofDirectorsController;
+use App\Http\Controllers\BannersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
 
 // Authentication Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -13,9 +15,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/admin/homepageBanner', function () {
-        return view('admin.pages.homepageBanner'); // create this blade later
-    })->name('homepageBanner');
+    Route::get('/admin/homepageBanner', [BannersController::class, 'index'])->name('admin.homepageBanner');
+    Route::post('/admin/homepageBanner', [BannersController::class, 'store'])->name('store.homepageBanner');
 });
 
 

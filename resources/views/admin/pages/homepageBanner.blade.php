@@ -22,54 +22,24 @@
                 </tr>
             </thead>
             <tbody class="text-center text-gray-800">
-                <tr class="bg-white">
-                    <td class="p-2">1</td>
-                    <td class="p-2">Sample Title 1</td>
-                    <td class="p-2">Sample Subtitle 1</td>
-                    <td class="p-2">
-                        <img src="{{ asset('images/banner1.png') }}" alt="Banner 1" class="w-auto h-16">
-                    </td>
-                    <td class="flex p-2 space-x-2">
-                        <a href="#" class="px-2 py-1 text-white bg-blue-500 rounded">Edit</a>
-                        <form action="#" method="POST" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td class="p-2">2</td>
-                    <td class="p-2">Sample Title 2</td>
-                    <td class="p-2">Sample Subtitle 2</td>
-                    <td class="p-2">
-                        <img src="{{ asset('images/banner2.png') }}" alt="Banner 2" class="w-auto h-16">
-                    </td>
-                    <td class="flex p-2 space-x-2">
-                        <a href="#" class="px-2 py-1 text-white bg-blue-500 rounded">Edit</a>
-                        <form action="#" method="POST" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td class="p-2">3</td>
-                    <td class="p-2">Sample Title 3</td>
-                    <td class="p-2">Sample Subtitle 3</td>
-                    <td class="p-2">
-                        <img src="{{ asset('images/banner3.png') }}" alt="Banner 3" class="w-auto h-16">
-                    </td>
-                    <td class="flex p-2 space-x-2">
-                        <a href="#" class="px-2 py-1 text-white bg-blue-500 rounded">Edit</a>
-                        <form action="#" method="POST" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded">Delete</button>
-                        </form>
-                    </td>
-                </tr>
+                @foreach ($banners as $banner)
+                    <tr class="bg-white">
+                        <td class="p-2">{{ $banner->id }}</td>
+                        <td class="p-2">{{ $banner->title }}</td>
+                        <td class="p-2">{{ $banner->context }}</td>
+                        <td class="p-2">
+                            <img src="{{ $banner->image->files->image_path }}" alt="Banner 1" class="w-auto h-16">
+                        </td>
+                        <td class="flex p-2 space-x-2">
+                            <a href="#" class="px-2 py-1 text-white bg-blue-500 rounded">Edit</a>
+                            <form action="#" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
 
