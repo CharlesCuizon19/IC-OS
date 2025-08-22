@@ -87,7 +87,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit"
-                                class="px-5 py-2 font-medium text-white bg-red-500 rounded-md hover:bg-red-600">
+                                class="px-5 py-2 font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                                 Submit Message
                             </button>
                         </form>

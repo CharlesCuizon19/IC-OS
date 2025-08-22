@@ -78,7 +78,7 @@
                         <div
                             class="flex lg:flex-row items-center justify-between p-3 rounded-xl  lg:justify-center lg:rounded-full lg:px-10 lg:py-3 lg:gap-6 bg-[#f3f8ff]">
                             <div class="flex flex-col gap-3">
-                                <span class="count text-5xl text-[#112947]" data-target="1100" data-suffix="k+">0</span>
+                                <span class="count text-5xl text-[#112947]" data-target="1100" data-suffix="+">0</span>
                                 <span class="text-gray-600">Cured Patients</span>
                             </div>
                             <div>

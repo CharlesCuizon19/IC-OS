@@ -1,6 +1,6 @@
 <div class="mb-8 mt-[5rem] lg:mt-0">
     <div>
-        <img src="{{ asset('assets/banner.png') }}" alt="banner" class="h-[90%] lg:absolute">
+        <img src="{{ asset('assets/banner.png') }}" alt="banner" class="lg:h-[90%] lg:absolute">
         <!-- Overlay container -->
         <div
             class="container relative flex flex-col items-center justify-center gap-0 mx-auto mt-2 text-center lg:text-left lg:mt-0 lg:items-start">

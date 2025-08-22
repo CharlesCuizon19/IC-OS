@@ -137,7 +137,8 @@
                                                         <path d="M16 18h.01" />
                                                     </svg>
                                                 </div>
-                                                <div class="text-[#17509E] font-semibold text-sm">{{ $event->date }}</div>
+                                                <div class="text-[#17509E] font-semibold text-sm">{{ $event->month }}
+                                                    {{ $event->date }}</div>
                                             </div>
                                             <p class="max-w-md text-sm font-semibold line-clamp-2">
                                                 {{ $event->title }}

@@ -66,26 +66,25 @@
             </div>
 
             <!-- About Section -->
-            <div class="p-5 mt-6 rounded-lg bg-gray-50">
-                <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
-                    <img src="{{ asset('assets/about-icon.png') }}" alt="">
-                    About
-                </h2>
-                <p class="mx-10 mt-5 text-sm leading-relaxed text-gray-700">
-                    {{ $physician->about }}
-                </p>
-                <p class="mx-10 mt-2 text-sm leading-relaxed text-gray-700">
-                    {{ $physician->about }}
-                </p>
-            </div>
+            <div class="lg:px-12 ">
+                <div class="p-5 mt-6 rounded-lg bg-gray-50">
+                    <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
+                        <img src="{{ asset('assets/about-icon.png') }}" alt="">
+                        About
+                    </h2>
+                    <p class="mx-3 mt-5 text-sm leading-relaxed text-justify text-gray-700 lg:mx-10">
+                        {{ $physician->about }}
+                    </p>
+                </div>
 
-            <!-- Institutional Affiliations -->
-            <div class="p-5 mt-6 rounded-lg bg-gray-50">
-                <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
-                    <img src="{{ asset('assets/institutional-icon.png') }}" alt="">
-                    Institutional Affiliations
-                </h2>
-                <p class="mx-10 mt-2 text-sm text-gray-700">{{ $physician->affiliations }}</p>
+                <!-- Institutional Affiliations -->
+                <div class="p-5 mt-6 rounded-lg bg-gray-50">
+                    <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
+                        <img src="{{ asset('assets/institutional-icon.png') }}" alt="">
+                        Institutional Affiliations
+                    </h2>
+                    <p class="mx-10 mt-2 text-sm text-gray-700">{{ $physician->affiliations }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -94,7 +93,7 @@
         <div class="flex flex-col justify-between mx-3 overflow-hidden border shadow-sm lg:flex-row rounded-2xl lg:mx-20">
             <!-- Left Text Section -->
             <div class="flex flex-col justify-center p-8 bg-white lg:w-1/2">
-                <h2 class="mb-4 text-5xl text-gray-900">Became A Member</h2>
+                <h2 class="mb-4 text-5xl text-gray-900">Become A Member</h2>
                 <p class="mb-6 text-gray-700">
                     By joining IC-OS, you become a partner in the global cardio-oncology community,
                     advancing cancer therapy in a truly multidisciplinary approach to medical care

@@ -164,7 +164,7 @@
                 <div class="flex flex-col gap-5 py-10 lg:flex-row">
                     <!-- Sticky Section -->
                     <div
-                        class="sticky flex flex-col items-center self-start justify-center w-auto gap-5 mx-3 top-[12rem] lg:items-start lg:justify-start lg:w-full lg:h-fit">
+                        class="lg:sticky flex flex-col items-center self-start justify-center w-auto gap-5 mx-3 top-[12rem] lg:items-start lg:justify-start lg:w-full lg:h-fit">
                         <div
                             class="flex flex-row items-center justify-center gap-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                             <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">

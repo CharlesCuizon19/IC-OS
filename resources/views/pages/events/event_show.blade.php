@@ -40,9 +40,9 @@
                     <p class="text-gray-600">{{ $event->position }}</p>
                 </div>
             </div>
-            <div class="flex gap-5 mt-10 lg:flex-row">
+            <div class="flex flex-col gap-5 mt-10 lg:flex-row">
                 <img src="{{ asset($event->image2) }}" class=" mx-auto rounded-2xl w-full lg:h-[30rem]">
-                <img src="{{ asset($event->image) }}" class="object-cover w-full mx-auto  rounded-2xl">
+                <img src="{{ asset($event->image) }}" class="object-cover w-full mx-auto rounded-2xl">
             </div>
         </div>
     </div>

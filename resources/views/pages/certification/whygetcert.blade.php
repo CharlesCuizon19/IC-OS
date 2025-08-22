@@ -236,6 +236,23 @@
 
     <script>
         function toggleContent(containerId, contentId) {
+            const allContainers = document.querySelectorAll('[id^="faqContainer"]');
+            const allContents = document.querySelectorAll('[id^="content"]');
+            const allDownIcons = document.querySelectorAll('.lucide-chevron-down');
+            const allUpIcons = document.querySelectorAll('.lucide-chevron-up');
+
+            // Close all FAQs first
+            allContents.forEach(content => {
+                content.style.maxHeight = '0px';
+            });
+            allContainers.forEach(container => {
+                container.classList.remove('bg-gray-200');
+                container.classList.add('bg-white');
+            });
+            allDownIcons.forEach(icon => icon.classList.remove('hidden'));
+            allUpIcons.forEach(icon => icon.classList.add('hidden'));
+
+            // Open the clicked one
             const container = document.getElementById(containerId);
             const content = document.getElementById(contentId);
             const downIcon = container.querySelector('.lucide-chevron-down');
@@ -247,13 +264,8 @@
                 container.classList.add('bg-gray-200');
                 downIcon.classList.add('hidden');
                 upIcon.classList.remove('hidden');
-            } else {
-                content.style.maxHeight = '0px';
-                container.classList.remove('bg-gray-200');
-                container.classList.add('bg-white');
-                downIcon.classList.remove('hidden');
-                upIcon.classList.add('hidden');
             }
         }
     </script>
+
 @endsection
