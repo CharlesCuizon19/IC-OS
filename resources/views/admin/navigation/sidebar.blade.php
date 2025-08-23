@@ -1,11 +1,12 @@
 <div class="fixed inset-y-0 left-0 w-64 text-white bg-gray-900">
     <div class="flex items-center justify-center h-16">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-10 h-10">
+        <img src="{{ asset('assets/footer-logo.png') }}" alt="Logo" class="w-30 h-12">
     </div>
     <nav class="mt-6">
         <ul class="space-y-2">
             <li class="bg-gray-800">
-                <a href="#" class="block py-2 pl-4 pr-6 text-white border-l-4 border-orange-500">Homepage Banner</a>
+                <a href="{{ route('admin.homepageBanner') }}"
+                    class="block py-2 pl-4 pr-6 text-white border-l-4 border-orange-500">Homepage Banner</a>
             </li>
             <li>
                 <a href="#"

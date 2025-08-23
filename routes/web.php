@@ -15,8 +15,14 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
+    // CMS Page routes (just return Blade views)
+    Route::get('/admin/homepageBanner/createbanner', [PageController::class, 'cms_createBanner'])->name('cms.homepagebanner');
+    Route::get('/admin/homepageBanner/updatebanner/{id}', [PageController::class, 'cms_updateBanner'])->name('cms.homepagebannerUpdate');
+
+    // Banner CRUD routes
     Route::get('/admin/homepageBanner', [BannersController::class, 'index'])->name('admin.homepageBanner');
     Route::post('/admin/homepageBanner', [BannersController::class, 'store'])->name('store.homepageBanner');
+    Route::put('/admin/homepageBanner/{id}', [BannersController::class, 'update'])->name('update.homepageBanner');
 });
 
 
@@ -40,6 +46,7 @@ Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show'
 // Resources & Contact
 Route::get('/resources', [PageController::class, 'resources'])->name('resources');
 Route::get('/contactus', [PageController::class, 'contact_us'])->name('contact-us');
+
 
 
 
