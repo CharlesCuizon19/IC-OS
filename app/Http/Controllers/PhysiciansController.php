@@ -17,8 +17,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -30,8 +28,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Adrian Sastre is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, he is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Sastre is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -43,8 +39,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Kent Escoto is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, he is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Escoto is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -56,8 +50,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -69,8 +61,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -82,8 +72,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -102,8 +90,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -114,8 +100,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -126,8 +110,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -138,8 +120,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -150,8 +130,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],
@@ -162,8 +140,6 @@ class PhysiciansController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
                 'about' => "Dr. Maria Santiago is a board-certified internal medicine specialist with over 15 years of experience in cardiology and oncology integration. Based in Manila, Philippines, she is a leading advocate for cardio-oncology education and patient-centered care in Southeast Asia. As an ICS Certified Physician, Dr. Santiago is committed to advancing the understanding and management of cardiovascular health in patients undergoing cancer treatment...",
                 'affiliations' => 'Director of Cardio-Oncology European Institute of Oncology'
             ],

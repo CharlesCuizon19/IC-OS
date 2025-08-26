@@ -56,40 +56,40 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-3 w-auto lg:w-[20rem] text-center">
-                    <span class="text-xl font-bold text-white">Event</span>
-                    <a href="#">
+                    <span class="text-xl font-bold text-white">Events</span>
+                    <a href="{{ route('events.show', 7) }}">
                         <div class="flex items-center gap-5 pb-2 border-b">
                             <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt="" class="w-[3rem]">
                             <div class="flex flex-col text-white ">
-                                <span class="text-sm">Certicate Exam in Cardio-ocnology Knowledge Review Course</span>
+                                <span class="text-sm">New Training Program Launched for Local Physicians</span>
                                 <div class="flex gap-10 text-sm text-white opacity-55">
-                                    <span>September 6, 2025</span>
+                                    <span>December 23, 2025</span>
                                     <span>Course Virtual</span>
                                 </div>
                             </div>
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{ route('events.show', 8) }}">
                         <div class="flex items-center gap-5 pb-2 border-b">
                             <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt="" class="w-[3rem]">
                             <div class="flex flex-col text-white ">
-                                <span class="text-sm">Certicate Exam in Cardio-ocnology Knowledge Review Course</span>
+                                <span class="text-sm">National Forum on Career and Heart Care Held in Manila</span>
                                 <div class="flex gap-10 text-sm text-white opacity-55">
-                                    <span>September 6, 2025</span>
+                                    <span>December 23, 2025</span>
                                     <span>Course Virtual</span>
                                 </div>
                             </div>
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{ route('events.show', 9) }}">
                         <div class="flex items-center gap-5 pb-2 border-b">
                             <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt="" class="w-[3rem]">
                             <div class="flex flex-col text-white ">
-                                <span class="text-sm">Certicate Exam in Cardio-ocnology Knowledge Review Course</span>
+                                <span class="text-sm">ICOS PH Expands Global Ties with Regional Partners</span>
                                 <div class="flex gap-10 text-sm text-white opacity-55">
-                                    <span>September 6, 2025</span>
+                                    <span>December 23, 2025</span>
                                     <span>Course Virtual</span>
                                 </div>
                             </div>

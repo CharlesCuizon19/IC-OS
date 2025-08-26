@@ -6,10 +6,10 @@
 
     <x-banner title="Certified Physicians" page="Certifications /" breadcrumb="Certified Physicians" />
 
-    <div class="container px-4 py-6 mx-auto lg:mt-[15rem] border-b border-gray-500 lg:pb-[5rem] mt-10">
+    <div class="container px-4 py-6 mx-auto lg:mt-[8rem] border-b border-gray-500 lg:pb-[5rem] mt-10">
         <!-- Header -->
         <div class="flex flex-col gap-4 border-b border-gray-500 md:flex-row md:items-center md:justify-between lg:pb-10">
-            <h1 class="text-xl font-bold text-[#17509E]">List of Physicians</h1>
+            <h1 class="text-xl font-bold text-[#17509E]">List of Members</h1>
             <div class="flex flex-col items-center w-full gap-3 md:flex-row md:w-auto">
                 <!-- Search -->
                 <div class="relative w-full md:w-64">
@@ -71,15 +71,6 @@
                                         <img src="{{ asset('assets/location-icon.png') }}" alt="">
                                         {{ $physician->city }}, {{ $physician->country }}
                                     </span>
-                                    <span class="flex items-center gap-1">
-                                        <img src="{{ asset('assets/joined-icon.png') }}" alt="">
-                                        Joined {{ $physician->joined }}
-                                    </span>
-                                    <span class="flex items-center gap-1">
-                                        <img src="{{ asset('assets/experience-icon.png') }}" alt="">
-                                        {{ $physician->experience }}
-                                        years exp
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -110,22 +101,12 @@
                         </select>
                     </div>
 
-                    <div>
-                        <label class="text-sm text-gray-500">Years of Experience</label>
-                        <input type="range" min="1" max="50" value="10" class="w-full">
-                    </div>
-
-                    <div>
-                        <label class="text-sm text-gray-500">Joined</label>
-                        <input type="date" class="w-full px-3 py-2 border rounded-lg">
-                    </div>
-
-                    <div>
+                    {{-- <div>
                         <label class="text-sm text-gray-500">Country</label>
                         <select class="w-full px-3 py-2 border rounded-lg">
                             <option>Select a Country</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     <div>
                         <label class="text-sm text-gray-500">City</label>
@@ -133,7 +114,7 @@
                             <option>Select a City</option>
                         </select>
                     </div>
-
+                    {{-- 
                     <div>
                         <label class="text-sm text-gray-500">Certification</label>
                         <div class="flex items-center gap-3 mt-2">
@@ -144,7 +125,7 @@
                                 <input type="radio" name="certification"> Certified
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

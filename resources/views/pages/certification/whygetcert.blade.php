@@ -9,7 +9,7 @@
             <x-banner title="Why Get Certified" page="Certifications /" breadcrumb="Why Get Certified" />
 
             <div class="container mx-auto">
-                <div class="lg:mt-[15rem]">
+                <div class="lg:mt-[8rem]">
                     <div class="flex flex-col lg:flex-row lg:items-center lg:gap-10 lg:mx-3">
                         <div class="flex w-full mt-10">
                             <img class="lg:w-[40rem] lg:h-[24rem]" src="{{ asset('assets/whygetcert_image.png') }}"

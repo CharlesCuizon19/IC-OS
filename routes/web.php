@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PhysiciansController;
 use App\Http\Controllers\BoardofDirectorsController;
 use App\Http\Controllers\BannersController;
+use App\Http\Controllers\BlogsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -18,11 +19,20 @@ Route::middleware('auth')->group(function () {
     // CMS Page routes (just return Blade views)
     Route::get('/admin/homepageBanner/createbanner', [PageController::class, 'cms_createBanner'])->name('cms.homepagebanner');
     Route::get('/admin/homepageBanner/updatebanner/{id}', [PageController::class, 'cms_updateBanner'])->name('cms.homepagebannerUpdate');
+    Route::get('/admin/blogs/createblog', [PageController::class, 'cms_createBlog'])->name('cms.createBlog');
+    Route::get('/admin/blogs/updateblog/{id}', [PageController::class, 'cms_updateBlog'])->name('cms.updateBlog');
 
     // Banner CRUD routes
-    Route::get('/admin/homepageBanner', [BannersController::class, 'index'])->name('admin.homepageBanner');
+    Route::get('/admin/homepageBanner', [BannersController::class, 'index'])->name('show.homepageBanner');
     Route::post('/admin/homepageBanner', [BannersController::class, 'store'])->name('store.homepageBanner');
     Route::put('/admin/homepageBanner/{id}', [BannersController::class, 'update'])->name('update.homepageBanner');
+    Route::delete('/admin/homepageBanner/{id}', [BannersController::class, 'destroy'])->name('delete.homepageBanner');
+
+    // Blog CRUD routes
+    Route::get('/admin/blogs', [BlogsController::class, 'index'])->name('show.blogs');
+    Route::post('/admin/blogs', [BlogsController::class, 'store'])->name('store.blog');
+    Route::put('/admin/blogs/{id}', [BlogsController::class, 'update'])->name('update.blog');
+    Route::delete('/admin/blogs/{id}', [BlogsController::class, 'destroy'])->name('delete.blog');
 });
 
 

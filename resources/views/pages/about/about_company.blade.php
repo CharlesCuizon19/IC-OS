@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Abour Company | ICOS')
+@section('title', 'About Company | ICOS')
 
 @section('content')
     <div class="overflow-x-hidden">
         <div class="flex flex-col">
 
-            <x-banner title="About Company" page="About Us /" breadcrumb="About Company" />
+            <x-banner title="About Society" page="About Us /" breadcrumb="About Society" />
 
             <div class="container mx-auto">
-                <div class="lg:mt-[15rem] mt-10">
+                <div class="lg:mt-[8rem] mt-10">
                     <div
                         class="flex flex-row items-center justify-center gap-3 mb-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                         <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">
@@ -166,7 +166,7 @@
                     <div class="flex text-xl text-center lg:text-3xl lg:items-center lg:justify-center lg:w-2/3">
                         <p>
                             With over <span class="font-bold">1000 members</span> from more than <span class="font-bold">30
-                                contries</span>, we are expanding our reach throughout the world
+                                countries</span>, we are expanding our reach throughout the world
                         </p>
                     </div>
                 </div>

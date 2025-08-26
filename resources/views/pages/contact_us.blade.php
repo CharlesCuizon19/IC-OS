@@ -5,14 +5,14 @@
 @section('content')
     <x-banner title="Contact Us" page="" breadcrumb="Contact Us" />
 
-    <div class="container mx-auto lg:my-[10rem]">
+    <div class="container mx-auto lg:my-[8rem]">
         <div class="flex flex-col gap-10 pb-10 lg:mx-3">
             <div class="flex flex-col items-center justify-center gap-10 mt-10">
                 <div
                     class="flex flex-row items-center justify-center gap-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                     <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">
                     <span class="bg-[#E94B4D]/10 w-fit text-[#E94B4D] px-4 py-2 text-xs rounded-full">
-                        Board of Directors
+                        Contact Us
                     </span>
                 </div>
                 <div class="text-[#112947] text-[2rem] font-semibold">

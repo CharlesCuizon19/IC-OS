@@ -60,7 +60,7 @@
             <a href="/abouts/about-company">
                 <button
                     class=" text-sm rounded-full lg:text-xl font-normal border-2 border-[#E94B4D] py-2 lg:py-3 px-[5rem] lg:px-10 text-black w-fit hover:cursor-pointer hover:bg-[#E94B4D] hover:text-white transition duration-300">
-                    Know More About Us
+                    Read More
                 </button>
             </a>
             <img src="{{ asset('assets/med-tools.png') }}" alt=""

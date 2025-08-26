@@ -46,14 +46,6 @@
                     <img src="{{ asset('assets/location-icon.png') }}" alt="">
                     {{ $physician->city }} {{ $physician->city }}
                 </div>
-                <div class="flex items-center gap-1">
-                    <img src="{{ asset('assets/joined-icon.png') }}" alt="">
-                    Joined {{ $physician->joined }}
-                </div>
-                <div class="flex items-center gap-1">
-                    <img src="{{ asset('assets/experience-icon.png') }}" alt="">
-                    {{ $physician->experience }}
-                </div>
             </div>
 
             <!-- About Section -->
@@ -90,11 +82,11 @@
                     advancing cancer therapy in a truly multidisciplinary approach to medical care
                     that strives for dramatic improvements in outcomes for patients with cancer.
                 </p>
-                <button
+                <a href="https://members.ic-os.org/general/register_member_type.asp"
                     class="flex items-center gap-2 px-5 py-2 font-medium text-white transition bg-red-500 rounded-full w-fit hover:bg-red-600">
                     <span class="w-2 h-2 bg-white rounded-full"></span>
                     Join IC-OS
-                </button>
+                </a>
             </div>
 
             <!-- Right Image with Overlay -->

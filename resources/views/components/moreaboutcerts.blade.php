@@ -24,8 +24,8 @@
             <a href="{{ $cert->url }}">
                 <div class="transition-all duration-300 cursor-pointer hover:scale-105">
                     <div
-                        class="flex items-center gap-3 flex-col lg:flex-row border hover:border-[#17509E]/50 rounded-2xl p-4">
-                        <img src="{{ asset($cert->img) }}" alt="" class="lg:w-[12rem] lg:h-[7rem]">
+                        class="flex items-center gap-3 flex-col lg:flex-row border hover:border-[#17509E]/50 rounded-2xl p-3">
+                        <img src="{{ asset($cert->img) }}" alt="" class="lg:w-[12rem] lg:h-[7rem] rounded-md">
                         <div class="flex flex-col gap-1 text-center lg:text-start">
                             <p class="text-2xl text-[#17509E] font-semibold">{{ $cert->title }}</p>
                             <p class="text-gray-500"> {{ $cert->desc }}</p>

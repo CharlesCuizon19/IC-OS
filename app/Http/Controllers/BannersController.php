@@ -10,29 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class BannersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $banners = banners::with(['images', 'images.files'])->get();
-        return view('admin.pages.homepageBanner', compact('banners'));
+        $banners = banners::with(['images', 'images.files'])->take(3)->get();
+        return view('admin.pages.banners.homepageBanner', compact('banners'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-
         try {
             $data = $request->validate([
                 'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
@@ -83,43 +68,18 @@ class BannersController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.homepageBanner')->with('success', 'Banner created successfully.');
+            return redirect()->route('show.homepageBanner')->with('success', 'Banner created successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => 'Failed to create banner: ' . $e->getMessage()]);
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(banners $banners)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        try {
-            // Fetch the banner with related image and file
-            $banner = banners::with(['images', 'images.files'])->findOrFail($id);
-
-            return view('admin.pages.homepageBannerEdit', compact('banner'));
-        } catch (\Exception $e) {
-            return redirect()->route('admin.homepageBanner')->withErrors(['error' => 'Banner not found.']);
-        }
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         try {
@@ -167,7 +127,7 @@ class BannersController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.homepageBanner')->with('success', 'Banner updated successfully.');
+            return redirect()->route('admin.pages.banner.homepageBanner')->with('success', 'Banner updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => 'Failed to update banner: ' . $e->getMessage()]);
@@ -177,8 +137,42 @@ class BannersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(banners $banners)
+    public function destroy($id)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            // Find banner with relationships
+            $banner = banners::with(['images', 'images.files'])->findOrFail($id);
+
+            if ($banner->images) {
+                $image = $banner->images;
+
+                if ($image->files) {
+                    $file = $image->files;
+
+                    // Delete physical file from uploads folder
+                    if (file_exists(public_path($file->image_path))) {
+                        unlink(public_path($file->image_path));
+                    }
+
+                    // Delete file record
+                    $file->delete();
+                }
+
+                // Delete image record
+                $image->delete();
+            }
+
+            // Finally delete the banner
+            $banner->delete();
+
+            DB::commit();
+
+            return redirect()->route('admin.pages.banner.homepageBanner')->with('success', 'Banner deleted successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['error' => 'Failed to delete banner: ' . $e->getMessage()]);
+        }
     }
 }

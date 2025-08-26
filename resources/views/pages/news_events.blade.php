@@ -7,7 +7,7 @@
 
     <x-banner title="News & Events" page="" breadcrumb="News & Events" />
 
-    <div class="container mx-auto lg:my-[15rem]">
+    <div class="container mx-auto lg:my-[8rem]">
         <div class="flex flex-col items-center justify-center gap-3 mx-3 lg:items-start lg:justify-start">
             <div
                 class="flex flex-row items-center justify-center gap-3 mt-10 mb-1 lg:justify-start lg:gap-3 lg:flex lg:items-center">
@@ -36,7 +36,7 @@
                                     <div class="flex flex-col items-center justify-center gap-5">
                                         <div class="relative w-auto">
                                             <img src="{{ asset($event->image) }}" alt=""
-                                                class="w-auto lg:w-[40rem] rounded-[55px]">
+                                                class="w-auto lg:w-[25rem] lg:h-[15rem] object-cover rounded-[55px]">
                                             {{-- desktop view --}}
                                             <div
                                                 class=" absolute hidden lg:flex py-2 px-5 lg:py-3 items-center lg:px-6 lg:bottom-7 lg:right-[19rem] bg-[#17509E] rounded-full">
@@ -111,7 +111,7 @@
                         <div class="text-sm font-semibold">
                             Latest Post
                         </div>
-                        <div class="divide-y-2 divide-gray-300">
+                        <div class="divide-y-2">
                             @foreach ($events as $event)
                                 <div
                                     class="flex gap-3 items-center py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">

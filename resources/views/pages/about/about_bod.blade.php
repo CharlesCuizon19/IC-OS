@@ -10,7 +10,7 @@
             <x-banner title="Board of Directors" page="About Us /" breadcrumb="Board of Directors" />
 
             <div class="container mx-auto">
-                <div class="lg:mt-[15rem] mt-10">
+                <div class="lg:mt-[8rem] mt-10">
                     <div
                         class="flex flex-row items-center justify-center gap-3 lg:justify-start lg:gap-3 lg:flex lg:items-center">
                         <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="h-5 w-7">

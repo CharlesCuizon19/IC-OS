@@ -7,7 +7,7 @@
                 <!-- Logo + Hamburger -->
                 <div class="flex items-center justify-between w-full lg:w-auto">
                     <img src="{{ asset('assets/logo.png') }}" alt=""
-                        class="w-[10rem] h-[4rem] lg:px-5 lg:w-fit lg:h-fit">
+                        class="w-[9rem] h-[4rem] lg:px-5 lg:w-[15rem] lg:h-auto">
 
                     <!-- Hamburger Button -->
                     <button @click="open = !open" class="text-black focus:outline-none lg:hidden">
@@ -48,7 +48,7 @@
                             <a href="/abouts/about-company"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('about-company') ? 'text-[#E94B4D] font-bold' : '' }}"
                                 role="menuitem" @click.stop>
-                                About Company
+                                About Society
                             </a>
 
                             <a href="/abouts/board-of-directors"
@@ -73,10 +73,10 @@
                             class="absolute left-0 p-3 mt-2 text-left bg-white border rounded-lg shadow-lg w-50 top-full lg:group-hover:block"
                             x-cloak role="menu">
 
-                            <a href="/certificates/get-certified"
+                            <a href="https://members.ic-os.org/general/register_member_type.asp"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }}"
                                 role="menuitem" @click.stop>
-                                Get Certificate
+                                Be a Member
                             </a>
 
                             <a href="/certificates/why-getcertified"
@@ -85,7 +85,7 @@
 
                             <a href="/certificates/certified-physicians"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('certified-physicians') ? 'text-[#E94B4D] font-bold' : '' }}"
-                                role="menuitem" @click.stop>Certified Physicians</a>
+                                role="menuitem" @click.stop>Members</a>
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@
 
                     <!-- CTA Button (Mobile) -->
                     <div class="w-full pb-5 mt-4 lg:hidden">
-                        <a href="#"
+                        <a href="https://members.ic-os.org/general/register_member_type.asp"
                             class="bg-[#E94B4D] hover:bg-[#c53b3d] text-white font-medium px-6 py-3 rounded-full text-sm">
                             Join IC-OS
                         </a>
@@ -146,9 +146,9 @@
 
             <!-- Button (Desktop) -->
             <div class="items-center justify-center hidden lg:flex">
-                <a href="#"
-                    class="bg-[#E94B4D] hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-3 rounded-full text-xl shadow">
-                    Join IC-OS
+                <a href="https://members.ic-os.org/general/register_member_type.asp"
+                    class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
+                    <span class="text-[16px]">Join IC-OS</span> <br> Pilipinas
                 </a>
             </div>
 
@@ -195,7 +195,7 @@
                 <!-- Logo + Hamburger -->
                 <div class="flex items-center justify-between w-full lg:w-auto">
                     <img src="{{ asset('assets/logo.png') }}" alt=""
-                        class="w-[10rem] h-[4rem] lg:px-5 lg:w-fit lg:h-fit">
+                        class="w-[10rem] h-[4rem] lg:px-5 lg:w-[15rem] lg:h-auto">
 
                     <!-- Hamburger Button -->
                     <button @click="open = !open" class="text-black focus:outline-none lg:hidden">
@@ -236,7 +236,7 @@
                             <a href="/abouts/about-company"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('about-company') ? 'text-[#E94B4D] font-bold' : '' }}"
                                 role="menuitem" @click.stop>
-                                About Company
+                                About Society
                             </a>
 
                             <a href="/abouts/board-of-directors"
@@ -335,7 +335,7 @@
 
             <!-- Button (Desktop) -->
             <div class="items-center justify-center hidden lg:flex">
-                <a href="#"
+                <a href="https://members.ic-os.org/general/register_member_type.asp"
                     class="bg-[#E94B4D] hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-3 rounded-full text-xl shadow">
                     Join IC-OS
                 </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\banners;
+use App\Models\blogs;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -44,8 +45,6 @@ class PageController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
             ],
             (object) [
                 'image' => 'assets/sample-doctor.png',
@@ -54,8 +53,6 @@ class PageController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
             ],
             (object) [
                 'image' => 'assets/sample-doctor.png',
@@ -64,8 +61,6 @@ class PageController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
             ],
             (object) [
                 'image' => 'assets/sample-doctor.png',
@@ -74,8 +69,6 @@ class PageController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
             ],
             (object) [
                 'image' => 'assets/sample-doctor.png',
@@ -84,8 +77,6 @@ class PageController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
             ],
             (object) [
                 'image' => 'assets/sample-doctor.png',
@@ -94,8 +85,6 @@ class PageController extends Controller
                 'certified' => true,
                 'city' => 'Manila',
                 'country' => 'Philippines',
-                'joined' => 2022,
-                'experience' => 15,
             ],
         ];
         return view('pages/certification/certified_physicians', compact('physicians'));
@@ -203,15 +192,29 @@ class PageController extends Controller
 
 
 
-    //---------------------------------------------- CMS FUNCTIONS
+    //---------------------------------------------- CMS FUNCTIONS----------------------
+
+    //BANNER
 
     public function cms_createBanner()
     {
-        return view('admin.pages.createBanner');
+        return view('admin.pages.banners.createBanner');
     }
     public function cms_updateBanner($id)
     {
         $banner = banners::with(['images', 'images.files'])->findOrFail($id);
-        return view('admin.pages.updateBanner', compact('banner'));
+        return view('admin.pages.banners.updateBanner', compact('banner'));
+    }
+
+    //BLOG
+
+    public function cms_createBlog()
+    {
+        return view('admin.pages.blogs.createBlog');
+    }
+    public function cms_updateBlog($id)
+    {
+        $blog = blogs::with(['categories', 'images', 'images.files'])->findOrFail($id);
+        return view('admin.pages.blogs.updateBlog', compact('blog'));
     }
 }

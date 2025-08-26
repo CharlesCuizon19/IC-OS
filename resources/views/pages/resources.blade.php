@@ -5,7 +5,7 @@
 @section('content')
     <x-banner title="Resources" page="" breadcrumb="Resources" />
 
-    <div class="container mx-auto lg:my-[10rem]">
+    <div class="container mx-auto lg:my-[8rem]">
         <div class="flex flex-col lg:mx-3">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center pb-14 lg:pb-[10rem] border-b-2">
                 <div class="flex flex-col gap-3 mt-10">

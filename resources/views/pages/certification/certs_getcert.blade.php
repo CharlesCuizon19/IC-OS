@@ -10,7 +10,7 @@
             <x-banner title="Get Certificate" page="Certifications /" breadcrumb="Get Certificate" />
 
             <div class="container mx-auto">
-                <div class="lg:mt-[15rem]">
+                <div class="lg:mt-[8rem]">
                     <div class="flex flex-col lg:flex-row lg:gap-10 lg:mx-3">
                         <div class="flex w-full mt-10">
                             <img class="lg:w-[40rem]" src="{{ asset('assets/image1.png') }}" alt="">
@@ -179,7 +179,8 @@
                             Understand the qualifications, documents, and steps needed to apply with confidence.
                         </div>
                         <div class="w-fit">
-                            <button class="flex items-center gap-2 px-4 py-2 border border-black rounded-full">
+                            <a href="{{ route('resources') }}"
+                                class="flex items-center gap-2 px-4 py-2 border border-gray-500 rounded-full">
                                 <span class="text-gray-600">
                                     Get Materials
                                 </span>
@@ -191,7 +192,7 @@
                                         <path d="M7 17L17 7" />
                                     </svg>
                                 </div>
-                            </button>
+                            </a>
                         </div>
                     </div>
 
