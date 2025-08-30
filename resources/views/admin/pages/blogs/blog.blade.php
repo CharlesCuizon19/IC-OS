@@ -2,11 +2,11 @@
 
 @section('admin-content')
     <div class="container p-4 mx-auto mt-16">
-        <h1 class="mb-4 text-2xl font-bold">BLOG</h1>
+        <h1 class="mb-4 text-2xl font-bold">EVENTS</h1>
 
         <div class="flex items-end justify-end w-full mb-4">
             <a href="{{ route('cms.createBlog') }}" class="px-4 py-2 text-white bg-black rounded">
-                Create Blog
+                Add Event
             </a>
         </div>
 
@@ -19,7 +19,6 @@
                         <th class="p-2">Context</th>
                         <th class="p-2">Slug</th>
                         <th class="p-2">Date Issued</th>
-                        <th class="p-2">Read Duration</th>
                         <th class="p-2">Cover Image</th>
                         <th class="p-2">Actions</th>
                     </tr>
@@ -28,11 +27,10 @@
                     @foreach ($blogs as $blog)
                         <tr class="bg-white">
                             <td class="p-2">{{ $blog->id }}</td>
-                            <td class="p-2">{{ $blog->title }}</td>
+                            <td class="p-2">{{ Str::limit($blog->title, 50) }}</td>
                             <td class="p-2">{{ Str::limit($blog->context, 50) }}</td>
-                            <td class="p-2">{{ $blog->slug }}</td>
+                            <td class="p-2">{{ Str::limit($blog->slug, 50) }}</td>
                             <td class="p-2">{{ $blog->date_issued }}</td>
-                            <td class="p-2">{{ $blog->read_duration }}</td>
                             <td class="p-2">
                                 <div class="flex items-center justify-center">
                                     <img src="{{ asset($blog->images->files->image_path ?? 'assets/404.webp') }}"

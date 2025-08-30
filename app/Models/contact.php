@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class contact extends Model
 {
     use HasFactory;
+
+    protected $table = 'contact';
+
+    public function messages()
+    {
+        return $this->belongsTo(messages::class, 'message_id');
+    }
 }

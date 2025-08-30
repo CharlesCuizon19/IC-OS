@@ -16,25 +16,9 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'username' => 'admin',
-                'email' => 'admin@example.com',
+                'email' => 'rweb@example.com',
                 'password' => Hash::make('password123'), // always hash!
                 'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'username' => 'john_doe',
-                'email' => 'john@example.com',
-                'password' => Hash::make('password123'),
-                'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'username' => 'jane_doe',
-                'email' => 'jane@example.com',
-                'password' => Hash::make('password123'),
-                'is_active' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

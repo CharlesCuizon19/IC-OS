@@ -7,11 +7,11 @@
         <div class="flex items-end justify-end w-full mb-4">
             @if ($banners->count() >= 3)
                 <button class="px-4 py-2 text-white bg-gray-500 rounded cursor-not-allowed" disabled>
-                    Create Banner
+                    Add Banner
                 </button>
             @else
                 <a href="{{ route('cms.homepagebanner') }}" class="px-4 py-2 text-white bg-black rounded">
-                    Create Banner
+                    Add Banner
                 </a>
             @endif
         </div>
@@ -22,7 +22,7 @@
                     <tr>
                         <th class="p-2">ID</th>
                         <th class="p-2">Title</th>
-                        <th class="p-2">Subtitle</th>
+                        {{-- <th class="p-2">Subtitle</th> --}}
                         <th class="p-2">Banner</th>
                         <th class="p-2">Actions</th>
                     </tr>
@@ -32,7 +32,7 @@
                         <tr class="bg-white">
                             <td class="p-2">{{ $banner->id }}</td>
                             <td class="p-2">{{ $banner->title }}</td>
-                            <td class="p-2">{{ $banner->context }}</td>
+                            {{-- <td class="p-2">{{ $banner->context }}</td> --}}
                             <td class="p-2">
                                 <div class="flex items-center justify-center">
                                     <img src="{{ asset($banner->images->files->image_path ?? 'assets/404.webp') }}"

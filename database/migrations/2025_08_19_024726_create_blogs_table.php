@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('slug');
             $table->string('title');
-            $table->string('context');
+            $table->longText('context');
             $table->date('date_issued');
-            $table->time('read_duration');
+            $table->time('read_duration')->nullable();
             $table->foreignId('cover_image_id')->constrained('images')->cascadeOnDelete();
             $table->timestamps();
         });

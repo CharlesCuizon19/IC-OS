@@ -1,72 +1,86 @@
 @extends('layouts.app')
 
-@section('title', 'Physician Profile')
+@section('title', 'Member Profile')
 
 @section('content')
-    <x-banner title="Certified Physicians" page="Certifications /" breadcrumb="Certified Physicians" />
+    <x-banner title="Members" page="Certifications /" breadcrumb="Members" />
 
-    <div class="lg:container mx-3 lg:mx-auto pt-10 lg:mt-[10rem] border-b border-gray-500 pb-10">
-        <!-- Back Button -->
-        <a href="{{ url()->previous() }}"
-            class="absolute z-40 inline-flex items-center px-4 py-2 mt-5 mb-4 ml-5 text-sm font-medium text-white transition bg-red-500 rounded-full hover:bg-red-600">
-            ← Back to List
-        </a>
+    <div class="lg:container mx-3 lg:mx-auto pt-10 lg:mt-[10rem] border-b-2 pb-10">
+        <div class="relative">
+            <!-- Back Button -->
+            <a href="{{ url()->previous() }}"
+                class="absolute z-40 inline-flex items-center px-4 py-2 mt-5 mb-4 ml-5 text-sm font-medium text-white transition bg-red-500 rounded-full right-5 hover:bg-red-600">
+                ← Back to List
+            </a>
 
-        <!-- Profile Header -->
-        <div class="relative z-30 flex flex-col items-center justify-center p-6 bg-cover rounded-2xl"
-            style="background-image: url({{ asset('assets/coverphoto.png') }}); background-position: center; background-size: cover; height: 14rem;">
+            <!-- Profile Header -->
+            <div class="relative z-30 flex flex-col p-6 bg-cover rounded-2xl"
+                style="background-image: url({{ asset('assets/coverphoto.png') }}); background-position: center; background-size: cover; height: 14rem;">
 
-            <!-- Profile Image -->
-            <div class="absolute -bottom-14">
-                <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-full shadow-lg">
-                    <img src="{{ asset('assets/sample-doctor.png') }}" alt="Dr. Maria Santiago"
-                        class="object-cover w-full h-full rounded-full">
-                </div>
-            </div>
-        </div>
+                <!-- Profile Image -->
+                <div class="absolute flex justify-between w-full gap-5 px-10 -bottom-14">
+                    <div class="flex gap-5 -bottom-10">
+                        <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-full shadow-lg">
+                            <img src="{{ asset($doctor->user->profiles->images->files->image_path) }}" alt="doctor"
+                                class="object-cover w-full h-full rounded-full">
+                        </div>
 
-
-        <!-- Profile Card -->
-        <div class="px-6 pt-[4rem] pb-6">
-            <!-- Name and Specialization -->
-            <div class="flex flex-col items-center pb-5 text-center border-b">
-                <h1 class="text-2xl font-semibold text-gray-800">{{ $physician->name }}</h1>
-                <p class="font-medium text-blue-600">{{ $physician->specialties }}</p>
-                <div class="flex gap-2 my-5">
-                    @if ($physician->certified)
-                        <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="w-6 h-5">
-                        <span class="px-2 py-1 text-xs font-medium text-red-500 bg-red-100 rounded-full">CERTIFIED</span>
-                    @endif
-                </div>
-            </div>
-
-            <!-- Details -->
-            <div class="flex flex-col justify-center gap-6 mt-4 text-sm text-gray-600 sm:flex-row">
-                <div class="flex items-center gap-1">
-                    <img src="{{ asset('assets/location-icon.png') }}" alt="">
-                    {{ $physician->city }} {{ $physician->city }}
+                        <!-- Name and Specialization -->
+                        <div class="flex flex-col justify-center gap-2 mt-1 text-start -bottom-14">
+                            <h1 class="text-5xl font-semibold text-white">
+                                {{ $doctor->user->profiles->first_name }} {{ $doctor->user->profiles->middle_name }}
+                                {{ $doctor->user->profiles->last_name }}
+                            </h1>
+                            <p class="font-medium text-white">
+                                {{ $doctor->specializations->specialization_name }}</p>
+                            <div class="flex gap-2 mt-5">
+                                <img src=" {{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="w-6 h-5">
+                                <span
+                                    class="px-2 py-1 text-xs font-medium text-red-500 bg-red-100 rounded-full">CERTIFIED</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- About Section -->
-            <div class="lg:px-12 ">
-                <div class="p-5 mt-6 rounded-lg bg-gray-50">
-                    <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
-                        <img src="{{ asset('assets/about-icon.png') }}" alt="">
-                        About
-                    </h2>
-                    <p class="mx-3 mt-5 text-sm leading-relaxed text-justify text-gray-700 lg:mx-10">
-                        {{ $physician->about }}
-                    </p>
-                </div>
 
-                <!-- Institutional Affiliations -->
-                <div class="p-5 mt-6 rounded-lg bg-gray-50">
-                    <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
-                        <img src="{{ asset('assets/institutional-icon.png') }}" alt="">
-                        Institutional Affiliations
-                    </h2>
-                    <p class="mx-10 mt-2 text-sm text-gray-700">{{ $physician->affiliations }}</p>
+            <!-- Profile Card -->
+            <div class="px-6 pt-[4rem] pb-6">
+
+                <!-- About Section -->
+                <div class="lg:px-12 ">
+                    <div class="p-5 mt-6 rounded-lg bg-gray-50">
+                        <h2 class="flex items-center gap-4 text-lg font-semibold text-gray-800">
+                            <img src="{{ asset('assets/about-icon.png') }}" alt="">
+                            About
+                        </h2>
+                        <p class="mx-3 mt-5 text-sm leading-relaxed text-justify text-gray-700 lg:mx-10">
+                            {!! $doctor->about !!}
+                        </p>
+                    </div>
+
+                    <div class="p-5 mt-6 rounded-lg bg-gray-50">
+                        <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
+                            <img src="{{ asset('assets/location-icon.png') }}" alt="">
+                            Location
+                        </h2>
+                        <div class="mx-3 mt-5 text-sm leading-relaxed text-justify text-gray-700 lg:mx-10">
+                            {{ ucfirst(preg_replace('/[^A-Za-z0-9 ]/', ' ', $doctor->User->profiles->cities->city_name)) }},
+                            {{ $doctor->User->profiles->cities->countries->country_name }}
+                        </div>
+                    </div>
+
+                    <!-- Institutional Affiliations -->
+                    <div class="p-5 mt-6 rounded-lg bg-gray-50">
+                        <h2 class="flex items-center gap-4 text-lg font-semibold text-gray-800">
+                            <img src="{{ asset('assets/institutional-icon.png') }}" alt="">
+                            Institutional Affiliations
+                        </h2>
+                        @foreach ($doctor->doctor_institutions as $insti)
+                            <p class="mx-10 mt-2 text-sm text-gray-700">{{ $insti->institutions->name }}
+                            </p>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

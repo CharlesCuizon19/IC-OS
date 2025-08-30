@@ -145,12 +145,61 @@
             </div>
 
             <!-- Button (Desktop) -->
-            <div class="items-center justify-center hidden lg:flex">
-                <a href="https://members.ic-os.org/general/register_member_type.asp"
-                    class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
-                    <span class="text-[16px]">Join IC-OS</span> <br> Pilipinas
-                </a>
+            <div x-data="{ open: true }" x-cloak>
+                <!-- Trigger Button -->
+                <div class="items-center justify-center hidden lg:flex">
+                    <button @click="open = true"
+                        class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
+                        Join IC-OS <br> <span class="text-[16px]">Pilipinas</span>
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div x-show="open"
+                    class="fixed inset-0 z-40 bg-black bg-opacity-50 flex items-center justify-center">
+
+                    <div @click.away="open = false"
+                        class="bg-white rounded-2xl shadow-xl max-w-5xl w-full flex flex-col lg:flex-row overflow-hidden relative">
+
+                        <!-- Close Button -->
+                        <button @click="open = false" class="absolute top-3 left-3 text-gray-500 hover:text-gray-700">
+                            ✕
+                        </button>
+
+                        <!-- Left Section -->
+                        <div class="p-6 lg:w-1/2 flex flex-col justify-between bg-white">
+                            <div>
+                                <h2 class="text-xl font-bold mb-4">Join ICOS Pilipinas</h2>
+                                <p class="text-gray-600 mb-6">
+                                    Connect with Filipino experts in cardio-oncology, gain access to local and global
+                                    resources,
+                                    attend exclusive learning events, and be part of a growing network improving patient
+                                    care in the Philippines.
+                                </p>
+                            </div>
+
+                            <div>
+                                <a href="https://members.ic-os.org/general/register_member_type.asp"
+                                    class="px-5 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition">
+                                    Join IC-OS
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Section -->
+                        <div class="lg:w-1/2 relative flex items-center justify-center">
+                            <!-- Blurred Background Image -->
+                            <img src="{{ asset('assets/modal image1.jpg') }}" alt="Modal Background"
+                                class="absolute inset-0 w-full h-full object-cover blur-sm">
+
+                            <!-- Foreground Image (clear) -->
+                            <img src="{{ asset('assets/modal image1.jpg') }}" alt="Modal Image"
+                                class="relative z-10 max-h-[200px] rounded-xl shadow-lg">
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             <div>
                 <div class="absolute flex flex-row lg:-top-6 lg:right-[3rem] lg:gap-2">
@@ -262,10 +311,10 @@
                             class="absolute left-0 p-3 mt-2 text-left bg-white border rounded-lg shadow-lg w-50 top-full lg:group-hover:block"
                             x-cloak role="menu">
 
-                            <a href="/certificates/get-certified"
+                            <a href="https://members.ic-os.org/general/register_member_type.asp"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }}"
                                 role="menuitem" @click.stop>
-                                Get Certificate
+                                Be a Member
                             </a>
 
                             <a href="/certificates/why-getcertified"
@@ -274,7 +323,7 @@
 
                             <a href="/certificates/certified-physicians"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('certified-physicians') ? 'text-[#E94B4D] font-bold' : '' }}"
-                                role="menuitem" @click.stop>Certified Physicians</a>
+                                role="menuitem" @click.stop>Members</a>
                         </div>
                     </div>
 
@@ -291,9 +340,9 @@
 
                     <!-- CTA Button (Mobile) -->
                     <div class="w-full pb-5 mt-4 lg:hidden">
-                        <a href="#"
-                            class="bg-[#E94B4D] hover:bg-[#c53b3d] text-white font-medium px-6 py-3 rounded-full text-sm">
-                            Join IC-OS
+                        <a href="https://members.ic-os.org/general/register_member_type.asp"
+                            class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
+                            Join IC-OS <br> <span class="text-[16px]">Pilipinas</span>
                         </a>
                         <div>
                             <div class="absolute gap-5 flex flex-row lg:-top-8 lg:right-[3rem] lg:gap-2 mt-3">
@@ -336,8 +385,8 @@
             <!-- Button (Desktop) -->
             <div class="items-center justify-center hidden lg:flex">
                 <a href="https://members.ic-os.org/general/register_member_type.asp"
-                    class="bg-[#E94B4D] hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-3 rounded-full text-xl shadow">
-                    Join IC-OS
+                    class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
+                    Join IC-OS <br> <span class="text-[16px]">Pilipinas</span>
                 </a>
             </div>
 

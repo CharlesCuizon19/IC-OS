@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\banners;
 use App\Models\blogs;
-use Illuminate\Http\Request;
+use App\Models\doctors;
+use App\Models\User;
+use App\Models\user_roles;
 
 class PageController extends Controller
 {
     //---------------------------------------------- WEBSITE FUNCTIONS
     public function homepage()
     {
-        return view('pages/index');
+        $banners = banners::with(['images', 'images.files'])->get();
+        $events = blogs::with(['categories', 'images', 'images.files'])->get();
+
+        $events = $events->sortBy('date_issued')->take(3);
+
+        return view('pages/index', compact('banners', 'events'));
     }
 
     public function about_company()
@@ -37,57 +44,8 @@ class PageController extends Controller
     public function certified_physicians()
     {
 
-        $physicians = [
-            (object) [
-                'image' => 'assets/sample-doctor.png',
-                'name' => 'Dr. Maria Santiago',
-                'specialties' => ['Cardio-Oncology', 'Internal Medicine'],
-                'certified' => true,
-                'city' => 'Manila',
-                'country' => 'Philippines',
-            ],
-            (object) [
-                'image' => 'assets/sample-doctor.png',
-                'name' => 'Dr. Adrian Sastre',
-                'specialties' => ['Cardio-Oncology', 'Internal Medicine'],
-                'certified' => true,
-                'city' => 'Manila',
-                'country' => 'Philippines',
-            ],
-            (object) [
-                'image' => 'assets/sample-doctor.png',
-                'name' => 'Dr. Kent Escoto',
-                'specialties' => ['Cardio-Oncology', 'Internal Medicine'],
-                'certified' => true,
-                'city' => 'Manila',
-                'country' => 'Philippines',
-            ],
-            (object) [
-                'image' => 'assets/sample-doctor.png',
-                'name' => 'Dr. Maria Santiago',
-                'specialties' => ['Cardio-Oncology', 'Internal Medicine'],
-                'certified' => true,
-                'city' => 'Manila',
-                'country' => 'Philippines',
-            ],
-            (object) [
-                'image' => 'assets/sample-doctor.png',
-                'name' => 'Dr. Maria Santiago',
-                'specialties' => ['Cardio-Oncology', 'Internal Medicine'],
-                'certified' => true,
-                'city' => 'Manila',
-                'country' => 'Philippines',
-            ],
-            (object) [
-                'image' => 'assets/sample-doctor.png',
-                'name' => 'Dr. Maria Santiago',
-                'specialties' => ['Cardio-Oncology', 'Internal Medicine'],
-                'certified' => true,
-                'city' => 'Manila',
-                'country' => 'Philippines',
-            ],
-        ];
-        return view('pages/certification/certified_physicians', compact('physicians'));
+        $doctors = doctors::with('User', 'specializations', 'doctor_institutions.institutions', 'User.profiles', 'User.profiles.cities', 'User.profiles.cities.countries', 'User.profiles.images', 'User.profiles.images.files')->get();
+        return view('pages/certification/certified_physicians', compact('doctors'));
     }
 
     public function physician()
@@ -97,83 +55,11 @@ class PageController extends Controller
 
     public function news_and_events()
     {
-        $events = [
-            1 => (object)[
-                'image' => 'assets/event1.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' => "Pioneering Awareness: Australia's First Community Q&A on Cardio-Oncology Draws Over 100 Attendees",
-                'description' => 'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...'
-            ],
-            2 => (object)[
-                'image' => 'assets/event2.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' =>
-                "IC-OS President Susan Dent Stresses The Importance of Cardio-Oncology at ASCO 2025",
-                'description' =>
-                'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
-            ],
-            3 => (object)[
-                'image' => 'assets/event3.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' =>
-                "Advancements in Cardio-Oncology: A Vision for Comprehensive Patient Care",
-                'description' =>
-                'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
-            ],
-            4 => (object)[
-                'image' => 'assets/event4.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' =>
-                "IC-OS-Ph Takes Flight – A Milestone in Philippine Cardio-Oncology",
-                'description' =>
-                'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
-            ],
-            5 => (object)[
-                'image' => 'assets/event5.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' =>
-                "Moscow Cardio-Oncology Initiative in Australia",
-                'description' =>
-                'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
-            ],
-            6 => (object)[
-                'image' => 'assets/event6.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' =>
-                "Chinese Medical Association Journal of Cardio-Oncology – Call for Papers",
-                'description' =>
-                'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
-            ],
-            7 => (object) [
-                'image' => 'assets/blog1.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' => 'New Training Program Launched for Local Physicians',
-                'description' => 'In a groudnbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recenly hosted...',
-            ],
-            8 => (object) [
-                'image' => 'assets/blog2.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' => 'National Forum on Cancer and Heart Care Held in Manila',
-                'description' => 'In a groundbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recently hosted...',
-            ],
-            9 => (object) [
-                'image' => 'assets/blog3.png',
-                'month' => 'Dec',
-                'date' => '23',
-                'title' => 'ICOS PH Expands Global Ties with Regional Partners',
-                'description' => 'In a groundbreaking step toward better cancer survivorship care, the Newcastle Center of Excellence in Cardio-Oncology at the Hunter Medical Research Institute recently hosted...',
-            ],
-        ];
+        $blogs = blogs::with(['categories', 'images', 'images.files'])->get();
 
-        return view('pages/news_events', compact('events'));
+        $blogs = $blogs->sortBy('date_issued')->values();
+
+        return view('pages/news_events', compact('blogs'));
     }
 
     public function resources()
@@ -206,6 +92,7 @@ class PageController extends Controller
         return view('admin.pages.banners.updateBanner', compact('banner'));
     }
 
+
     //BLOG
 
     public function cms_createBlog()
@@ -216,5 +103,22 @@ class PageController extends Controller
     {
         $blog = blogs::with(['categories', 'images', 'images.files'])->findOrFail($id);
         return view('admin.pages.blogs.updateBlog', compact('blog'));
+    }
+
+
+    //BLOG
+
+    public function cms_createDoctor()
+    {
+        $usercount = User::all()->count();
+        $nextuser = $usercount + 1;
+
+        return view('admin.pages.doctors.createDoctor', compact('nextuser'));
+    }
+    public function cms_updateDoctor($id)
+    {
+        $doctor = doctors::with('User.profiles', 'specializations', 'doctor_institutions.institutions', 'User.profiles.images.files')->findOrFail($id);
+
+        return view('admin.pages.doctors.updateDoctor', compact('doctor'));
     }
 }

@@ -19,8 +19,18 @@ class images extends Model
         return $this->hasOne(banners::class, 'image_id');
     }
 
+    public function images(): HasOne
+    {
+        return $this->hasOne(images::class, 'image_id');
+    }
+
     public function blogs(): HasOne
     {
         return $this->hasOne(blogs::class, 'cover_image_id');
+    }
+
+    public function profiles()
+    {
+        return $this->belongsTo(images::class, 'image_id');
     }
 }

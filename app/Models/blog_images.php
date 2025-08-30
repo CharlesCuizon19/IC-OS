@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class blog_images extends Model
 {
     use HasFactory;
 
-    public function images(): HasOne
+    public function images()
     {
-        return $this->hasOne(images::class, 'id', 'image_id');
+        return $this->belongsTo(images::class, 'id', 'image_id');
     }
 
-    public function blogs(): HasOne
+    public function blogs()
     {
-        return $this->hasOne(blogs::class, 'id', 'blog_id');
+        return $this->belongsTo(blogs::class, 'blog_id');
     }
 }

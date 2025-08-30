@@ -12,12 +12,6 @@
             'date' => '23',
             'title' => 'National Forum on Cancer and Heart Care Held in Manila',
         ],
-        9 => (object) [
-            'img' => 'assets/blog3.png',
-            'month' => 'Dec',
-            'date' => '23',
-            'title' => 'ICOS PH Expands Global Ties with Regional Partners',
-        ],
     ];
 @endphp
 

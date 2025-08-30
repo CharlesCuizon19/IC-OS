@@ -16,31 +16,33 @@
             </div>
 
             {{-- Context (Subtitle / Description with CKEditor) --}}
-            <div>
-                <label class="block mb-2 font-medium">Context</label>
-                <textarea id="context" name="context" rows="5"
-                    class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30"></textarea>
-            </div>
+            <div class="hidden">
+                <div>
+                    <label class="block mb-2 font-medium">Context</label>
+                    <textarea id="context" name="context" rows="5"
+                        class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">banner</textarea>
+                </div>
 
-            {{-- Location --}}
-            <div>
-                <label class="block mb-2 font-medium">Location</label>
-                <input type="text" name="location" placeholder="Enter location"
-                    class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">
-            </div>
+                {{-- Location --}}
+                <div>
+                    <label class="block mb-2 font-medium">Location</label>
+                    <input type="text" name="location" placeholder="Enter location" value="banner"
+                        class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">
+                </div>
 
-            {{-- Link --}}
-            <div>
-                <label class="block mb-2 font-medium">Link</label>
-                <input type="url" name="link" placeholder="https://example.com"
-                    class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">
-            </div>
+                {{-- Link --}}
+                <div>
+                    <label class="block mb-2 font-medium">Link</label>
+                    <input type="text" name="link" placeholder="https://example.com" value="banner.com"
+                        class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">
+                </div>
 
-            {{-- Alt Text --}}
-            <div>
-                <label class="block mb-2 font-medium">Alt Text</label>
-                <input type="text" name="alt_text" placeholder="Alternative text for the image"
-                    class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">
+                {{-- Alt Text --}}
+                <div>
+                    <label class="block mb-2 font-medium">Alt Text</label>
+                    <input type="text" name="alt_text" placeholder="Alternative text for the image" value="banner"
+                        class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30">
+                </div>
             </div>
 
             {{-- Hidden uploaded_by_id (if logged-in user is uploader) --}}
@@ -48,6 +50,10 @@
 
             {{-- File Upload --}}
             <div class="p-6 text-center border-2 border-dashed rounded-lg">
+                {{-- Image Preview --}}
+                <div class="mt-4">
+                    <img id="preview" class="hidden mx-auto border rounded-lg max-h-48" />
+                </div>
                 <p class="mb-1 font-medium">Image Upload</p>
                 <p class="mb-4 text-sm text-gray-500">Upload one image (Max 2MB, JPG/PNG/GIF/SVG).</p>
 
@@ -63,10 +69,6 @@
                     <input type="file" name="file" id="fileInput" class="hidden" accept="image/*" required>
                 </label>
 
-                {{-- Image Preview --}}
-                <div class="mt-4">
-                    <img id="preview" class="hidden mx-auto border rounded-lg max-h-48" />
-                </div>
             </div>
 
             {{-- JS for preview --}}

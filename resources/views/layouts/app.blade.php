@@ -24,6 +24,19 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body class="overflow-x-hidden">
@@ -43,3 +56,10 @@
         font-family: "Roboto", sans-serif;
     }
 </style>
+
+<script>
+    AOS.init({
+        duration: 1000, // animation duration in ms
+        once: true // animation only happens once
+    });
+</script>

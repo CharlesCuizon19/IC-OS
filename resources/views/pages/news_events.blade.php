@@ -27,37 +27,45 @@
             {{-- Event Cards --}}
             <div class="flex flex-col gap-5 mx-3 lg:flex-row">
                 <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit">
-                    @foreach ($events as $event)
-                        <a href="{{ route('events.show', ['id' => $loop->iteration]) }}"
+                    @foreach ($blogs as $blog)
+                        <a href="{{ route('events.show', $blog->id) }}"
                             class="flex flex-col transition duration-300 cursor-pointer group rounded-2xl">
                             <div
                                 class=" flex flex-col items-center lg:items-start px-10 py-10 lg:px-10 lg:py-10 gap-4 border border-[#17509E]/50 rounded-[2rem] lg:rounded-3xl bg-[#17509E]/10 lg:hover:cursor-pointer lg:hover:bg-[#17509E]/50 lg:transition lg:duration-300 lg:transform lg:hover:scale-105">
                                 <div class="w-auto">
                                     <div class="flex flex-col items-center justify-center gap-5">
                                         <div class="relative w-auto">
-                                            <img src="{{ asset($event->image) }}" alt=""
+                                            <img src="{{ asset($blog->images->files->image_path) }}" alt=""
                                                 class="w-auto lg:w-[25rem] lg:h-[15rem] object-cover rounded-[55px]">
                                             {{-- desktop view --}}
                                             <div
                                                 class=" absolute hidden lg:flex py-2 px-5 lg:py-3 items-center lg:px-6 lg:bottom-7 lg:right-[19rem] bg-[#17509E] rounded-full">
-                                                <div class="flex flex-col">
-                                                    <p class="text-xl font-semibold text-white">{{ $event->date }}</p>
-                                                    <p class="text-xs text-white">{{ $event->month }}</p>
+                                                <div class="flex flex-col text-center">
+                                                    <p class="text-xl font-semibold text-white">
+                                                        {{ \Carbon\Carbon::parse($blog->date_issued)->format('d ') }}
+                                                    </p>
+                                                    <p class="text-xs text-white">
+                                                        {{ \Carbon\Carbon::parse($blog->date_issued)->format('M') }}
+                                                    </p>
                                                 </div>
                                             </div>
                                             {{-- mobile view --}}
                                             <div
                                                 class=" absolute lg:hidden flex bottom-5 left-[1rem] py-4 px-7 lg:py-3 items-center lg:px-6 lg:bottom-11 lg:right-[19rem] bg-[#17509E] rounded-full">
                                                 <div class="flex flex-col">
-                                                    <p class="text-xl font-semibold text-white">23</p>
-                                                    <p class="text-xs text-white">Dec</p>
+                                                    <p class="text-xl font-semibold text-white">
+                                                        {{ \Carbon\Carbon::parse($blog->date_issued)->format('d ') }}
+                                                    </p>
+                                                    <p class="text-xs text-white">
+                                                        {{ \Carbon\Carbon::parse($blog->date_issued)->format('M') }}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div
                                             class="text-xl text-center lg:text-2xl lg:text-left text-[#112947] font-semibold">
                                             <p>
-                                                {{ $event->title }}
+                                                {{ $blog->title }}
                                             </p>
                                         </div>
                                     </div>
@@ -112,10 +120,10 @@
                             Latest Post
                         </div>
                         <div class="divide-y-2">
-                            @foreach ($events as $event)
+                            @foreach ($blogs as $blog)
                                 <div
                                     class="flex gap-3 items-center py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">
-                                    <img src="{{ asset($event->image) }}" alt=""
+                                    <img src="{{ asset($blog->images->files->image_path) }}" alt=""
                                         class="object-cover w-20 h-20 rounded-xl object">
                                     <div>
                                         <div class="flex flex-col gap-1 pb-5 lg:px-5">
@@ -137,11 +145,11 @@
                                                         <path d="M16 18h.01" />
                                                     </svg>
                                                 </div>
-                                                <div class="text-[#17509E] font-semibold text-sm">{{ $event->month }}
-                                                    {{ $event->date }}</div>
+                                                <div class="text-[#17509E] font-semibold text-sm">
+                                                    {{ \Carbon\Carbon::parse($blog->date_issued)->format('M d, Y') }}</div>
                                             </div>
                                             <p class="max-w-md text-sm font-semibold line-clamp-2">
-                                                {{ $event->title }}
+                                                {{ $blog->title }}
                                             </p>
                                         </div>
                                     </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class blogs extends Model
 {
@@ -17,5 +18,10 @@ class blogs extends Model
     public function images()
     {
         return $this->belongsTo(images::class, 'cover_image_id');
+    }
+
+    public function blogs(): HasOne
+    {
+        return $this->hasOne(blogs::class, 'blog_id');
     }
 }

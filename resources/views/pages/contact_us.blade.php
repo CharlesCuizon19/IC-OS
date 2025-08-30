@@ -29,18 +29,19 @@
                             possible.</p>
                         <hr class="mb-6">
 
-                        <form action="#" method="POST" class="space-y-4">
+                        <form action="{{ route('store.message') }}" method="POST" enctype="multipart/form-data"
+                            class="space-y-4">
                             @csrf
                             <!-- First & Last Name -->
                             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                                 <div>
                                     <label class="block mb-1 text-sm font-medium">First Name</label>
-                                    <input type="text" placeholder="John"
+                                    <input type="text" placeholder="John" name="first_name"
                                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                                 </div>
                                 <div>
                                     <label class="block mb-1 text-sm font-medium">Last Name</label>
-                                    <input type="text" placeholder="Doe"
+                                    <input type="text" placeholder="Doe" name="last_name"
                                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                                 </div>
                             </div>
@@ -48,14 +49,14 @@
                             <!-- Email -->
                             <div>
                                 <label class="block mb-1 text-sm font-medium">Email Address</label>
-                                <input type="email" placeholder="johndoe@gmail.com"
+                                <input type="email" placeholder="johndoe@gmail.com" name="email"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                             </div>
 
                             <!-- Message -->
                             <div>
                                 <label class="block mb-1 text-sm font-medium">Message</label>
-                                <textarea placeholder="Type something..." rows="4"
+                                <textarea placeholder="Type something..." rows="4" name="message"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
                             </div>
 
@@ -64,8 +65,7 @@
                                 <input type="checkbox" id="terms" class="mt-1 border-gray-300 rounded">
                                 <label for="terms" class="ml-2 text-sm text-gray-700">
                                     I agree to the <a href="#" class="font-medium text-blue-600 hover:underline">terms
-                                        and
-                                        conditions</a>.
+                                        and conditions</a>.
                                 </label>
                             </div>
 
@@ -86,8 +86,9 @@
                             </div>
 
                             <!-- Submit Button -->
-                            <button type="submit"
-                                class="px-5 py-2 font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            <button id="submitBtn" type="submit"
+                                class="px-5 py-2 font-medium text-white bg-red-500 rounded-full hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled>
                                 Submit Message
                             </button>
                         </form>
@@ -155,4 +156,40 @@
             </div>
         </div>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: 'green'
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ session('error') }}",
+                confirmButtonColor: '#E94B4D'
+            });
+        </script>
+    @endif
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const termsCheckbox = document.getElementById("terms");
+            const submitBtn = document.getElementById("submitBtn");
+
+            termsCheckbox.addEventListener("change", function() {
+                submitBtn.disabled = !this.checked;
+            });
+        });
+    </script>
+
 @endsection

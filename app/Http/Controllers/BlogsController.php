@@ -9,6 +9,7 @@ use App\Models\files;
 use App\Models\images;
 use App\Models\categories;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class BlogsController extends Controller
 {
@@ -24,15 +25,6 @@ class BlogsController extends Controller
     public function store(Request $request)
     {
         try {
-            // $data = $request->validate([
-            //     'category_id' => 'required|integer',
-            //     'slug' => 'required|string|max:255',
-            //     'title' => 'required|string|max:255',
-            //     'context' => 'required|string',
-            //     'date_issued' => 'required|date',
-            //     'read_duration' => 'required|integer',
-            //     'cover_image_id' => 'required|integer',
-            // ]);
 
             DB::beginTransaction();
 
@@ -147,7 +139,7 @@ class BlogsController extends Controller
 
             DB::commit();
 
-            return redirect()->route('show.blogs')->with('success', 'Blog updated successfully.');
+            return redirect()->route('show.blogs');
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -160,11 +152,46 @@ class BlogsController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(blogs $blogs)
+    public function destroy(blogs $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            // Get related records
+            $category = $id->categories;
+            $image = $id->images;
+            $file = $image ? $image->files : null;
+
+            // Delete the physical file from storage if it exists
+            if ($file && $file->image_path && Storage::exists($file->image_path)) {
+                Storage::delete($file->image_path);
+            }
+
+            // Delete related records
+            if ($file) {
+                $file->delete();
+            }
+            if ($image) {
+                $image->delete();
+            }
+            if ($category) {
+                $category->delete();
+            }
+
+            // Delete the blog
+            $id->delete();
+
+            DB::commit();
+
+            return redirect()->route('show.blogs')->with('success', 'Blog deleted successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            Log::error('Blog deletion failed', [
+                'message' => $e->getMessage(),
+            ]);
+
+            return back()->withErrors(['error' => 'An error occurred while deleting the blog. Please try again.']);
+        }
     }
 }

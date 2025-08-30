@@ -20,12 +20,12 @@ class BannersController extends Controller
     {
         try {
             $data = $request->validate([
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'file' => 'required|image|max:5120',
                 'alt_text' => 'nullable|string|max:255',
                 'title' => 'required|string|max:255',
                 'context' => 'required|string|max:255',
                 'location' => 'required|string|max:255',
-                'link' => 'required|url|max:255',
+                'link' => 'required|string|max:255',
             ]);
 
             DB::beginTransaction();
@@ -91,7 +91,7 @@ class BannersController extends Controller
                 'title' => 'required|string|max:255',
                 'context' => 'required|string|max:255',
                 'location' => 'required|string|max:255',
-                'link' => 'required|url|max:255',
+                'link' => 'required|string|max:255',
             ]);
 
             DB::beginTransaction();
@@ -127,7 +127,7 @@ class BannersController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.pages.banner.homepageBanner')->with('success', 'Banner updated successfully.');
+            return redirect()->route('show.homepageBanner')->with('success', 'Banner updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => 'Failed to update banner: ' . $e->getMessage()]);
@@ -169,7 +169,7 @@ class BannersController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.pages.banner.homepageBanner')->with('success', 'Banner deleted successfully.');
+            return redirect()->route('show.homepageBanner')->with('success', 'Banner deleted successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => 'Failed to delete banner: ' . $e->getMessage()]);

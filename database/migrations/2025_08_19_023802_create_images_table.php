@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('file_id')->constrained('files')->cascadeOnDelete();
-            $table->string('alt_text');
+            $table->string('alt_text')->nullable();
             $table->timestamps();
         });
     }

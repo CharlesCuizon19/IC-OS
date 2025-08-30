@@ -9,7 +9,7 @@
                     class="block py-2 pl-4 pr-6 text-white 
           {{ Route::is('show.homepageBanner') ? 'bg-red-500' : '' }} 
           hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
-                    Homepage Banner
+                    Homepage Banners
                 </a>
 
             </li>
@@ -18,18 +18,25 @@
                     class="block py-2 pl-4 pr-6 text-white 
           {{ Route::is('show.blogs') ? 'bg-red-500' : '' }} 
           hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
-                    Blog
+                    Events
                 </a>
 
             </li>
             <li>
-                <a href="#"
-                    class="block py-2 pl-6 pr-6 transition-all duration-200 hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">User
-                    Management</a>
+                <a href="{{ route('show.doctors') }}"
+                    class="block py-2 pl-4 pr-6 text-white 
+          {{ Route::is('show.doctors') ? 'bg-red-500' : '' }} 
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
+                    Members
+                </a>
             </li>
             <li>
-                <a href="#"
-                    class="block py-2 pl-6 pr-6 transition-all duration-200 hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">Contacts</a>
+                <a href="{{ route('show.messages') }}"
+                    class="block py-2 pl-4 pr-6 text-white 
+          {{ Route::is('show.messages') ? 'bg-red-500' : '' }} 
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
+                    Contact Us
+                </a>
             </li>
         </ul>
     </nav>

@@ -10,12 +10,7 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id(); // Primary Key (auto-incrementing)
-            $table->string('license_number');
-            $table->string('hospital');
-            $table->string('about');
-            $table->integer('years_of_experience'); // Adjust type if needed (e.g., decimal)
-            $table->date('years_joined');
-            $table->boolean('is_certified');
+            $table->longText('about');
 
             // Foreign key constraints (adjust table names as per your schema)
             $table->foreignId('specialization_id')->constrained('specializations')->cascadeOnDelete();

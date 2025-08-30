@@ -7,7 +7,7 @@
                     ? 'assets/getcertificate_banner.png'
                     : ($title === 'Why Get Certified'
                         ? 'assets/whygetcertified_banner.png'
-                        : ($title === 'Certified Physicians'
+                        : ($title === 'Members'
                             ? 'assets/certifiedphysicians_banner.png'
                             : ($title === 'News & Events'
                                 ? 'assets/newsevents_banner.png'

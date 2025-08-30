@@ -13,36 +13,16 @@
                     <h1 class="mt-2 text-3xl font-bold">{{ $event->title }}</h1>
                 </div>
             </div>
-            <img src="{{ asset($event->image) }}" class="w-full mx-auto rounded-2xl lg:h-[30rem] object-cover">
+            <img src="{{ asset($event->images->files->image_path) }}"
+                class="w-full mx-auto rounded-2xl lg:h-[30rem] object-cover">
             <div class="mx-10 ">
                 <div class="flex flex-col gap-5 mt-6">
-                    <p class="text-gray-600">{{ $event->greetings }}</p>
-                    <p class="text-2xl font-semibold"> {{ $event->description_title }} </p>
-                    <p class="text-gray-600">{{ $event->description }}</p>
-                </div>
-                <div class="flex flex-col gap-5 mt-6">
-                    <p class="text-gray-600">{{ $event->greetings }}</p>
-                    <p class="text-2xl font-semibold"> {{ $event->description_title }} </p>
-                    <p class="text-gray-600">{{ $event->description }}</p>
-                </div>
-                <div class="flex flex-col gap-5 mt-6">
-                    <p class="text-gray-600">{{ $event->greetings }}</p>
-                    <p class="text-2xl font-semibold"> {{ $event->description_title }} </p>
-                    <p class="text-gray-600">{{ $event->description }}</p>
-                </div>
-                <div class="flex flex-col gap-5 mt-6">
-                    <p class="text-gray-600">{{ $event->greetings }}</p>
-                    <p class="text-2xl font-semibold"> {{ $event->description_title }} </p>
-                    <p class="text-gray-600">{{ $event->description }}</p>
-                </div>
-                <div class="flex flex-col gap-5 mt-6">
-                    <p class="text-gray-600">{{ $event->author }}</p>
-                    <p class="text-gray-600">{{ $event->position }}</p>
+                    <p class="text-gray-600">{!! $event->context !!}</p>
                 </div>
             </div>
             <div class="flex flex-col gap-5 mt-10 lg:flex-row">
-                <img src="{{ asset($event->image2) }}" class=" mx-auto rounded-2xl w-full lg:h-[30rem]">
-                <img src="{{ asset($event->image) }}" class="object-cover w-full mx-auto rounded-2xl">
+                <img src="{{ asset($event->images->files->image_path) }}"
+                    class="w-full mx-auto rounded-2xl lg:h-[30rem] object-cover">
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <x-banner title="Certified Physicians" page="Certifications /" breadcrumb="Certified Physicians" />
+    <x-banner title="Members" page="Certifications /" breadcrumb="Members" />
 
     <div class="container px-4 py-6 mx-auto lg:mt-[8rem] border-b border-gray-500 lg:pb-[5rem] mt-10">
         <!-- Header -->
@@ -34,8 +34,6 @@
                         <option>Name</option>
                         <option>Experience</option>
                     </select>
-                    <button class="px-3 py-2 text-sm border rounded-lg">List View</button>
-                    <button class="px-3 py-2 text-sm border rounded-lg">Card View</button>
                 </div>
             </div>
         </div>
@@ -43,33 +41,33 @@
         <div class="flex flex-col gap-6 mt-6 lg:flex-row ">
             <!-- Physicians List -->
             <div class="flex flex-col gap-4 lg:col-span-3 lg:w-full">
-                @foreach ($physicians as $physician)
+                @foreach ($doctors as $doctor)
                     <div class="flex flex-col items-start justify-between gap-4 p-4 border rounded-lg lg:flex-row">
                         <!-- Avatar -->
                         <div class="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
-                            <div>
-                                <img src="{{ asset($physician->image) }}" alt=""
-                                    class="rounded-xl lg:rounded-full lg:w-32 lg:h-32">
+                            <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-full">
+                                <img src="{{ asset($doctor->user->profiles->images->files->image_path) }}" alt="doctor"
+                                    class="object-cover w-full h-full rounded-full">
                             </div>
 
                             <!-- Info -->
                             <div class="flex flex-col flex-1 gap-2">
-                                <h2 class="font-semibold">{{ $physician->name }}</h2>
+                                <h2 class="font-semibold">{{ $doctor->user->profiles->first_name }}
+                                    {{ $doctor->user->profiles->middle_name }} {{ $doctor->user->profiles->last_name }}</h2>
                                 <p class="text-sm font-medium text-blue-600">
-                                    {{ implode(', ', $physician->specialties) }}
+                                    {{ $doctor->specializations->specialization_name }}
                                 </p>
                                 <div class="flex items-center gap-3 mt-2 text-sm text-gray-500">
-                                    @if ($physician->certified)
-                                        <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon"
-                                            class="w-6 h-5">
-                                        <span
-                                            class="px-2 py-1 text-xs font-medium text-red-500 bg-red-100 rounded-full">CERTIFIED</span>
-                                    @endif
+                                    <img src="{{ asset('assets/aboutus-icon.png') }}" alt="aboutus-icon" class="w-6 h-5">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium text-red-500 bg-red-100 rounded-full">CERTIFIED</span>
                                 </div>
                                 <div class="flex items-center gap-4 mt-2 text-sm text-gray-500">
                                     <span class="flex items-center gap-1">
                                         <img src="{{ asset('assets/location-icon.png') }}" alt="">
-                                        {{ $physician->city }}, {{ $physician->country }}
+                                        {{ ucfirst(preg_replace('/[^A-Za-z0-9 ]/', ' ', $doctor->User->profiles->cities->city_name)) }},
+
+                                        {{ $doctor->User->profiles->cities->countries->country_name }}
                                     </span>
                                 </div>
                             </div>
@@ -77,7 +75,7 @@
 
                         <!-- View Profile Button -->
                         <div class="w-auto">
-                            <a href="{{ route('certified-physician', ['id' => $loop->iteration]) }}"
+                            <a href="{{ route('certified-physician', $doctor->id) }}"
                                 class="block px-4 py-2 text-center text-white transition bg-red-500 rounded-full hover:bg-red-600">
                                 View Profile →
                             </a>
