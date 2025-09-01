@@ -121,4 +121,15 @@ class PageController extends Controller
 
         return view('admin.pages.doctors.updateDoctor', compact('doctor'));
     }
+
+
+    public function cms_createUser()
+    {
+        return view('admin.pages.UserManagement.AddUser');
+    }
+    public function cms_updateUser($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.pages.UserManagement.updateUser', compact('user'));
+    }
 }

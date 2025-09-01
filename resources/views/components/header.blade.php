@@ -73,11 +73,14 @@
                             class="absolute left-0 p-3 mt-2 text-left bg-white border rounded-lg shadow-lg w-50 top-full lg:group-hover:block"
                             x-cloak role="menu">
 
-                            <a href="https://members.ic-os.org/general/register_member_type.asp"
-                                class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }}"
-                                role="menuitem" @click.stop>
-                                Be a Member
-                            </a>
+                            <div
+                                class="block px-3 py-1 !text-black rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none">
+                                <x-modal class="!text-black"
+                                    title="Join the International Cardio-Oncology Society(IC-OS)" button="Be a Member"
+                                    modal_button="Be a Member" image="assets/image4.png"
+                                    context="Be part of a global community dedicated to advancing cardio-oncology. As a member, you'll gain access to educational resources, research updates, networking opportunities, and exclusive events.">
+                                </x-modal>
+                            </div>
 
                             <a href="/certificates/why-getcertified"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }}"
@@ -144,59 +147,17 @@
                 </nav>
             </div>
 
-            <!-- Button (Desktop) -->
-            <div x-data="{ open: true }" x-cloak>
-                <!-- Trigger Button -->
-                <div class="items-center justify-center hidden lg:flex">
-                    <button @click="open = true"
-                        class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
-                        Join IC-OS <br> <span class="text-[16px]">Pilipinas</span>
-                    </button>
-                </div>
-
-                <!-- Modal -->
-                <div x-show="open"
-                    class="fixed inset-0 z-40 bg-black bg-opacity-50 flex items-center justify-center">
-
-                    <div @click.away="open = false"
-                        class="bg-white rounded-2xl shadow-xl max-w-5xl w-full flex flex-col lg:flex-row overflow-hidden relative">
-
-                        <!-- Close Button -->
-                        <button @click="open = false" class="absolute top-3 left-3 text-gray-500 hover:text-gray-700">
-                            ✕
-                        </button>
-
-                        <!-- Left Section -->
-                        <div class="p-6 lg:w-1/2 flex flex-col justify-between bg-white">
-                            <div>
-                                <h2 class="text-xl font-bold mb-4">Join ICOS Pilipinas</h2>
-                                <p class="text-gray-600 mb-6">
-                                    Connect with Filipino experts in cardio-oncology, gain access to local and global
+            <div class="items-center justify-center hidden lg:flex">
+                <div class="px-4 py-3 bg-[#E94B4D] rounded-full hover:bg-[#c53b3d] transition text-white">
+                    <x-modal title="Join ICOS Pilipinas" button="Join IC-OS Pilipinas" modal_button="Join IC-OS"
+                        image="assets/modal image1.jpg"
+                        context="Connect with Filipino experts in cardio-oncology, gain access to local and
+                                    global
                                     resources,
-                                    attend exclusive learning events, and be part of a growing network improving patient
-                                    care in the Philippines.
-                                </p>
-                            </div>
-
-                            <div>
-                                <a href="https://members.ic-os.org/general/register_member_type.asp"
-                                    class="px-5 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition">
-                                    Join IC-OS
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Right Section -->
-                        <div class="lg:w-1/2 relative flex items-center justify-center">
-                            <!-- Blurred Background Image -->
-                            <img src="{{ asset('assets/modal image1.jpg') }}" alt="Modal Background"
-                                class="absolute inset-0 w-full h-full object-cover blur-sm">
-
-                            <!-- Foreground Image (clear) -->
-                            <img src="{{ asset('assets/modal image1.jpg') }}" alt="Modal Image"
-                                class="relative z-10 max-h-[200px] rounded-xl shadow-lg">
-                        </div>
-                    </div>
+                                    attend exclusive learning events, and be part of a growing network improving
+                                    patient
+                                    care in the Philippines.">
+                    </x-modal>
                 </div>
             </div>
 
@@ -311,11 +272,14 @@
                             class="absolute left-0 p-3 mt-2 text-left bg-white border rounded-lg shadow-lg w-50 top-full lg:group-hover:block"
                             x-cloak role="menu">
 
-                            <a href="https://members.ic-os.org/general/register_member_type.asp"
-                                class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }}"
-                                role="menuitem" @click.stop>
-                                Be a Member
-                            </a>
+                            <div
+                                class="block px-3 py-1 !text-black rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none">
+                                <x-modal class="!text-black"
+                                    title="Join the International Cardio-Oncology Society(IC-OS)" button="Be a Member"
+                                    modal_button="Be a Member" image="assets/image4.png"
+                                    context="Be part of a global community dedicated to advancing cardio-oncology. As a member, you'll gain access to educational resources, research updates, networking opportunities, and exclusive events.">
+                                </x-modal>
+                            </div>
 
                             <a href="/certificates/why-getcertified"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }}"
@@ -384,10 +348,17 @@
 
             <!-- Button (Desktop) -->
             <div class="items-center justify-center hidden lg:flex">
-                <a href="https://members.ic-os.org/general/register_member_type.asp"
-                    class="bg-[#E94B4D] text-center hover:bg-[#c53b3d] text-nowrap text-white h-fit px-10 py-2 rounded-full text-xl shadow">
-                    Join IC-OS <br> <span class="text-[16px]">Pilipinas</span>
-                </a>
+                <div class="px-4 py-3 bg-[#E94B4D] rounded-full hover:bg-[#c53b3d] transition text-white">
+                    <x-modal title="Join ICOS Pilipinas" button="Join IC-OS Pilipinas" modal_button="Join IC-OS"
+                        image="assets/modal image1.jpg"
+                        context="Connect with Filipino experts in cardio-oncology, gain access to local and
+                                    global
+                                    resources,
+                                    attend exclusive learning events, and be part of a growing network improving
+                                    patient
+                                    care in the Philippines.">
+                    </x-modal>
+                </div>
             </div>
 
             <div id="div-socmed">

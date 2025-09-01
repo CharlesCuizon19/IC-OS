@@ -3,12 +3,12 @@
         <img src="{{ asset('assets/footer-logo.png') }}" alt="Logo" class="w-40 h-17">
     </div>
     <nav class="mt-6">
-        <ul class="space-y-2">
+        <ul class="space-y-2 px-3">
             <li>
                 <a href="{{ route('show.homepageBanner') }}"
                     class="block py-2 pl-4 pr-6 text-white 
           {{ Route::is('show.homepageBanner') ? 'bg-red-500' : '' }} 
-          hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 rounded-xl hover:border-red-500">
                     Homepage Banners
                 </a>
 
@@ -17,7 +17,7 @@
                 <a href="{{ route('show.blogs') }}"
                     class="block py-2 pl-4 pr-6 text-white 
           {{ Route::is('show.blogs') ? 'bg-red-500' : '' }} 
-          hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 rounded-xl hover:border-red-500">
                     Events
                 </a>
 
@@ -26,7 +26,7 @@
                 <a href="{{ route('show.doctors') }}"
                     class="block py-2 pl-4 pr-6 text-white 
           {{ Route::is('show.doctors') ? 'bg-red-500' : '' }} 
-          hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 rounded-xl hover:border-red-500">
                     Members
                 </a>
             </li>
@@ -34,8 +34,16 @@
                 <a href="{{ route('show.messages') }}"
                     class="block py-2 pl-4 pr-6 text-white 
           {{ Route::is('show.messages') ? 'bg-red-500' : '' }} 
-          hover:bg-gray-800 hover:pl-4 hover:border-l-4 hover:border-red-500">
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 rounded-xl hover:border-red-500">
                     Contact Us
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('show.users') }}"
+                    class="block py-2 pl-4 pr-6 text-white 
+          {{ Route::is('show.users') ? 'bg-red-500' : '' }} 
+          hover:bg-gray-800 hover:pl-4 hover:border-l-4 rounded-xl hover:border-red-500">
+                    User Management
                 </a>
             </li>
         </ul>

@@ -8,6 +8,7 @@ use App\Http\Controllers\BannersController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -27,6 +28,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/doctors/createdoctor', [PageController::class, 'cms_createDoctor'])->name('cms.createDoctor');
     Route::get('/admin/doctors/updatedoctor/{id}', [PageController::class, 'cms_updateDoctor'])->name('cms.updateDoctor');
+
+    Route::get('/admin/doctors/createuser', [PageController::class, 'cms_createUser'])->name('cms.createUser');
+    Route::get('/admin/doctors/updateuser/{id}', [PageController::class, 'cms_updateUser'])->name('cms.updateUser');
 
     // Banner CRUD routes
     Route::get('/admin/homepageBanner', [BannersController::class, 'index'])->name('show.homepageBanner');
@@ -50,6 +54,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/messages', [ContactController::class, 'index'])->name('show.messages');
     Route::post('/admin/messages', [ContactController::class, 'store'])->name('store.message');
     Route::delete('/admin/messages/{id}', [ContactController::class, 'destroy'])->name('delete.message');
+
+    // User Management
+    Route::get('/admin/users', [UsersController::class, 'index'])->name('show.users');
+    Route::post('/admin/users', [UsersController::class, 'store'])->name('store.user');
+    Route::post('/admin/users/{id}', [UsersController::class, 'update'])->name('update.user');
+    Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('delete.user');
 });
 
 
