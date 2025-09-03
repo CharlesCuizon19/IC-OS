@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <x-banner title="News & Events" page="" breadcrumb="News & Events" />
+    <x-banner title="News & Events" img_path="assets/news and events.png" page="" breadcrumb="News & Events" />
 
     <div class="container mx-auto lg:my-[8rem]">
         <div class="flex flex-col items-center justify-center gap-3 mx-3 lg:items-start lg:justify-start">

@@ -6,7 +6,8 @@
     <div class="overflow-x-hidden">
         <div class="flex flex-col">
 
-            <x-banner title="Why Get Certified" page="Certifications /" breadcrumb="Why Get Certified" />
+            <x-banner title="Why Get Certified" img_path="assets/why get certified.png" page="Certifications /"
+                breadcrumb="Why Get Certified" />
 
             <div class="container mx-auto">
                 <div class="lg:mt-[8rem]">

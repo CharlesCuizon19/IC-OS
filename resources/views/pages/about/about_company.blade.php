@@ -6,7 +6,7 @@
     <div class="overflow-x-hidden">
         <div class="flex flex-col">
 
-            <x-banner title="About Society" page="About Us /" breadcrumb="About Society" />
+            <x-banner title="About Society" img_path='assets/event3.png' page="About Us /" breadcrumb="About Society" />
 
             <div class="container mx-auto">
                 <div class="lg:mt-[8rem] mt-10">

@@ -1,23 +1,15 @@
+@props(['img_path', 'title', 'page', 'breadcrumb'])
+
+
 <div class="mt-[6rem] lg:mt-0">
-    <div class="">
-        <img src="{{ asset(
-            in_array($title, ['About Society', 'Board of Directors'])
-                ? 'assets/aboutus_banner.png'
-                : ($title === 'Get Certificate'
-                    ? 'assets/getcertificate_banner.png'
-                    : ($title === 'Why Get Certified'
-                        ? 'assets/whygetcertified_banner.png'
-                        : ($title === 'Members'
-                            ? 'assets/certifiedphysicians_banner.png'
-                            : ($title === 'News & Events'
-                                ? 'assets/newsevents_banner.png'
-                                : ($title === 'Resources'
-                                    ? 'assets/resources_banner.png'
-                                    : ($title === 'Contact Us'
-                                        ? 'assets/contactus_banner.png'
-                                        : 'assets/default_banner.png')))))),
-        ) }}"
-            alt="banner" class="hidden w-full h-auto lg:absolute lg:flex">
+    <div>
+        <div class="hidden w-full h-auto lg:flex lg:absolute lg:h-96">
+            <img src="{{ asset('assets/leftside_banner.png') }}" alt="" class="lg:h-96 lg:w-full">
+            <div class="relative w-full">
+                <img src="{{ asset($img_path) }}" alt="" class="object-cover object-center lg:h-96 lg:w-full">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#f8f8f8] to-transparent"></div>
+            </div>
+        </div>
 
 
         <!-- Overlay container -->

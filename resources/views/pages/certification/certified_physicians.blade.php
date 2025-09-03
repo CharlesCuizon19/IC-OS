@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <x-banner title="Members" page="Certifications /" breadcrumb="Members" />
+    <x-banner title="Members" img_path="assets/members2.png" page="Certifications /" breadcrumb="Members" />
 
     <div class="container px-4 py-6 mx-auto lg:mt-[8rem] border-b border-gray-500 lg:pb-[5rem] mt-10">
         <!-- Header -->

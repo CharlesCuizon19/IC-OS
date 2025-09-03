@@ -3,7 +3,7 @@
 @section('title', 'Contact Us | ICOS')
 
 @section('content')
-    <x-banner title="Contact Us" page="" breadcrumb="Contact Us" />
+    <x-banner title="Contact Us" img_path="assets/contactus-image.png" page="" breadcrumb="Contact Us" />
 
     <div class="container mx-auto lg:my-[8rem]">
         <div class="flex flex-col gap-10 pb-10 lg:mx-3">

@@ -7,7 +7,8 @@
         <div class="flex flex-col">
 
 
-            <x-banner title="Board of Directors" page="About Us /" breadcrumb="Board of Directors" />
+            <x-banner title="Board of Directors" img_path="assets/event3.png" page="About Us /"
+                breadcrumb="Board of Directors" />
 
             <div class="container mx-auto">
                 <div class="lg:mt-[8rem] mt-10">
