@@ -63,7 +63,7 @@
                         <span>Get Hardcover</span>
                         <ul class="list-disc pl-5 gap-10 flex lg:flex-row text-[#17509E]">
                             <li>
-                                <a href="#" class="flex items-center gap-2">
+                                <a href="https://ic-os.org/ResourcesForMembers/" class="flex items-center gap-2">
                                     <span>Volume 1</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
@@ -75,7 +75,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex items-center gap-2">
+                                <a href="https://ic-os.org/ResourcesForMembers/" class="flex items-center gap-2">
                                     <span>Volume 2</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="#17509E" stroke-width="2"
@@ -92,7 +92,7 @@
                         <span>Get Hardcover</span>
                         <ul class="list-disc pl-5 gap-10 flex lg:flex-row text-[#E94B4D]">
                             <li>
-                                <a href="#" class="flex items-center gap-2">
+                                <a href="https://ic-os.org/ResourcesForMembers/" class="flex items-center gap-2">
                                     <span>Volume 1</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="#E94B4D" stroke-width="2"
@@ -104,7 +104,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex items-center gap-2">
+                                <a href="https://ic-os.org/ResourcesForMembers/" class="flex items-center gap-2">
                                     <span>Volume 2</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="#E94B4D" stroke-width="2"
@@ -126,8 +126,8 @@
                         <div class="text-2xl font-semibold">Take The Course</div>
                         <div class="border-2 border-[#E94B4D] rounded-full w-1/2"></div>
                         <div class="text-sm text-gray-500">If you prefer, you can take video course.</div>
-                        <button
-                            class="flex gap-2 items-center rounded-full px-3 py-2 bg-[#E94B4D] hover:bg-[#c84042] w-fit">
+                        <a href="https://ic-os.org/ResourcesForMembers/"
+                            class="cursor-pointer flex gap-2 items-center rounded-full px-3 py-2 bg-[#E94B4D] hover:bg-[#c84042] w-fit">
                             <span class="text-white">Get the course</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
@@ -135,7 +135,7 @@
                                 <path d="M5 12h14" />
                                 <path d="m12 5 7 7-7 7" />
                             </svg>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

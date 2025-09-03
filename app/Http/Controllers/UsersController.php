@@ -34,7 +34,7 @@ class UsersController extends Controller
 
             DB::commit();
 
-            return view('admin.pages.UserManagement.UserManagement');
+            return redirect()->route('show.users');
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
@@ -61,7 +61,7 @@ class UsersController extends Controller
             if ($request->filled('password')) {
                 $user->password = Hash::make($data['password']);
             } else {
-                $user->password = Hash::make('password123');
+                $user->password = $user->password;
             }
 
 

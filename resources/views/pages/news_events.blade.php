@@ -26,10 +26,10 @@
         <div>
             {{-- Event Cards --}}
             <div class="flex flex-col gap-5 mx-3 lg:flex-row">
-                <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit">
+                <div class="grid grid-cols-1 gap-5 py-10 lg:grid-cols-2 w-fit" id="blogList">
                     @foreach ($blogs as $blog)
-                        <a href="{{ route('events.show', $blog->id) }}"
-                            class="flex flex-col transition duration-300 cursor-pointer group rounded-2xl">
+                        <a href="{{ route('events.show', ['id' => $blog->id, 'slug' => Str::slug($blog->slug)]) }}"
+                            class="flex flex-col transition duration-300 cursor-pointer blog-card group rounded-2xl">
                             <div
                                 class=" flex flex-col items-center lg:items-start px-10 py-10 lg:px-10 lg:py-10 gap-4 border border-[#17509E]/50 rounded-[2rem] lg:rounded-3xl bg-[#17509E]/10 lg:hover:cursor-pointer lg:hover:bg-[#17509E]/50 lg:transition lg:duration-300 lg:transform lg:hover:scale-105">
                                 <div class="w-auto">
@@ -99,6 +99,11 @@
                     @endforeach
                 </div>
 
+                {{-- Hidden no results message for grid --}}
+                <p id="noResultsMain" class="hidden w-full mt-10 italic text-center text-gray-500">
+                    No results found in News & Events.
+                </p>
+
                 {{-- Search Box --}}
                 <div class="w-auto mt-8 mb-10 border rounded-2xl h-fit">
                     <div class="flex-col hidden gap-2 px-5 py-5 border-b lg:flex ">
@@ -106,7 +111,7 @@
                             Search for anything
                         </div>
                         <div class="relative w-full">
-                            <input type="text" placeholder="Search here..."
+                            <input type="text" id="searchInput" placeholder="Search here..."
                                 class="w-full py-2 pl-10 pr-4 border rounded-full focus:outline-none focus:ring-2 bg-[#e9e9e9]">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 absolute left-3 top-2.5 text-gray-400"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -119,10 +124,10 @@
                         <div class="text-sm font-semibold">
                             Latest Post
                         </div>
-                        <div class="divide-y-2">
+                        <div class="divide-y-2" id="sidebarList">
                             @foreach ($blogs as $blog)
                                 <div
-                                    class="flex gap-3 items-center py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">
+                                    class="sidebar-item flex gap-3 items-center py-5 hover:bg-[#b9b7b7] px-3 transition duration-300 cursor-pointer">
                                     <img src="{{ asset($blog->images->files->image_path) }}" alt=""
                                         class="object-cover w-20 h-20 rounded-xl object">
                                     <div>
@@ -156,9 +161,50 @@
                                 </div>
                             @endforeach
                         </div>
+                        {{-- Hidden no results message for sidebar --}}
+                        <p id="noResultsSidebar" class="hidden mt-4 italic text-center text-gray-500">
+                            No results found in Latest Posts.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+
+            // Main blog grid
+            let blogCards = document.querySelectorAll('#blogList .blog-card');
+            let mainVisible = 0;
+            blogCards.forEach(function(card) {
+                let text = card.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    card.style.display = "";
+                    mainVisible++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+            document.getElementById('noResultsMain').style.display = mainVisible === 0 ? "block" : "none";
+
+            // Sidebar latest posts
+            let sidebarItems = document.querySelectorAll('#sidebarList .sidebar-item');
+            let sidebarVisible = 0;
+            sidebarItems.forEach(function(item) {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    item.style.display = "";
+                    sidebarVisible++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+            document.getElementById('noResultsSidebar').style.display = sidebarVisible === 0 ? "block" : "none";
+        });
+    </script>
+
+
+
 @endsection

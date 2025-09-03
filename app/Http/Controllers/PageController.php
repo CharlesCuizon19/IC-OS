@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\banners;
 use App\Models\blogs;
+use App\Models\cities;
 use App\Models\doctors;
+use App\Models\specializations;
 use App\Models\User;
 use App\Models\user_roles;
 
@@ -45,7 +47,12 @@ class PageController extends Controller
     {
 
         $doctors = doctors::with('User', 'specializations', 'doctor_institutions.institutions', 'User.profiles', 'User.profiles.cities', 'User.profiles.cities.countries', 'User.profiles.images', 'User.profiles.images.files')->get();
-        return view('pages/certification/certified_physicians', compact('doctors'));
+
+        $specializations = specializations::all();
+
+        $cities = cities::all();
+
+        return view('pages/certification/certified_physicians', compact('doctors', 'specializations', 'cities'));
     }
 
     public function physician()
@@ -129,7 +136,7 @@ class PageController extends Controller
     }
     public function cms_updateUser($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('user_roles')->findOrFail($id);
         return view('admin.pages.UserManagement.updateUser', compact('user'));
     }
 }

@@ -18,11 +18,11 @@
                 style="background-image: url({{ asset('assets/coverphoto.png') }}); background-position: center; background-size: cover; height: 14rem;">
 
                 <!-- Profile Image -->
-                <div class="absolute flex justify-between w-full gap-5 px-10 -bottom-14">
+                <div class="absolute flex justify-between w-full gap-5 lg:px-10 -bottom-14">
                     <div class="flex gap-5 -bottom-10">
-                        <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-full shadow-lg">
+                        <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-xl lg:rounded-full shadow-lg">
                             <img src="{{ asset($doctor->user->profiles->images->files->image_path) }}" alt="doctor"
-                                class="object-cover w-full h-full rounded-full">
+                                class="object-cover w-full h-full lg:rounded-full">
                         </div>
 
                         <!-- Name and Specialization -->

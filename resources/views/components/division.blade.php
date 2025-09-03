@@ -35,7 +35,8 @@
                     </div>
                     <div class="flex justify-center text-center ">
                         <div class="flex flex-col">
-                            <span class="text-5xl lg:text-4xl text-[#E94B4D]">1000+</span>
+                            <span class="count text-5xl lg:text-4xl text-[#E94B4D]" data-target="1000"
+                                data-suffix="+">0+</span>
                             <span class="text-xl text-white lg:text-2xl lg:text-black">Members</span>
                         </div>
                     </div>
@@ -52,7 +53,8 @@
                     </div>
                     <div class="flex justify-center w-full text-center">
                         <div class="flex flex-col ">
-                            <span class="text-5xl lg:text-4xl text-[#E94B4D]">30+</span>
+                            <span class="count text-5xl lg:text-4xl text-[#E94B4D]" data-target="30"
+                                data-suffix="+">0</span>
                             <span class="text-xl text-white lg:text-2xl lg:text-black">Countries</span>
                         </div>
                     </div>
@@ -86,7 +88,8 @@
                         class="flex items-center justify-center lg:gap-8 lg:bg-white lg:rounded-full lg:py-6 lg:pl-8 lg:flex-row lg:pr-28">
                         <div class="flex justify-center text-center">
                             <div class="flex flex-col">
-                                <span class="text-5xl lg:text-6xl text-[#E94B4D]">1000+</span>
+                                <span class="count text-5xl lg:text-6xl text-[#E94B4D]" data-target="1000"
+                                    data-suffix="+">0</span>
                                 <span class="text-xl text-white lg:text-3xl lg:text-black">Members</span>
                             </div>
                         </div>
@@ -95,7 +98,8 @@
                         class="flex flex-row items-center justify-center gap-5 lg:gap-8 lg:bg-white lg:rounded-full lg:py-6 lg:pl-8 lg:flex-row lg:pr-28">
                         <div class="flex justify-center text-center">
                             <div class="flex flex-col ">
-                                <span class="text-5xl lg:text-6xl text-[#E94B4D]">30+</span>
+                                <span class="count text-5xl lg:text-6xl text-[#E94B4D]" data-target="30"
+                                    data-suffix="+">0</span>
                                 <span class="text-xl text-white lg:text-3xl lg:text-black">Countries</span>
                             </div>
                         </div>
@@ -105,3 +109,41 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".count");
+
+        const runCounter = (counter) => {
+            const target = +counter.getAttribute("data-target");
+            const suffix = counter.getAttribute("data-suffix") || "";
+            const increment = target / 100; // adjust speed
+
+            let count = 0;
+            const updateCount = () => {
+                count += increment;
+                if (count < target) {
+                    counter.innerText = Math.floor(count).toLocaleString() + suffix;
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target.toLocaleString() + suffix;
+                }
+            };
+            updateCount();
+        };
+
+        // Run when in viewport
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    runCounter(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+</script>

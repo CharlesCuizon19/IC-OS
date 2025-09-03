@@ -10,6 +10,10 @@ class specializations extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'specialization_name',
+    ];
+
     public function specializations(): HasOne
     {
         return $this->hasOne(specializations::class, 'specialization_id');

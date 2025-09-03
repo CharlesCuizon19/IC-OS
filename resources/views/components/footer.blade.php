@@ -1,3 +1,5 @@
+@props(['blogs_footer'])
+
 <div class="lg:flex lg:flex-col">
     <div class="flex flex-col lg:h-fit lg:bg-transparent bg-[#17509E]">
         <div class="lg:relative py-14 lg:py-0 mx-6 lg:mx-0 lg:h-[27rem]">
@@ -57,45 +59,21 @@
                 </div>
                 <div class="flex flex-col gap-3 w-auto lg:w-[20rem] text-center">
                     <span class="text-xl font-bold text-white">Events</span>
-                    <a href="{{ route('events.show', 7) }}">
-                        <div class="flex items-center gap-5 pb-2 border-b">
-                            <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt="" class="w-[3rem]">
-                            <div class="flex flex-col text-white ">
-                                <span class="text-sm">New Training Program Launched for Local Physicians</span>
-                                <div class="flex gap-10 text-sm text-white opacity-55">
-                                    <span>December 23, 2025</span>
-                                    <span>Course Virtual</span>
+                    @foreach ($blogs_footer as $blog)
+                        <a href="{{ route('events.show', ['id' => $blog->id, 'slug' => Str::slug($blog->slug)]) }}">
+                            <div class="flex items-center gap-5 pb-2 border-b">
+                                <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt=""
+                                    class="w-[3rem]">
+                                <div class="flex flex-col text-white ">
+                                    <span class="text-sm text-justify">{{ $blog->title }}</span>
+                                    <div class="flex justify-between gap-10 text-sm text-white opacity-55">
+                                        <span>{{ \Carbon\Carbon::parse($blog->date_issued)->format('M d, Y') }}</span>
+                                        <span>{{ $blog->categories->description }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-
-                    <a href="{{ route('events.show', 8) }}">
-                        <div class="flex items-center gap-5 pb-2 border-b">
-                            <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt="" class="w-[3rem]">
-                            <div class="flex flex-col text-white ">
-                                <span class="text-sm">National Forum on Career and Heart Care Held in Manila</span>
-                                <div class="flex gap-10 text-sm text-white opacity-55">
-                                    <span>December 23, 2025</span>
-                                    <span>Course Virtual</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="{{ route('events.show', 9) }}">
-                        <div class="flex items-center gap-5 pb-2 border-b">
-                            <img src="{{ asset('assets/footer-calendar-icon.png') }}" alt="" class="w-[3rem]">
-                            <div class="flex flex-col text-white ">
-                                <span class="text-sm">ICOS PH Expands Global Ties with Regional Partners</span>
-                                <div class="flex gap-10 text-sm text-white opacity-55">
-                                    <span>December 23, 2025</span>
-                                    <span>Course Virtual</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
+                        </a>
+                    @endforeach
 
                 </div>
                 <div class="flex flex-col gap-8 text-center lg:text-left">
@@ -127,9 +105,12 @@
                     R Web Solutions
                 </a>
             </span>
-            <a href="#" class="hover:text-gray-600">
-                Terms and Conditions | Privacy Policy
-            </a>
+            <div>
+                <a href="#" class="hover:text-gray-600">Terms and Conditions</a> |
+                <a href="https://ic-os.org/privacy-note/" class="hover:text-gray-600">
+                    Privacy Policy
+                </a>
+            </div>
         </div>
     </div>
 </div>

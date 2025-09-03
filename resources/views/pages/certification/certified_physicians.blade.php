@@ -8,7 +8,8 @@
 
     <div class="container px-4 py-6 mx-auto lg:mt-[8rem] border-b border-gray-500 lg:pb-[5rem] mt-10">
         <!-- Header -->
-        <div class="flex flex-col gap-4 border-b border-gray-500 md:flex-row md:items-center md:justify-between lg:pb-10">
+        <div
+            class="flex flex-col gap-4 pb-5 border-b border-gray-500 md:flex-row md:items-center md:justify-between lg:pb-10">
             <h1 class="text-xl font-bold text-[#17509E]">List of Members</h1>
             <div class="flex flex-col items-center w-full gap-3 md:flex-row md:w-auto">
                 <!-- Search -->
@@ -23,18 +24,13 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="flex gap-2">
+                {{-- <div class="flex gap-2">
                     <select class="px-3 py-2 text-sm border rounded-lg">
                         <option>Show 5</option>
                         <option>Show 10</option>
                         <option>Show 20</option>
                     </select>
-                    <select class="px-3 py-2 text-sm border rounded-lg">
-                        <option>Sort by</option>
-                        <option>Name</option>
-                        <option>Experience</option>
-                    </select>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -42,12 +38,12 @@
             <!-- Physicians List -->
             <div class="flex flex-col gap-4 lg:col-span-3 lg:w-full">
                 @foreach ($doctors as $doctor)
-                    <div class="flex flex-col items-start justify-between gap-4 p-4 border rounded-lg lg:flex-row">
+                    <div class="flex flex-col justify-between gap-4 p-4 border rounded-lg lg:items-start lg:flex-row">
                         <!-- Avatar -->
-                        <div class="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
-                            <div class="w-40 h-40 overflow-hidden border-4 border-white rounded-full">
+                        <div class="flex flex-col gap-4 lg:flex-row lg:items-center">
+                            <div class="overflow-hidden border-4 border-white lg:w-40 lg:h-40 lg:rounded-full">
                                 <img src="{{ asset($doctor->user->profiles->images->files->image_path) }}" alt="doctor"
-                                    class="object-cover w-full h-full rounded-full">
+                                    class="object-cover w-full h-full lg:rounded-full">
                             </div>
 
                             <!-- Info -->
@@ -90,15 +86,18 @@
                     <h3 class="font-semibold">Filters</h3>
                     <a href="#" class="text-sm text-gray-500 hover:underline">Clear all filter</a>
                 </div>
-
                 <div class="space-y-4">
                     <div>
                         <label class="text-sm text-gray-500">Specialty</label>
-                        <select class="w-full px-3 py-2 border rounded-lg">
-                            <option>Select a Specialty</option>
+                        <select id="specialtyFilter" class="w-full px-3 py-2 border rounded-lg">
+                            <option value="">All Specialties</option>
+                            @foreach ($specializations as $specialty)
+                                <option value="{{ strtolower($specialty->specialization_name) }}">
+                                    {{ $specialty->specialization_name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
-
                     {{-- <div>
                         <label class="text-sm text-gray-500">Country</label>
                         <select class="w-full px-3 py-2 border rounded-lg">
@@ -106,10 +105,16 @@
                         </select>
                     </div> --}}
 
+
                     <div>
                         <label class="text-sm text-gray-500">City</label>
-                        <select class="w-full px-3 py-2 border rounded-lg">
-                            <option>Select a City</option>
+                        <select id="cityFilter" class="w-full px-3 py-2 border rounded-lg">
+                            <option value="">All Cities</option>
+                            @foreach ($cities as $city)
+                                <option value="{{ strtolower($city->city_name) }}">
+                                    {{ $city->city_name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                     {{-- 
@@ -132,4 +137,51 @@
     <div class="container mx-auto mb-14">
         @include('components.moreaboutcerts')
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.querySelector('input[placeholder="Search a physician..."]');
+            const specialtyFilter = document.getElementById('specialtyFilter');
+            const cityFilter = document.getElementById('cityFilter');
+
+            const physicianCards = document.querySelectorAll(
+                '.flex.flex-col.lg\\:items-start.justify-between.gap-4.p-4.border.rounded-lg'
+            );
+
+            function filterDoctors() {
+                const query = searchInput.value.trim().toLowerCase();
+                const selectedSpecialty = specialtyFilter.value;
+                const selectedCity = cityFilter.value;
+
+                physicianCards.forEach(card => {
+                    const nameElement = card.querySelector('h2.font-semibold');
+                    const specializationElement = card.querySelector('p.text-blue-600');
+                    const cityElement = card.querySelector('.flex.items-center.gap-4 span');
+
+                    const name = nameElement ? nameElement.textContent.toLowerCase() : '';
+                    const specialization = specializationElement ? specializationElement.textContent
+                        .toLowerCase() : '';
+                    const city = cityElement ? cityElement.textContent.toLowerCase() : '';
+
+                    // Apply all filters
+                    const matchesSearch = !query || name.includes(query) || specialization.includes(query);
+                    const matchesSpecialty = !selectedSpecialty || specialization.includes(
+                        selectedSpecialty);
+                    const matchesCity = !selectedCity || city.includes(selectedCity);
+
+                    if (matchesSearch && matchesSpecialty && matchesCity) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Attach events
+            searchInput.addEventListener('input', filterDoctors);
+            specialtyFilter.addEventListener('change', filterDoctors);
+            cityFilter.addEventListener('change', filterDoctors);
+        });
+    </script>
+
 @endsection

@@ -11,8 +11,11 @@ use App\Models\profiles;
 use App\Models\files;
 use App\Models\gender;
 use App\Models\images;
+use App\Models\role_descriptions;
+use App\Models\roles;
 use App\Models\specializations;
 use App\Models\User;
+use App\Models\user_roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -32,7 +35,7 @@ class DoctorsController extends Controller
     {
         try {
             $request->validate([
-                'email' => 'required|string|max:255',
+                'email' => 'required|string|max:255|unique:users,email',
                 'password' => 'nullable|string|max:255',
                 'first_name' => 'required|string|max:255',
                 'middle_name' => 'nullable|string|max:255',
@@ -43,76 +46,58 @@ class DoctorsController extends Controller
                 'date_of_birth' => 'required|date',
                 'country' => 'required|string|max:255',
                 'about' => 'nullable|string',
-                'institution' => 'nullable|string|max:255',
                 'specialty' => 'nullable|string|max:255',
-                'institution_address' => 'nullable|string|max:255',
-                'institution_phone' => 'nullable|string|max:255',
-                'website' => 'nullable|string|max:255',
+
+                // ✅ Institutions validation
+                'institutions' => 'required|array|min:1',
+                'institutions.*.name'    => 'required|string|max:255',
+                'institutions.*.address' => 'required|string|max:255',
+                'institutions.*.phone'   => 'required|string|max:20',
+                'institutions.*.website' => 'nullable|string|max:255',
+
                 'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             ]);
 
             DB::beginTransaction();
 
-            $specialty = new specializations();
+            // === Specialization ===
+            $specialty = specializations::firstOrCreate([
+                'specialization_name' => $request->input('specialty')
+            ]);
 
-            $specialty->specialization_name = $request->input('specialty');
-            $specialty->save();
-
-            $institution = new institutions();
-
-            $institution->name = $request->input('institution');
-            $institution->address = $request->input('institution_address');
-            $institution->phone = $request->input('institution_phone');
-            $institution->website = $request->input('website');
-            $institution->save();
-
-            $doctor = new doctors();
-
-            $doctor->about = $request->input('about');
-            $doctor->specialization_id = $specialty->id;
-
-
+            // === Create User ===
             $user = new User();
-
             $user->email = $request->input('email');
             $user->password = bcrypt($request->input('password'));
             $user->is_active = 1;
             $user->save();
 
+            // === File & Image ===
             $file = new files();
-
-            if ($request->has('file')) {
+            if ($request->hasFile('file')) {
                 $uploadedFile = $request->file('file');
                 $fileName = time() . '.' . $uploadedFile->getClientOriginalExtension();
-                $filePath = $uploadedFile->move(public_path('uploads'), $fileName);
-                $filePath = 'uploads/' . $fileName;
-                $file->image_path = $filePath;
+                $uploadedFile->move(public_path('uploads'), $fileName);
+                $file->image_path = 'uploads/' . $fileName;
                 $file->save();
             }
 
             $image = new images();
-
             $image->uploaded_by_id = $user->id ?? null;
             $image->alt_text = 'alt_text';
             $image->file_id = $file->id;
             $image->save();
 
-            $gender = new gender();
+            // === Gender, Country, City ===
+            $gender = gender::create(['gender_name' => $request->input('gender')]);
+            $country = countries::firstOrCreate(['country_name' => $request->input('country')]);
+            $city = cities::firstOrCreate([
+                'city_name' => $request->input('city'),
+                'country_id' => $country->id
+            ]);
 
-            $gender->gender_name = $request->input('gender');
-            $gender->save();
-
-            $country = new countries();
-            $country->country_name = $request->input('country');
-            $country->save();
-
-            $city = new cities();
-            $city->city_name = $request->input('city');
-            $city->country_id = $country->id;
-            $city->save();
-
+            // === Profile ===
             $profile = new profiles();
-
             $profile->first_name = $request->input('first_name');
             $profile->middle_name = $request->input('middle_name');
             $profile->last_name = $request->input('last_name');
@@ -125,26 +110,53 @@ class DoctorsController extends Controller
             $profile->image_id = $image->id;
             $profile->save();
 
+            // === Doctor ===
+            $doctor = new doctors();
+            $doctor->about = $request->input('about');
+            $doctor->specialization_id = $specialty->id;
             $doctor->user_id = $user->id;
             $doctor->save();
 
-            $doctor_institution = new doctor_institutions();
+            // === Institutions (multiple) ===
+            foreach ($request->institutions as $inst) {
+                // Find or create institution by name + address
+                $institution = institutions::firstOrCreate(
+                    [
+                        'name'    => $inst['name'],
+                        'address' => $inst['address'],
+                    ],
+                    [
+                        'phone'   => $inst['phone'],
+                        'website' => $inst['website'] ?? null,
+                    ]
+                );
 
-            $doctor_institution->doctor_id = $doctor->id;
-            $doctor_institution->institution_id = $institution->id;
-            $doctor_institution->save();
+                // Attach doctor to institution
+                doctor_institutions::firstOrCreate([
+                    'doctor_id'      => $doctor->id,
+                    'institution_id' => $institution->id,
+                ]);
+            }
+
+
+            // === Role Assignment ===
+            $role_description = role_descriptions::where('description', 'Member')->first();
+            user_roles::create([
+                'user_id' => $user->id,
+                'role_id' => $role_description?->id,
+            ]);
 
             DB::commit();
 
             return redirect()->route('show.doctors')->with('success', 'Doctor created successfully!');
         } catch (\Exception $e) {
             DB::rollBack();
-
             Log::info('Error creating doctor: ' . $e->getMessage());
 
             return redirect()->back()->with('error', 'An error occurred while creating the doctor. Please try again later.');
         }
     }
+
 
 
     public function update(Request $request, $id)

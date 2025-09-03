@@ -168,7 +168,7 @@
                 </div>
                 <div class="grid grid-cols-1 gap-5 py-10 mx-3 lg:grid-cols-3 w-fit">
                     @foreach ($events as $event)
-                        <a href="{{ route('events.show', $event->id) }}"
+                        <a href="{{ route('events.show', ['id' => $event->id, 'slug' => Str::slug($event->slug)]) }}"
                             class="flex flex-col transition duration-300 cursor-pointer group rounded-2xl">
                             <div
                                 class=" flex flex-col items-center lg:items-start px-10 py-10 lg:px-10 lg:py-10 lg:h-full gap-4 border border-[#17509E]/50 rounded-[2rem] lg:rounded-[5rem] bg-[#17509E]/10 lg:hover:cursor-pointer lg:hover:bg-[#17509E]/50 lg:transition lg:duration-300 lg:transform lg:hover:scale-105">

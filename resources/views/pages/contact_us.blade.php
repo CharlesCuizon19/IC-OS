@@ -37,12 +37,14 @@
                                 <div>
                                     <label class="block mb-1 text-sm font-medium">First Name</label>
                                     <input type="text" placeholder="John" name="first_name"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                        required>
                                 </div>
                                 <div>
                                     <label class="block mb-1 text-sm font-medium">Last Name</label>
                                     <input type="text" placeholder="Doe" name="last_name"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                        required>
                                 </div>
                             </div>
 
@@ -50,14 +52,16 @@
                             <div>
                                 <label class="block mb-1 text-sm font-medium">Email Address</label>
                                 <input type="email" placeholder="johndoe@gmail.com" name="email"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    required>
                             </div>
 
                             <!-- Message -->
                             <div>
                                 <label class="block mb-1 text-sm font-medium">Message</label>
                                 <textarea placeholder="Type something..." rows="4" name="message"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    required></textarea>
                             </div>
 
                             <!-- Terms Checkbox -->
@@ -78,12 +82,16 @@
                                 that may be of interest to you as part of our mission to advance cardio-oncology care.
                             </p>
 
-                            <!-- reCAPTCHA -->
-                            <div class="border border-gray-300 rounded p-2 w-[300px]">
-                                <div class="flex items-center justify-center h-16 text-sm text-gray-400 bg-gray-100">
-                                    reCAPTCHA placeholder
-                                </div>
+                            <div class="mb-3">
+                                <div class="g-recaptcha" data-sitekey="6Le1L7srAAAAANcwcEhcZOLv7-bx09zqJeP6PWbQ"
+                                    data-callback="verifyRecaptchaCallback"
+                                    data-expired-callback="expiredRecaptchaCallback"></div>
+
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                @endif
                             </div>
+
 
                             <!-- Submit Button -->
                             <button id="submitBtn" type="submit"
@@ -150,13 +158,14 @@
 
             <div class="lg:mt-[5rem] mx-3 lg:mx-0">
                 <iframe class="w-full h-96 rounded-2xl"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d506609.03668055014!2d125.12478050973782!3d7.25414349129447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96d9f519e327f%3A0xb53a24589f79c573!2sDavao%20City%2C%20Davao%20del%20Sur!5e0!3m2!1sen!2sph!4v1755073478286!5m2!1sen!2sph"
-                    style="border:0;" allowfullscreen="" loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8002526.947492043!2d117.32714606551527!3d11.660081273437793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x324053215f87de63%3A0x784790ef7a29da57!2sPhilippines!5e0!3m2!1sen!2sph!4v1756864014789!5m2!1sen!2sph"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if (session('success'))
@@ -185,10 +194,27 @@
         document.addEventListener("DOMContentLoaded", function() {
             const termsCheckbox = document.getElementById("terms");
             const submitBtn = document.getElementById("submitBtn");
+            let isRecaptchaVerified = false;
 
-            termsCheckbox.addEventListener("change", function() {
-                submitBtn.disabled = !this.checked;
-            });
+            // Function to check both conditions and update button state
+            function updateSubmitButton() {
+                submitBtn.disabled = !(termsCheckbox.checked && isRecaptchaVerified);
+            }
+
+            // Event listener for terms checkbox
+            termsCheckbox.addEventListener("change", updateSubmitButton);
+
+            // reCAPTCHA callback when user completes CAPTCHA
+            window.verifyRecaptchaCallback = function(response) {
+                isRecaptchaVerified = !!response; // Set to true if response is present
+                updateSubmitButton();
+            };
+
+            // reCAPTCHA expired callback
+            window.expiredRecaptchaCallback = function() {
+                isRecaptchaVerified = false;
+                updateSubmitButton();
+            };
         });
     </script>
 

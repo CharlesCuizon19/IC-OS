@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -45,7 +45,12 @@
         @yield('content')
     </main>
     <div>
-        <x-footer />
+        {{-- Event Model --}}
+        @php
+            $blogs_footer = \App\Models\blogs::orderBy('date_issued')->take(3)->get();
+        @endphp
+
+        <x-footer :blogs_footer="$blogs_footer" />
     </div>
 </body>
 

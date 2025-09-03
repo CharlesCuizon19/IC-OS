@@ -8,6 +8,25 @@
             class="flex flex-col gap-6 p-6 bg-white shadow rounded-2xl">
             @csrf
 
+
+            {{-- @foreach ($user->user_roles as $role)
+                <div>
+                    <label class="block mb-2 font-medium">Role</label>
+                    <select name="role" class="w-full p-3 border rounded-lg outline-none focus:ring focus:ring-black/30"
+                        required>
+                        <option value="member"
+                            {{ old('role', strtolower($role->roles->role_descriptions->description)) === 'member' ? 'selected' : '' }}>
+                            Member
+                        </option>
+                        <option value="admin"
+                            {{ old('role', strtolower($role->roles->role_descriptions->description)) === 'admin' ? 'selected' : '' }}>
+                            Admin
+                        </option>
+                    </select>
+                </div>
+            @endforeach --}}
+
+
             <div>
                 <label class="block mb-2 font-medium">Username</label>
                 <input type="string" name="username" placeholder="Enter username"

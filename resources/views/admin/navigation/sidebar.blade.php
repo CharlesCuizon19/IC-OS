@@ -1,9 +1,10 @@
 <div class="fixed inset-y-0 left-0 w-64 text-white bg-blue-500">
-    <div class="flex items-center justify-center h-auto py-3">
-        <img src="{{ asset('assets/footer-logo.png') }}" alt="Logo" class="w-40 h-17">
+    <div class="flex items-center justify-center h-auto gap-5 py-3">
+        <img src="{{ asset('assets/rweb_logo.png') }}" alt="" class="w-10 h-10">
+        <img src="{{ asset('assets/footer-logo.png') }}" alt="Logo" class="h-10 w-30">
     </div>
     <nav class="mt-6">
-        <ul class="space-y-2 px-3">
+        <ul class="px-3 space-y-2">
             <li>
                 <a href="{{ route('show.homepageBanner') }}"
                     class="block py-2 pl-4 pr-6 text-white 

@@ -78,7 +78,7 @@ Route::get('/certificates/certified-physicians/physician/{id}', [PhysiciansContr
 
 // News & Events
 Route::get('/newsandevents', [PageController::class, 'news_and_events'])->name('news-and-events');
-Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+Route::get('/events/{id}-{slug}', [EventController::class, 'show'])->name('events.show');
 
 // Resources & Contact
 Route::get('/resources', [PageController::class, 'resources'])->name('resources');

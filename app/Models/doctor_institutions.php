@@ -9,6 +9,8 @@ class doctor_institutions extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['doctor_id', 'institution_id'];
+
     public function institutions()
     {
         return $this->belongsTo(institutions::class, 'institution_id');

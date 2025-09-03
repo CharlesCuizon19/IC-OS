@@ -11,6 +11,8 @@ class gender extends Model
     use HasFactory;
     protected $table = 'genders';
 
+    protected $fillable = ['gender_name'];
+
     public function gender(): HasOne
     {
         return $this->hasOne(gender::class, 'gender_id');

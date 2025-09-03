@@ -6,8 +6,10 @@
             <div class="w-full lg:gap-10 lg:flex">
                 <!-- Logo + Hamburger -->
                 <div class="flex items-center justify-between w-full lg:w-auto">
-                    <img src="{{ asset('assets/logo.png') }}" alt=""
-                        class="w-[9rem] h-[4rem] lg:px-5 lg:w-[15rem] lg:h-auto">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/logo.png') }}" alt=""
+                            class="w-[9rem] h-[4rem] lg:px-5 lg:w-[15rem] lg:h-auto">
+                    </a>
 
                     <!-- Hamburger Button -->
                     <button @click="open = !open" class="text-black focus:outline-none lg:hidden">
@@ -58,10 +60,10 @@
                     </div>
 
                     <!-- Certifications Dropdown -->
-                    <div x-data="{ dropdownOpen: false }" class="relative z-40 text-center text-nowrap"
+                    <div x-data="{ dropdownOpen: false }" class="relative z-40 text-center text-nowrap "
                         @click.outside="dropdownOpen = false">
                         <button x-on:click="dropdownOpen = !dropdownOpen"
-                            class="flex items-center gap-1 hover:text-[#E94B4D] {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('certified-physicians') ? 'text-[#E94B4D] font-bold' : '' }}"
+                            class="flex items-center gap-1 hover:text-[#E94B4D] my-3 {{ Route::is('get-certified') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }} {{ Route::is('certified-physicians') ? 'text-[#E94B4D] font-bold' : '' }}"
                             :aria-expanded="dropdownOpen" aria-haspopup="true" aria-label="Toggle Certifications menu">
                             Certifications
                             <svg class="w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,13 +76,17 @@
                             x-cloak role="menu">
 
                             <div
-                                class="block px-3 py-1 !text-black rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none">
+                                class="hidden lg:flex px-3 py-1 !text-black rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none">
                                 <x-modal class="!text-black"
                                     title="Join the International Cardio-Oncology Society(IC-OS)" button="Be a Member"
                                     modal_button="Be a Member" image="assets/image4.png"
                                     context="Be part of a global community dedicated to advancing cardio-oncology. As a member, you'll gain access to educational resources, research updates, networking opportunities, and exclusive events.">
                                 </x-modal>
                             </div>
+
+                            <a href="https://members.ic-os.org/general/register_member_type.asp"
+                                class="lg:hidden flex px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }}"
+                                role="menuitem" @click.stop>Be a Member</a>
 
                             <a href="/certificates/why-getcertified"
                                 class="block px-3 py-1 rounded hover:bg-[#E94B4D]/20 focus:bg-gray-100 focus:outline-none {{ Route::is('why-getcert') ? 'text-[#E94B4D] font-bold' : '' }}"
@@ -204,8 +210,10 @@
             <div class="w-full lg:gap-10 lg:flex">
                 <!-- Logo + Hamburger -->
                 <div class="flex items-center justify-between w-full lg:w-auto">
-                    <img src="{{ asset('assets/logo.png') }}" alt=""
-                        class="w-[10rem] h-[4rem] lg:px-5 lg:w-[15rem] lg:h-auto">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/logo.png') }}" alt=""
+                            class="w-[10rem] h-[4rem] lg:px-5 lg:w-[15rem] lg:h-auto">
+                    </a>
 
                     <!-- Hamburger Button -->
                     <button @click="open = !open" class="text-black focus:outline-none lg:hidden">
@@ -393,6 +401,7 @@
         </header>
     </div>
 </div>
+
 <style>
     /* Animation for slide down */
     @keyframes slideDown {

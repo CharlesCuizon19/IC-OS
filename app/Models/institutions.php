@@ -10,6 +10,8 @@ class institutions extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'address', 'phone', 'website'];
+
     public function doctor_institutions()
     {
         return $this->hasMany(doctor_institutions::class, 'institution_id');

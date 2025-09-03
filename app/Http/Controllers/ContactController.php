@@ -7,6 +7,7 @@ use App\Models\messages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 
 class ContactController extends Controller
@@ -27,6 +28,17 @@ class ContactController extends Controller
                 'email' => 'required|email|max:255',
                 'message' => 'required|string',
             ]);
+
+            $recaptcha = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret'   => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $request->input('g-recaptcha-response'),
+                'remoteip' => $request->ip(),
+            ])->json();
+
+
+            if (!($recaptcha['success'] ? true : false)) {
+                return back()->withErrors(['captcha' => 'reCAPTCHA verification failed.'])->withInput();
+            }
 
             DB::beginTransaction();
 
