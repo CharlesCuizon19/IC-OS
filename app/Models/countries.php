@@ -10,6 +10,8 @@ class countries extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['country_name'];
+
     public function cities(): HasOne
     {
         return $this->hasOne(cities::class, 'country_id');
